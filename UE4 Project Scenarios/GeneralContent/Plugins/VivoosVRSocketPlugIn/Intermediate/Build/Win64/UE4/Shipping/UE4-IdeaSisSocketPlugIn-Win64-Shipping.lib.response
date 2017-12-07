@@ -1,0 +1,9 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/LTCG
+"D:\Repo\_Scenarios\Yukseklik\Plugins\IdeaSisSocketPlugIn\Intermediate\Build\Win64\UE4\Shipping\IdeaSisSocketPlugIn\Module.IdeaSisSocketPlugIn.cpp.obj"
+"D:\Repo\_Scenarios\Yukseklik\Plugins\IdeaSisSocketPlugIn\Intermediate\Build\Win64\UE4\Shipping\IdeaSisSocketPlugIn\Module.IdeaSisSocketPlugIn.gen.cpp.obj"
+"D:\Repo\_Scenarios\Yukseklik\Intermediate\Build\Win64\UE4\Shipping\IdeaSisSocketPlugIn\PCLaunch.rc.res"
+/OUT:"D:\Repo\_Scenarios\Yukseklik\Plugins\IdeaSisSocketPlugIn\Binaries\Win64\UE4-IdeaSisSocketPlugIn-Win64-Shipping.lib"

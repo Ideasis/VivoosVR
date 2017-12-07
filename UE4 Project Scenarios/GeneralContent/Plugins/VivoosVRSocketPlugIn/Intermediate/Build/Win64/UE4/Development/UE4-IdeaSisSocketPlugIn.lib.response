@@ -1,0 +1,8 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+"D:\Repo\_Scenarios\Park\Plugins\IdeaSisSocketPlugIn\Intermediate\Build\Win64\UE4\Development\IdeaSisSocketPlugIn\Module.IdeaSisSocketPlugIn.cpp.obj"
+"D:\Repo\_Scenarios\Park\Plugins\IdeaSisSocketPlugIn\Intermediate\Build\Win64\UE4\Development\IdeaSisSocketPlugIn\Module.IdeaSisSocketPlugIn.gen.cpp.obj"
+"D:\Repo\_Scenarios\Park\Intermediate\Build\Win64\UE4\Development\IdeaSisSocketPlugIn\PCLaunch.rc.res"
+/OUT:"D:\Repo\_Scenarios\Park\Plugins\IdeaSisSocketPlugIn\Binaries\Win64\UE4-IdeaSisSocketPlugIn.lib"
