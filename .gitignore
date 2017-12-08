@@ -1,4 +1,5 @@
 # Unreal Engine 4.18 Source Control Standart gitignore
+Build
 Binaries
 DerivedDataCache
 Intermediate
