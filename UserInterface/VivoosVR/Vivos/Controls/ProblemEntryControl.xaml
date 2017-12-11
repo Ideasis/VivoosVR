@@ -1,0 +1,214 @@
+﻿<UserControl x:Class="Vivos.Controls.ProblemEntryControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:loading="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Name="_ProblemEntryControlControl"
+             d:DesignHeight="1000" d:DesignWidth="800" mc:Ignorable="d">
+    <ScrollViewer Margin="5,5,5,20">
+        <Grid Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <loading:LoadingIndicator Grid.RowSpan="10" Grid.ColumnSpan="4"
+                                      IsActive="{Binding Path=IsRunning.Value}"
+                                      SpeedRatio="1" />
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Şikâyet Konusu" />
+
+
+            <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" MaxLength="200" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.Subject.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}" />
+            
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" Text="Belirti Açıklama" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="5" Text="Belirti Sonuçları" />
+
+            <TextBox Grid.Row="3" Grid.Column="0" Height="100" Margin="5" HorizontalAlignment="Stretch"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Belirti Açıklama" AcceptsReturn="True" AcceptsTab="True" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.SymptomDescription.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBox Grid.Row="3" Grid.Column="1" Height="100" Margin="5" HorizontalAlignment="Stretch"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Kaçınmalar" AcceptsReturn="True" AcceptsTab="True" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.SymptomResults.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="5" Text="Belirtilerin Başlangıç Tarihi" />
+            <TextBlock Grid.Row="4" Grid.Column="1" Margin="5" Text="IGD Puanı" />
+
+            <DatePicker Grid.Row="5" Grid.Column="0" Margin="5" HorizontalAlignment="Stretch"
+                        mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Belirtilerin Başlangıç Tarihi"
+                        SelectedDate="{Binding Path=ProblemEntryModel.Value.SymptomStartDate.Value,
+                                               UpdateSourceTrigger=PropertyChanged,
+                                               NotifyOnValidationError=True,
+                                               ValidatesOnDataErrors=True,
+                                               ValidatesOnNotifyDataErrors=True,
+                                               Mode=TwoWay}"
+                        TabIndex="1" />
+
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="IGD Puanı" MaxLength="100" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.IGDPoints.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Margin="5" Text="Belirti Türü" />
+            <TextBlock Grid.Row="6" Grid.Column="1" Margin="5" Text="Kaçınmalar" />
+
+            <TextBox Grid.Row="7" Grid.Column="0" Height="100" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Belirti Türü" MaxLength="100" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.SymptomType.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}" />
+
+            <TextBox Grid.Row="7" Grid.Column="1" Height="100" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Kaçınmalar" AcceptsReturn="True" AcceptsTab="True" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.Avoidance.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+            <TextBlock Grid.Row="8" Grid.Column="0" Margin="5" Text="Önemli Noktalar" />
+            <TextBlock Grid.Row="8" Grid.Column="1" Margin="5" Text="Geçmiş" />
+
+            <TextBox Grid.Row="9" Grid.Column="0" Height="100" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Önemli Noktalar" AcceptsReturn="True" AcceptsTab="True" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.Precaution.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBox Grid.Row="9" Grid.Column="1" Height="100" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Geçmiş" AcceptsReturn="True" AcceptsTab="True" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.History.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Tam Güvende Hissedilen Yer" />
+            <TextBox Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Tam Güvende Hissedilen Yer" AcceptsReturn="True" AcceptsTab="True" MaxLength="200" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.PlaceOfFullSecure.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Güvende Hissedilen Yer" />
+            <TextBox Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Güvende Hissedilen Yer" AcceptsReturn="True" AcceptsTab="True" MaxLength="200" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.PlaceOfSecure.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBlock Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Kararsız Hissedilen Yer" />
+            <TextBox Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Kararsız Hissedilen Yer" AcceptsReturn="True" AcceptsTab="True" MaxLength="200" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.PlaceOfHesitant.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBlock Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Güvensiz Hissedilen Yer" />
+            <TextBox Grid.Row="17" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Güvensiz Hissedilen Yer" AcceptsReturn="True" AcceptsTab="True" MaxLength="200" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.PlaceOfUnsecure.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <TextBlock Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="Çok Güvensiz Hissedilen Yer" />
+            <TextBox Grid.Row="19" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" HorizontalAlignment="Stretch"
+                     mah:ControlsHelper.FocusBorderBrush="{DynamicResource AccentColorBrush}"
+                     mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.SelectAllOnFocus="True" mah:TextBoxHelper.Watermark="Çok Güvensiz Hissedilen Yer" AcceptsReturn="True" AcceptsTab="True" MaxLength="200" TabIndex="1"
+                     Text="{Binding Path=ProblemEntryModel.Value.PlaceOfFullUnsecure.Value,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    NotifyOnValidationError=True,
+                                    ValidatesOnDataErrors=True,
+                                    ValidatesOnNotifyDataErrors=True,
+                                    Mode=TwoWay}"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+
+            <StackPanel Grid.Row="21" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Width="100" Margin="0,5,5,5" HorizontalAlignment="Right"
+                        Command="{Binding Path=CancelCommand}"
+                        Content="Vazgeç" TabIndex="7" />
+
+                <Button Width="100" Margin="0,5,5,5" HorizontalAlignment="Right"
+                        Command="{Binding Path=SaveCommand}"
+                        Content="Kaydet" TabIndex="7" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,2 @@
+﻿GRANT CONNECT TO [TUMERDEM\Dogu];
+

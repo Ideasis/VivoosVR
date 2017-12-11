@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VivosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssetCommands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommandText" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Step" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssetDefaults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OnCommandText" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OnCommandName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OffCommandText" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OffCommandName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Step" Type="tinyint" Nullable="false" />
+          <Property Name="DefaultValue" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssetGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Exe" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdateStamp" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssetThumbnails">
+          <Key>
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Thumbnail" Type="image" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DoctorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+        </EntityType>
+        <EntityType Name="Problems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SymptomDescription" Type="varchar(max)" />
+          <Property Name="SymptomType" Type="varchar" MaxLength="100" />
+          <Property Name="SymptomStartDate" Type="date" />
+          <Property Name="SymptomResults" Type="varchar(max)" />
+          <Property Name="IGDPoints" Type="int" />
+          <Property Name="Avoidance" Type="varchar(max)" />
+          <Property Name="Precaution" Type="varchar(max)" />
+          <Property Name="History" Type="varchar(max)" />
+          <Property Name="PlaceOfFullSecure" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfSecure" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfHesitant" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfUnsecure" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfFullUnsecure" Type="varchar" MaxLength="200" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Safes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProblemId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SessionDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="SensorData" Type="varchar(max)" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AssetCommands_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="AssetCommands" Type="Self.AssetCommands" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetCommands">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetDefaults_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="AssetDefaults" Type="Self.AssetDefaults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetDefaults">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetThumbnails_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="AssetThumbnails" Type="Self.AssetThumbnails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetThumbnails">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Problems_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Problems" Type="Self.Problems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Problems">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Safes_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="Safes" Type="Self.Safes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Safes">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Problems">
+          <End Role="Problems" Type="Self.Problems" Multiplicity="1" />
+          <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Problems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="ProblemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VivosModelStoreContainer">
+          <EntitySet Name="AssetCommands" EntityType="Self.AssetCommands" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="AssetDefaults" EntityType="Self.AssetDefaults" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="AssetGroups" EntityType="Self.AssetGroups" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Assets" EntityType="Self.Assets" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="AssetThumbnails" EntityType="Self.AssetThumbnails" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Problems" EntityType="Self.Problems" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Safes" EntityType="Self.Safes" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="Vivos" store:Type="Tables" />
+          <AssociationSet Name="FK_AssetCommands_Assets" Association="Self.FK_AssetCommands_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetCommands" EntitySet="AssetCommands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetDefaults_Assets" Association="Self.FK_AssetDefaults_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetDefaults" EntitySet="AssetDefaults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetThumbnails_Assets" Association="Self.FK_AssetThumbnails_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetThumbnails" EntitySet="AssetThumbnails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Problems_Patients" Association="Self.FK_Problems_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Problems" EntitySet="Problems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Safes_Assets" Association="Self.FK_Safes_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Safes" EntitySet="Safes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Assets" Association="Self.FK_Sessions_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Problems" Association="Self.FK_Sessions_Problems">
+            <End Role="Problems" EntitySet="Problems" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VivosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VivosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssetCommands" EntityType="VivosModel.AssetCommand" />
+          <EntitySet Name="AssetDefaults" EntityType="VivosModel.AssetDefault" />
+          <EntitySet Name="AssetGroups" EntityType="VivosModel.AssetGroup" />
+          <EntitySet Name="Assets" EntityType="VivosModel.Asset" />
+          <EntitySet Name="AssetThumbnails" EntityType="VivosModel.AssetThumbnail" />
+          <EntitySet Name="Patients" EntityType="VivosModel.Patient" />
+          <EntitySet Name="Problems" EntityType="VivosModel.Problem" />
+          <EntitySet Name="Safes" EntityType="VivosModel.Safe" />
+          <EntitySet Name="Sessions" EntityType="VivosModel.Session" />
+          <AssociationSet Name="FK_AssetCommands_Assets" Association="VivosModel.FK_AssetCommands_Assets">
+            <End Role="Asset" EntitySet="Assets" />
+            <End Role="AssetCommand" EntitySet="AssetCommands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetDefaults_Assets" Association="VivosModel.FK_AssetDefaults_Assets">
+            <End Role="Asset" EntitySet="Assets" />
+            <End Role="AssetDefault" EntitySet="AssetDefaults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assets_AssetGroups" Association="VivosModel.FK_Assets_AssetGroups">
+            <End Role="AssetGroup" EntitySet="AssetGroups" />
+            <End Role="Asset" EntitySet="Assets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetThumbnails_Assets" Association="VivosModel.FK_AssetThumbnails_Assets">
+            <End Role="Asset" EntitySet="Assets" />
+            <End Role="AssetThumbnail" EntitySet="AssetThumbnails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Safes_Assets" Association="VivosModel.FK_Safes_Assets">
+            <End Role="Asset" EntitySet="Assets" />
+            <End Role="Safe" EntitySet="Safes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Problems_Patients" Association="VivosModel.FK_Problems_Patients">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Problem" EntitySet="Problems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Problems" Association="VivosModel.FK_Sessions_Problems">
+            <End Role="Problem" EntitySet="Problems" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Assets" Association="VivosModel.FK_Sessions_Assets">
+            <End Role="Asset" EntitySet="Assets" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AssetCommand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="CommandText" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Step" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Asset" Relationship="VivosModel.FK_AssetCommands_Assets" FromRole="AssetCommand" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="AssetDefault">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="OnCommandText" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OnCommandName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OffCommandText" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OffCommandName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Step" Type="Byte" Nullable="false" />
+          <Property Name="DefaultValue" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Asset" Relationship="VivosModel.FK_AssetDefaults_Assets" FromRole="AssetDefault" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="AssetGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Assets" Relationship="VivosModel.FK_Assets_AssetGroups" FromRole="AssetGroup" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Exe" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="7" ConcurrencyMode="None" />
+          <NavigationProperty Name="AssetCommands" Relationship="VivosModel.FK_AssetCommands_Assets" FromRole="Asset" ToRole="AssetCommand" />
+          <NavigationProperty Name="AssetDefaults" Relationship="VivosModel.FK_AssetDefaults_Assets" FromRole="Asset" ToRole="AssetDefault" />
+          <NavigationProperty Name="AssetGroup" Relationship="VivosModel.FK_Assets_AssetGroups" FromRole="Asset" ToRole="AssetGroup" />
+          <NavigationProperty Name="AssetThumbnail" Relationship="VivosModel.FK_AssetThumbnails_Assets" FromRole="Asset" ToRole="AssetThumbnail" />
+          <NavigationProperty Name="Safes" Relationship="VivosModel.FK_Safes_Assets" FromRole="Asset" ToRole="Safe" />
+          <NavigationProperty Name="Sessions" Relationship="VivosModel.FK_Sessions_Assets" FromRole="Asset" ToRole="Session" />
+          <Property Name="UpdateStamp" Type="Guid" ConcurrencyMode="Fixed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssetThumbnail">
+          <Key>
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Asset" Relationship="VivosModel.FK_AssetThumbnails_Assets" FromRole="AssetThumbnail" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DoctorId" Type="Guid" Nullable="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Problems" Relationship="VivosModel.FK_Problems_Patients" FromRole="Patient" ToRole="Problem" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Problem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PatientId" Type="Guid" Nullable="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SymptomDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SymptomType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SymptomStartDate" Type="DateTime" Precision="0" />
+          <Property Name="SymptomResults" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IGDPoints" Type="Int32" />
+          <Property Name="Avoidance" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precaution" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Patient" Relationship="VivosModel.FK_Problems_Patients" FromRole="Problem" ToRole="Patient" />
+          <NavigationProperty Name="Sessions" Relationship="VivosModel.FK_Sessions_Problems" FromRole="Problem" ToRole="Session" />
+          <Property Name="PlaceOfFullSecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfSecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfHesitant" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfUnsecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfFullUnsecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Safe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Asset" Relationship="VivosModel.FK_Safes_Assets" FromRole="Safe" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProblemId" Type="Guid" Nullable="false" />
+          <Property Name="SessionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SensorData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Problem" Relationship="VivosModel.FK_Sessions_Problems" FromRole="Session" ToRole="Problem" />
+          <NavigationProperty Name="Asset" Relationship="VivosModel.FK_Sessions_Assets" FromRole="Session" ToRole="Asset" />
+        </EntityType>
+        <Association Name="FK_AssetCommands_Assets">
+          <End Type="VivosModel.Asset" Role="Asset" Multiplicity="1" />
+          <End Type="VivosModel.AssetCommand" Role="AssetCommand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetCommand">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetDefaults_Assets">
+          <End Type="VivosModel.Asset" Role="Asset" Multiplicity="1" />
+          <End Type="VivosModel.AssetDefault" Role="AssetDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetDefault">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assets_AssetGroups">
+          <End Type="VivosModel.AssetGroup" Role="AssetGroup" Multiplicity="1" />
+          <End Type="VivosModel.Asset" Role="Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Asset">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetThumbnails_Assets">
+          <End Type="VivosModel.Asset" Role="Asset" Multiplicity="1" />
+          <End Type="VivosModel.AssetThumbnail" Role="AssetThumbnail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetThumbnail">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Safes_Assets">
+          <End Type="VivosModel.Asset" Role="Asset" Multiplicity="1" />
+          <End Type="VivosModel.Safe" Role="Safe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Safe">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Problems_Patients">
+          <End Type="VivosModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="VivosModel.Problem" Role="Problem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Problem">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Problems">
+          <End Type="VivosModel.Problem" Role="Problem" Multiplicity="1" />
+          <End Type="VivosModel.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Problem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="ProblemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Assets">
+          <End Type="VivosModel.Asset" Role="Asset" Multiplicity="1" />
+          <End Type="VivosModel.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VivosModelStoreContainer" CdmEntityContainer="VivosEntities">
+          <EntitySetMapping Name="AssetCommands">
+            <EntityTypeMapping TypeName="VivosModel.AssetCommand">
+              <MappingFragment StoreEntitySet="AssetCommands">
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CommandText" ColumnName="CommandText" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetDefaults">
+            <EntityTypeMapping TypeName="VivosModel.AssetDefault">
+              <MappingFragment StoreEntitySet="AssetDefaults">
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OffCommandName" ColumnName="OffCommandName" />
+                <ScalarProperty Name="OffCommandText" ColumnName="OffCommandText" />
+                <ScalarProperty Name="OnCommandName" ColumnName="OnCommandName" />
+                <ScalarProperty Name="OnCommandText" ColumnName="OnCommandText" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetGroups">
+            <EntityTypeMapping TypeName="VivosModel.AssetGroup">
+              <MappingFragment StoreEntitySet="AssetGroups">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assets">
+            <EntityTypeMapping TypeName="VivosModel.Asset">
+              <MappingFragment StoreEntitySet="Assets">
+                <ScalarProperty Name="UpdateStamp" ColumnName="UpdateStamp" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Exe" ColumnName="Exe" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetThumbnails">
+            <EntityTypeMapping TypeName="VivosModel.AssetThumbnail">
+              <MappingFragment StoreEntitySet="AssetThumbnails">
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="VivosModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Problems">
+            <EntityTypeMapping TypeName="VivosModel.Problem">
+              <MappingFragment StoreEntitySet="Problems">
+                <ScalarProperty Name="PlaceOfFullUnsecure" ColumnName="PlaceOfFullUnsecure" />
+                <ScalarProperty Name="PlaceOfUnsecure" ColumnName="PlaceOfUnsecure" />
+                <ScalarProperty Name="PlaceOfHesitant" ColumnName="PlaceOfHesitant" />
+                <ScalarProperty Name="PlaceOfSecure" ColumnName="PlaceOfSecure" />
+                <ScalarProperty Name="PlaceOfFullSecure" ColumnName="PlaceOfFullSecure" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="Precaution" ColumnName="Precaution" />
+                <ScalarProperty Name="Avoidance" ColumnName="Avoidance" />
+                <ScalarProperty Name="IGDPoints" ColumnName="IGDPoints" />
+                <ScalarProperty Name="SymptomResults" ColumnName="SymptomResults" />
+                <ScalarProperty Name="SymptomStartDate" ColumnName="SymptomStartDate" />
+                <ScalarProperty Name="SymptomType" ColumnName="SymptomType" />
+                <ScalarProperty Name="SymptomDescription" ColumnName="SymptomDescription" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Safes">
+            <EntityTypeMapping TypeName="VivosModel.Safe">
+              <MappingFragment StoreEntitySet="Safes">
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="VivosModel.Session">
+              <MappingFragment StoreEntitySet="Sessions">
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="SensorData" ColumnName="SensorData" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SessionDateTime" ColumnName="SessionDateTime" />
+                <ScalarProperty Name="ProblemId" ColumnName="ProblemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

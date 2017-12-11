@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CoreDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Branches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Claims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Resource" Type="varchar" MaxLength="450" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Logo" Type="image" />
+        </EntityType>
+        <EntityType Name="ConsumerProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ConsumerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="TypeNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Consumers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="WindowsCode" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BranchId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleToUserMaps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ValidUntil" Type="datetime" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConsumerPropertyTypes">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Branches_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Branches" Type="Self.Branches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Claims_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Claims" Type="Self.Claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Claims">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Companies_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_ConsumerPropertyTypes">
+          <End Role="ConsumerPropertyTypes" Type="Self.ConsumerPropertyTypes" Multiplicity="1" />
+          <End Role="ConsumerProperties" Type="Self.ConsumerProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConsumerPropertyTypes">
+              <PropertyRef Name="No" />
+            </Principal>
+            <Dependent Role="ConsumerProperties">
+              <PropertyRef Name="TypeNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_Organizations">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="ConsumerProperties" Type="Self.ConsumerProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConsumerProperties">
+              <PropertyRef Name="ConsumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Branches">
+          <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="RoleToUserMaps" Type="Self.RoleToUserMaps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="RoleToUserMaps">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="RoleToUserMaps" Type="Self.RoleToUserMaps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleToUserMaps">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CoreDataModelStoreContainer">
+          <EntitySet Name="Branches" EntityType="Self.Branches" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Claims" EntityType="Self.Claims" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="ConsumerProperties" EntityType="Self.ConsumerProperties" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Consumers" EntityType="Self.Consumers" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="RoleToUserMaps" EntityType="Self.RoleToUserMaps" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="ConsumerPropertyTypes" EntityType="Self.ConsumerPropertyTypes" Schema="Parameter" store:Type="Tables" />
+          <AssociationSet Name="FK_Branches_Companies" Association="Self.FK_Branches_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Consumers" Association="Self.FK_Branches_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Claims_Roles" Association="Self.FK_Claims_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Claims" EntitySet="Claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Companies_Consumers" Association="Self.FK_Companies_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_ConsumerPropertyTypes" Association="Self.FK_ConsumerProperties_ConsumerPropertyTypes">
+            <End Role="ConsumerPropertyTypes" EntitySet="ConsumerPropertyTypes" />
+            <End Role="ConsumerProperties" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_Organizations" Association="Self.FK_ConsumerProperties_Organizations">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="ConsumerProperties" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Branches" Association="Self.FK_Groups_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Consumers" Association="Self.FK_Groups_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Roles" Association="Self.FK_RoleToUserMaps_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RoleToUserMaps" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Users" Association="Self.FK_RoleToUserMaps_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RoleToUserMaps" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Consumers" Association="Self.FK_Users_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Groups" Association="Self.FK_Users_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoreDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="CoreDataModel.Branch" />
+          <EntitySet Name="Claims" EntityType="CoreDataModel.Claim" />
+          <EntitySet Name="Companies" EntityType="CoreDataModel.Company" />
+          <EntitySet Name="ConsumerProperties" EntityType="CoreDataModel.ConsumerProperty" />
+          <EntitySet Name="Consumers" EntityType="CoreDataModel.Consumer" />
+          <EntitySet Name="Groups" EntityType="CoreDataModel.Group" />
+          <EntitySet Name="Roles" EntityType="CoreDataModel.Role" />
+          <EntitySet Name="RoleToUserMaps" EntityType="CoreDataModel.RoleToUserMap" />
+          <EntitySet Name="Users" EntityType="CoreDataModel.User" />
+          <EntitySet Name="ConsumerPropertyTypes" EntityType="CoreDataModel.ConsumerPropertyType" />
+          <AssociationSet Name="FK_Branches_Companies" Association="CoreDataModel.FK_Branches_Companies">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Consumers" Association="CoreDataModel.FK_Branches_Consumers">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Branches" Association="CoreDataModel.FK_Groups_Branches">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Claims_Roles" Association="CoreDataModel.FK_Claims_Roles">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Claim" EntitySet="Claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Companies_Consumers" Association="CoreDataModel.FK_Companies_Consumers">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_ConsumerPropertyTypes" Association="CoreDataModel.FK_ConsumerProperties_ConsumerPropertyTypes">
+            <End Role="ConsumerPropertyType" EntitySet="ConsumerPropertyTypes" />
+            <End Role="ConsumerProperty" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_Organizations" Association="CoreDataModel.FK_ConsumerProperties_Organizations">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="ConsumerProperty" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Consumers" Association="CoreDataModel.FK_Groups_Consumers">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Consumers" Association="CoreDataModel.FK_Users_Consumers">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Groups" Association="CoreDataModel.FK_Users_Groups">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Roles" Association="CoreDataModel.FK_RoleToUserMaps_Roles">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleToUserMap" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Users" Association="CoreDataModel.FK_RoleToUserMaps_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="RoleToUserMap" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="CoreDataModel.FK_Branches_Companies" FromRole="Branch" ToRole="Company" />
+          <NavigationProperty Name="Consumer" Relationship="CoreDataModel.FK_Branches_Consumers" FromRole="Branch" ToRole="Consumer" />
+          <NavigationProperty Name="Groups" Relationship="CoreDataModel.FK_Groups_Branches" FromRole="Branch" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Claim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Resource" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="CoreDataModel.FK_Claims_Roles" FromRole="Claim" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Branches" Relationship="CoreDataModel.FK_Branches_Companies" FromRole="Company" ToRole="Branch" />
+          <NavigationProperty Name="Consumer" Relationship="CoreDataModel.FK_Companies_Consumers" FromRole="Company" ToRole="Consumer" />
+        </EntityType>
+        <EntityType Name="ConsumerProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ConsumerId" Type="Guid" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TypeNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConsumerPropertyType" Relationship="CoreDataModel.FK_ConsumerProperties_ConsumerPropertyTypes" FromRole="ConsumerProperty" ToRole="ConsumerPropertyType" />
+          <NavigationProperty Name="Consumer" Relationship="CoreDataModel.FK_ConsumerProperties_Organizations" FromRole="ConsumerProperty" ToRole="Consumer" />
+        </EntityType>
+        <EntityType Name="Consumer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WindowsCode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Branch" Relationship="CoreDataModel.FK_Branches_Consumers" FromRole="Consumer" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="CoreDataModel.FK_Companies_Consumers" FromRole="Consumer" ToRole="Company" />
+          <NavigationProperty Name="ConsumerProperties" Relationship="CoreDataModel.FK_ConsumerProperties_Organizations" FromRole="Consumer" ToRole="ConsumerProperty" />
+          <NavigationProperty Name="Group" Relationship="CoreDataModel.FK_Groups_Consumers" FromRole="Consumer" ToRole="Group" />
+          <NavigationProperty Name="User" Relationship="CoreDataModel.FK_Users_Consumers" FromRole="Consumer" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="BranchId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Branch" Relationship="CoreDataModel.FK_Groups_Branches" FromRole="Group" ToRole="Branch" />
+          <NavigationProperty Name="Consumer" Relationship="CoreDataModel.FK_Groups_Consumers" FromRole="Group" ToRole="Consumer" />
+          <NavigationProperty Name="Users" Relationship="CoreDataModel.FK_Users_Groups" FromRole="Group" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Claims" Relationship="CoreDataModel.FK_Claims_Roles" FromRole="Role" ToRole="Claim" />
+          <NavigationProperty Name="RoleToUserMaps" Relationship="CoreDataModel.FK_RoleToUserMaps_Roles" FromRole="Role" ToRole="RoleToUserMap" />
+        </EntityType>
+        <EntityType Name="RoleToUserMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ValidUntil" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="CoreDataModel.FK_RoleToUserMaps_Roles" FromRole="RoleToUserMap" ToRole="Role" />
+          <NavigationProperty Name="User" Relationship="CoreDataModel.FK_RoleToUserMaps_Users" FromRole="RoleToUserMap" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Consumer" Relationship="CoreDataModel.FK_Users_Consumers" FromRole="User" ToRole="Consumer" />
+          <NavigationProperty Name="Group" Relationship="CoreDataModel.FK_Users_Groups" FromRole="User" ToRole="Group" />
+          <NavigationProperty Name="RoleToUserMaps" Relationship="CoreDataModel.FK_RoleToUserMaps_Users" FromRole="User" ToRole="RoleToUserMap" />
+        </EntityType>
+        <EntityType Name="ConsumerPropertyType">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ConsumerProperties" Relationship="CoreDataModel.FK_ConsumerProperties_ConsumerPropertyTypes" FromRole="ConsumerPropertyType" ToRole="ConsumerProperty" />
+        </EntityType>
+        <Association Name="FK_Branches_Companies">
+          <End Type="CoreDataModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="CoreDataModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Consumers">
+          <End Type="CoreDataModel.Consumer" Role="Consumer" Multiplicity="1" />
+          <End Type="CoreDataModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Branches">
+          <End Type="CoreDataModel.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="CoreDataModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Claims_Roles">
+          <End Type="CoreDataModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="CoreDataModel.Claim" Role="Claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Claim">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Companies_Consumers">
+          <End Type="CoreDataModel.Consumer" Role="Consumer" Multiplicity="1" />
+          <End Type="CoreDataModel.Company" Role="Company" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_ConsumerPropertyTypes">
+          <End Type="CoreDataModel.ConsumerPropertyType" Role="ConsumerPropertyType" Multiplicity="1" />
+          <End Type="CoreDataModel.ConsumerProperty" Role="ConsumerProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConsumerPropertyType">
+              <PropertyRef Name="No" />
+            </Principal>
+            <Dependent Role="ConsumerProperty">
+              <PropertyRef Name="TypeNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_Organizations">
+          <End Type="CoreDataModel.Consumer" Role="Consumer" Multiplicity="1" />
+          <End Type="CoreDataModel.ConsumerProperty" Role="ConsumerProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConsumerProperty">
+              <PropertyRef Name="ConsumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Consumers">
+          <End Type="CoreDataModel.Consumer" Role="Consumer" Multiplicity="1" />
+          <End Type="CoreDataModel.Group" Role="Group" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Consumers">
+          <End Type="CoreDataModel.Consumer" Role="Consumer" Multiplicity="1" />
+          <End Type="CoreDataModel.User" Role="User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Groups">
+          <End Type="CoreDataModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="CoreDataModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Roles">
+          <End Type="CoreDataModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="CoreDataModel.RoleToUserMap" Role="RoleToUserMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="RoleToUserMap">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Users">
+          <End Type="CoreDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="CoreDataModel.RoleToUserMap" Role="RoleToUserMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleToUserMap">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoreDataModelStoreContainer" CdmEntityContainer="CoreEntities">
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="CoreDataModel.Branch">
+              <MappingFragment StoreEntitySet="Branches">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claims">
+            <EntityTypeMapping TypeName="CoreDataModel.Claim">
+              <MappingFragment StoreEntitySet="Claims">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Resource" ColumnName="Resource" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="CoreDataModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsumerProperties">
+            <EntityTypeMapping TypeName="CoreDataModel.ConsumerProperty">
+              <MappingFragment StoreEntitySet="ConsumerProperties">
+                <ScalarProperty Name="TypeNo" ColumnName="TypeNo" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ConsumerId" ColumnName="ConsumerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consumers">
+            <EntityTypeMapping TypeName="CoreDataModel.Consumer">
+              <MappingFragment StoreEntitySet="Consumers">
+                <ScalarProperty Name="WindowsCode" ColumnName="WindowsCode" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="CoreDataModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CoreDataModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleToUserMaps">
+            <EntityTypeMapping TypeName="CoreDataModel.RoleToUserMap">
+              <MappingFragment StoreEntitySet="RoleToUserMaps">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ValidUntil" ColumnName="ValidUntil" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CoreDataModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsumerPropertyTypes">
+            <EntityTypeMapping TypeName="CoreDataModel.ConsumerPropertyType">
+              <MappingFragment StoreEntitySet="ConsumerPropertyTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="No" ColumnName="No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,46 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>MVVMUserControl</DefaultName>
+    <Name>MVVM Based UserControl</Name>
+    <Description>MVVM Based UserControl By IDEASIS</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407DD0808D44FBDC</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407DD0808D44FBDC</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>MahApps.Metro, Version=1.1.2.0, Culture=neutral, PublicKeyToken=F4FB5A3C4D1E5B4F</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Data</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.ServiceModel</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Xaml</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>WindowsBase</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="Designer" TargetFileName="$fileinputname$Control.xaml" ReplaceParameters="true">MVVMControl.xaml</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="I$fileinputname$Control.cs" ReplaceParameters="true">IMVVMControl.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="I$fileinputname$ControlViewModel.cs" ReplaceParameters="true">IMVVMControlViewModel.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$Control.xaml.cs" ReplaceParameters="true">MVVMControl.xaml.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$ControlViewModel.cs" ReplaceParameters="true">MVVMControlViewModel.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [Vivos]
+    AUTHORIZATION [dbo];
+

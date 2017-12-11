@@ -1,0 +1,206 @@
+﻿@using Microsoft.Owin.Security
+    
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - VivoosVR</title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+
+    
+
+</head>
+<body ng-app="app" ng-controller="controllerLayout">
+    <header id="header" class="clearfix" data-ma-theme="blue">
+        <ul class="h-inner">
+            <li class="hi-trigger ma-trigger"  data-ma-action="sidebar-open" data-ma-target="#sidebar">
+                <div class="line-wrap">
+                    <div class="line top"></div>
+                    <div class="line center"></div>
+                    <div class="line bottom"></div>
+                </div>
+            </li>
+
+            <li class="hi-logo hidden-xs">
+                <a href="index.html">VİVOOS-VR</a>
+            </li>
+
+            <li class="pull-right">
+                <ul class="hi-menu">
+
+                   
+
+                    
+                    
+                    
+                    @*<li class="hidden-xs ma-trigger" data-ma-action="sidebar-open" data-ma-target="#chat">
+                        <a href=""><i class="him-icon zmdi zmdi-comment-alt-text"></i></a>
+                    </li>*@
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Top Search Content -->
+        <div class="h-search-wrap">
+            <div class="hsw-inner">
+                <i class="hsw-close zmdi zmdi-arrow-left" data-ma-action="search-close"></i>
+                <input type="text">
+            </div>
+        </div>
+    </header>
+
+    <section id="main">
+        <aside id="sidebar" class="sidebar o-hidden m-t-0" style="height:100vh !important;">
+            <div class="s-profile">
+                <a href="" data-ma-action="profile-menu-toggle">
+                    <div class="sp-pic">
+                        <img src="~/Images/2.jpg" alt="">
+                    </div>
+
+                    <div class="sp-info">
+                        @*@Html.ActionLink("Hello " + User.Identity. + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                        @ViewBag.User.Consumer.Description
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </div>
+                </a>
+
+                <ul class="main-menu">
+                    <li>
+                        <a href=""><i class="zmdi zmdi-settings"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="logoff();"><i class="zmdi zmdi-sign-in"></i> Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="main-menu" >
+                <li class="active">
+                    <a href="@Url.Action("Index", "Home")"><i class="zmdi zmdi-home"></i> Home Page</a>
+                </li>
+                <li class="sub-menu">
+                    <a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> Asset Management</a>
+                    <ul>
+                        @*<li><a href="@Url.Action("KargoGonderi", "Envanter")">Kargo Gönderi</a></li>*@
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <aside id="chat" class="sidebar">
+
+            <div class="chat-search">
+                <div class="fg-line">
+                    <input type="text" class="form-control" placeholder="Search People">
+                    <i class="zmdi zmdi-search"></i>
+                </div>
+            </div>
+
+            <div class="lg-body c-overflow">
+                <div class="list-group">
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left p-relative">
+                            <img class="lgi-img" src="~/Images/2.jpg" alt="">
+                            <i class="chat-status-busy"></i>
+                        </div>
+                        <div class="media-body">
+                            <div class="lgi-heading">Jonathan Morris</div>
+                            <small class="lgi-text">Available</small>
+                        </div>
+                    </a>
+
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lgi-img" src="~/Images/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="lgi-heading">David Belle</div>
+                            <small class="lgi-text">Last seen 3 hours ago</small>
+                        </div>
+                    </a>
+
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left p-relative">
+                            <img class="lgi-img" src="~/Images/2.jpg" alt="">
+                            <i class="chat-status-online"></i>
+                        </div>
+                        <div class="media-body">
+                            <div class="lgi-heading">Fredric Mitchell Jr.</div>
+                            <small class="lgi-text">Availble</small>
+                        </div>
+                    </a>
+
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left p-relative">
+                            <img class="lgi-img" src="~/Images/2.jpg" alt="">
+                            <i class="chat-status-online"></i>
+                        </div>
+                        <div class="media-body">
+                            <div class="lgi-heading">Glenn Jecobs</div>
+                            <small class="lgi-text">Availble</small>
+                        </div>
+                    </a>
+
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lgi-img" src="~/Images/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="lgi-heading">Bill Phillips</div>
+                            <small class="lgi-text">Last seen 3 days ago</small>
+                        </div>
+                    </a>
+
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lgi-img" src="~/Images/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="lgi-heading">Wendy Mitchell</div>
+                            <small class="lgi-text">Last seen 2 minutes ago</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <section id="content" class="content ">
+            @RenderBody()
+        </section>
+    </section>
+
+    <footer id="footer">
+        Copyright &copy; 2016 İdeaSis
+
+        <ul class="f-menu">
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </footer>
+
+    <!-- Page Loader -->
+    <div class="page-loader op-70">
+        <div class="preloader pls-blue ">
+            <div class="op-70">
+                <svg xmlns="http://www.w3.org/2000/svg"  class="pl-circular" viewBox="25 25 50 50">
+                    <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+                </svg>
+            </div>
+            <p class="f-14 f-500 c-blue" >Please Wait...</p>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/js")
+    @Scripts.Render("~/Bundles/angular")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

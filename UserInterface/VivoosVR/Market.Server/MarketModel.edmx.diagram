@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b4ad67754ca4e2691fb117721ad6864" Name="Diagram1">
+        <EntityTypeShape EntityType="VivosModel.AssetCommand" Width="1.5" PointX="5.25" PointY="10" />
+        <EntityTypeShape EntityType="VivosModel.AssetDefault" Width="1.5" PointX="5" PointY="1.375" />
+        <EntityTypeShape EntityType="VivosModel.AssetGroup" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="VivosModel.Asset" Width="1.5" PointX="3" PointY="4.75" FillColor="0, 122, 204" />
+        <EntityTypeShape EntityType="VivosModel.AssetThumbnail" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="VivosModel.Patient" Width="1.5" PointX="7.75" PointY="2.25" />
+        <EntityTypeShape EntityType="VivosModel.Problem" Width="2.25" PointX="9.625" PointY="1" />
+        <EntityTypeShape EntityType="VivosModel.Safe" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="VivosModel.Session" Width="1.5" PointX="12.25" PointY="2.25" />
+        <AssociationConnector Association="VivosModel.FK_AssetCommands_Assets" />
+        <AssociationConnector Association="VivosModel.FK_AssetDefaults_Assets" />
+        <AssociationConnector Association="VivosModel.FK_Assets_AssetGroups" />
+        <AssociationConnector Association="VivosModel.FK_AssetThumbnails_Assets" />
+        <AssociationConnector Association="VivosModel.FK_Safes_Assets" />
+        <AssociationConnector Association="VivosModel.FK_Problems_Patients" />
+        <AssociationConnector Association="VivosModel.FK_Sessions_Problems" />
+        <AssociationConnector Association="VivosModel.FK_Sessions_Assets" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

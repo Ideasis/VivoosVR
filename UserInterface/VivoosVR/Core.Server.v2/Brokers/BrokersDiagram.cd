@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core.Server.Brokers.CacheBroker" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAgAAAAAAAAAAAAAAAAACAAAAAAAAECAAAAAAA=</HashCode>
+      <FileName>Brokers\CacheBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.CoreBaseBroker" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Brokers\CoreBaseBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.GeneralBroker" Collapsed="true">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Brokers\GeneralBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.RoleBroker" Collapsed="true">
+    <Position X="2" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAgAAAAAAAEAAAAAAAAgAAAQAAAAACAgAQAAA=</HashCode>
+      <FileName>Brokers\RoleBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.SessionBroker" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACKAAIAAAQAAAAAAAAAAAAAAAAgAAADCAACAAAE=</HashCode>
+      <FileName>Brokers\SessionBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.Organization.BranchBroker" Collapsed="true">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAIAAAAAAAAAAAAAAAAAAAgAEgAAAACAAQAAAA=</HashCode>
+      <FileName>Brokers\Organization\BranchBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.Organization.CompanyBroker" Collapsed="true">
+    <Position X="10" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAAEAAAAACBAAAAAA=</HashCode>
+      <FileName>Brokers\Organization\CompanyBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.Organization.ConsumerBroker&lt;T&gt;" Collapsed="true">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAgIAgAIAAAAAgAAACAAABAAAAgAAAAAACAAAIAAg=</HashCode>
+      <FileName>Brokers\Organization\ConsumerBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.Organization.GroupBroker" Collapsed="true">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgMAAAAAAAAAAAAAAAAAAAAAAEEIgAAACAAAAAAE=</HashCode>
+      <FileName>Brokers\Organization\GroupBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Server.Brokers.Organization.UserBroker" Collapsed="true">
+    <Position X="12.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgCBIAQAAAAgkACAKgAAAAABAQQAAAgACgAAAAgE=</HashCode>
+      <FileName>Brokers\Organization\UserBroker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

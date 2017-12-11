@@ -1,0 +1,18 @@
+[
+  {
+    "outputFileName": "bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
+    "inputFiles": [
+      "bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.css"
+    ],
+    "sourceMap": false,
+    "sourceMapRootPath": null
+  },
+  {
+    "outputFileName": "Content/Theme/app.min.css",
+    "inputFiles": [
+      "Content/Theme/app.css"
+    ],
+    "sourceMap": false,
+    "sourceMapRootPath": null
+  }
+]
