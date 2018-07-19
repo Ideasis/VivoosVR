@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7189eb7721f8454ea5150fa02d1d86ae" Name="Diagram1">
+        <EntityTypeShape EntityType="VivosModel.Branch" Width="1.5" PointX="1.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Claim" Width="1.5" PointX="6.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Company" Width="1.5" PointX="1.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.ConsumerProperty" Width="1.5" PointX="3.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Consumer" Width="1.5" PointX="1.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Group" Width="1.5" PointX="1.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Role" Width="1.5" PointX="4.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.RoleToUserMap" Width="1.5" PointX="6.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.User" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.ConsumerPropertyType" Width="1.5" PointX="1.5" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.AssetCommand" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.AssetDefault" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.AssetGroup" Width="1.5" PointX="8.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Asset" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.AssetThumbnail" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Patient" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Problem" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Safe" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VivosModel.Session" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="VivosModel.FK_Branches_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Branches_Consumers" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Groups_Branches" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Claims_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Companies_Consumers" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Safes_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_ConsumerProperties_ConsumerPropertyTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_ConsumerProperties_Organizations" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Groups_Consumers" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Users_Consumers" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Users_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_RoleToUserMaps_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_RoleToUserMaps_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Patients_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_AssetCommands_Assets" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_AssetDefaults_Assets" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_AssetThumbnails_Assets" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Safes_Assets" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Sessions_Assets" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Problems_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="VivosModel.FK_Sessions_Patients" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

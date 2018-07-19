@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VivosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Branches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Claims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Resource" Type="varchar" MaxLength="450" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Logo" Type="image" />
+        </EntityType>
+        <EntityType Name="ConsumerProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ConsumerId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="TypeNo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Consumers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="WindowsCode" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BranchId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleToUserMaps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ValidUntil" Type="datetime" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConsumerPropertyTypes">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="AssetCommands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommandText" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Step" Type="tinyint" Nullable="false" />
+          <Property Name="EnDescription" Type="varchar" MaxLength="500" />
+          <Property Name="ArabicDescription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AssetDefaults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OnCommandText" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OnCommandName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OffCommandText" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OffCommandName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Step" Type="tinyint" Nullable="false" />
+          <Property Name="DefaultValue" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssetGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Available" Type="bit" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Exe" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdateStamp" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EnName" Type="varchar" MaxLength="100" />
+          <Property Name="EnDescription" Type="varchar" MaxLength="500" />
+          <Property Name="ArabicName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ArabicDescription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AssetThumbnails">
+          <Key>
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Thumbnail" Type="image" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DoctorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Notes" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Problems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SymptomDescription" Type="varchar(max)" />
+          <Property Name="SymptomType" Type="varchar" MaxLength="100" />
+          <Property Name="SymptomStartDate" Type="date" />
+          <Property Name="SymptomResults" Type="varchar(max)" />
+          <Property Name="IGDPoints" Type="int" />
+          <Property Name="Avoidance" Type="varchar(max)" />
+          <Property Name="Precaution" Type="varchar(max)" />
+          <Property Name="History" Type="varchar(max)" />
+          <Property Name="PlaceOfFullSecure" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfSecure" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfHesitant" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfUnsecure" Type="varchar" MaxLength="200" />
+          <Property Name="PlaceOfFullUnsecure" Type="varchar" MaxLength="200" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Safes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SessionDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="SensorData" Type="varchar(max)" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientId" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_AssetCommands_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="AssetCommands" Type="Self.AssetCommands" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetCommands">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetDefaults_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="AssetDefaults" Type="Self.AssetDefaults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetDefaults">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetThumbnails_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="AssetThumbnails" Type="Self.AssetThumbnails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetThumbnails">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Branches" Type="Self.Branches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Claims_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Claims" Type="Self.Claims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Claims">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Companies_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_ConsumerPropertyTypes">
+          <End Role="ConsumerPropertyTypes" Type="Self.ConsumerPropertyTypes" Multiplicity="1" />
+          <End Role="ConsumerProperties" Type="Self.ConsumerProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConsumerPropertyTypes">
+              <PropertyRef Name="No" />
+            </Principal>
+            <Dependent Role="ConsumerProperties">
+              <PropertyRef Name="TypeNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_Organizations">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="ConsumerProperties" Type="Self.ConsumerProperties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConsumerProperties">
+              <PropertyRef Name="ConsumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Branches">
+          <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Problems_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Problems" Type="Self.Problems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Problems">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="RoleToUserMaps" Type="Self.RoleToUserMaps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="RoleToUserMaps">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="RoleToUserMaps" Type="Self.RoleToUserMaps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleToUserMaps">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Safes_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="Safes" Type="Self.Safes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Safes">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Safes_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Safes" Type="Self.Safes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Safes">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Assets">
+          <End Role="Assets" Type="Self.Assets" Multiplicity="1" />
+          <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+          <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Consumers">
+          <End Role="Consumers" Type="Self.Consumers" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VivosModelStoreContainer">
+          <EntitySet Name="Branches" EntityType="Self.Branches" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Claims" EntityType="Self.Claims" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="ConsumerProperties" EntityType="Self.ConsumerProperties" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Consumers" EntityType="Self.Consumers" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="RoleToUserMaps" EntityType="Self.RoleToUserMaps" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="ConsumerPropertyTypes" EntityType="Self.ConsumerPropertyTypes" Schema="Parameter" store:Type="Tables" />
+          <EntitySet Name="AssetCommands" EntityType="Self.AssetCommands" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="AssetDefaults" EntityType="Self.AssetDefaults" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="AssetGroups" EntityType="Self.AssetGroups" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Assets" EntityType="Self.Assets" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="AssetThumbnails" EntityType="Self.AssetThumbnails" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Problems" EntityType="Self.Problems" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Safes" EntityType="Self.Safes" Schema="Vivos" store:Type="Tables" />
+          <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="Vivos" store:Type="Tables" />
+          <AssociationSet Name="FK_AssetCommands_Assets" Association="Self.FK_AssetCommands_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetCommands" EntitySet="AssetCommands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetDefaults_Assets" Association="Self.FK_AssetDefaults_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetDefaults" EntitySet="AssetDefaults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetThumbnails_Assets" Association="Self.FK_AssetThumbnails_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetThumbnails" EntitySet="AssetThumbnails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Companies" Association="Self.FK_Branches_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Consumers" Association="Self.FK_Branches_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Claims_Roles" Association="Self.FK_Claims_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Claims" EntitySet="Claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Companies_Consumers" Association="Self.FK_Companies_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_ConsumerPropertyTypes" Association="Self.FK_ConsumerProperties_ConsumerPropertyTypes">
+            <End Role="ConsumerPropertyTypes" EntitySet="ConsumerPropertyTypes" />
+            <End Role="ConsumerProperties" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_Organizations" Association="Self.FK_ConsumerProperties_Organizations">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="ConsumerProperties" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Branches" Association="Self.FK_Groups_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Consumers" Association="Self.FK_Groups_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_Users" Association="Self.FK_Patients_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Problems_Patients" Association="Self.FK_Problems_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Problems" EntitySet="Problems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Roles" Association="Self.FK_RoleToUserMaps_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RoleToUserMaps" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Users" Association="Self.FK_RoleToUserMaps_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RoleToUserMaps" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Safes_Assets" Association="Self.FK_Safes_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Safes" EntitySet="Safes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Safes_Companies" Association="Self.FK_Safes_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Safes" EntitySet="Safes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Assets" Association="Self.FK_Sessions_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Patients" Association="Self.FK_Sessions_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Consumers" Association="Self.FK_Users_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Groups" Association="Self.FK_Users_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VivosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Branches_Companies" FromRole="Branches" ToRole="Companies" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_Branches_Consumers" FromRole="Branches" ToRole="Consumers" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Branches" FromRole="Branches" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="Claim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="RoleCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Resource" Type="String" MaxLength="450" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Claims_Roles" FromRole="Claims" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Branches" Relationship="Self.FK_Branches_Companies" FromRole="Companies" ToRole="Branches" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_Companies_Consumers" FromRole="Companies" ToRole="Consumers" />
+          <NavigationProperty Name="Safes" Relationship="Self.FK_Safes_Companies" FromRole="Companies" ToRole="Safes" />
+        </EntityType>
+        <EntityType Name="ConsumerProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ConsumerId" Type="Guid" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TypeNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConsumerPropertyType" Relationship="Self.FK_ConsumerProperties_ConsumerPropertyTypes" FromRole="ConsumerProperties" ToRole="ConsumerPropertyTypes" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_ConsumerProperties_Organizations" FromRole="ConsumerProperties" ToRole="Consumers" />
+        </EntityType>
+        <EntityType Name="Consumer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WindowsCode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_Branches_Consumers" FromRole="Consumers" ToRole="Branches" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Companies_Consumers" FromRole="Consumers" ToRole="Companies" />
+          <NavigationProperty Name="ConsumerProperties" Relationship="Self.FK_ConsumerProperties_Organizations" FromRole="Consumers" ToRole="ConsumerProperties" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Groups_Consumers" FromRole="Consumers" ToRole="Groups" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Users_Consumers" FromRole="Consumers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="BranchId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_Groups_Branches" FromRole="Groups" ToRole="Branches" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_Groups_Consumers" FromRole="Groups" ToRole="Consumers" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Groups" FromRole="Groups" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Claims" Relationship="Self.FK_Claims_Roles" FromRole="Roles" ToRole="Claims" />
+          <NavigationProperty Name="RoleToUserMaps" Relationship="Self.FK_RoleToUserMaps_Roles" FromRole="Roles" ToRole="RoleToUserMaps" />
+        </EntityType>
+        <EntityType Name="RoleToUserMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ValidUntil" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_RoleToUserMaps_Roles" FromRole="RoleToUserMaps" ToRole="Roles" />
+          <NavigationProperty Name="User" Relationship="Self.FK_RoleToUserMaps_Users" FromRole="RoleToUserMaps" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_Users_Consumers" FromRole="Users" ToRole="Consumers" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Users_Groups" FromRole="Users" ToRole="Groups" />
+          <NavigationProperty Name="RoleToUserMaps" Relationship="Self.FK_RoleToUserMaps_Users" FromRole="Users" ToRole="RoleToUserMaps" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_Patients_Users" FromRole="Users" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="ConsumerPropertyType">
+          <Key>
+            <PropertyRef Name="No" />
+          </Key>
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ConsumerProperties" Relationship="Self.FK_ConsumerProperties_ConsumerPropertyTypes" FromRole="ConsumerPropertyTypes" ToRole="ConsumerProperties" />
+        </EntityType>
+        <EntityType Name="AssetCommand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="CommandText" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Step" Type="Byte" Nullable="false" />
+          <Property Name="EnDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ArabicDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Asset" Relationship="Self.FK_AssetCommands_Assets" FromRole="AssetCommands" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="AssetDefault">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="OnCommandText" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OnCommandName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OffCommandText" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OffCommandName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Step" Type="Byte" Nullable="false" />
+          <Property Name="DefaultValue" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Asset" Relationship="Self.FK_AssetDefaults_Assets" FromRole="AssetDefaults" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="AssetGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="GroupId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Available" Type="Boolean" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdateStamp" Type="Guid" Nullable="false" />
+          <Property Name="EnName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EnDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ArabicName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ArabicDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AssetCommands" Relationship="Self.FK_AssetCommands_Assets" FromRole="Assets" ToRole="AssetCommands" />
+          <NavigationProperty Name="AssetDefaults" Relationship="Self.FK_AssetDefaults_Assets" FromRole="Assets" ToRole="AssetDefaults" />
+          <NavigationProperty Name="AssetThumbnail" Relationship="Self.FK_AssetThumbnails_Assets" FromRole="Assets" ToRole="AssetThumbnails" />
+          <NavigationProperty Name="Safes" Relationship="Self.FK_Safes_Assets" FromRole="Assets" ToRole="Safes" />
+          <NavigationProperty Name="Sessions" Relationship="Self.FK_Sessions_Assets" FromRole="Assets" ToRole="Sessions" />
+        </EntityType>
+        <EntityType Name="AssetThumbnail">
+          <Key>
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Asset" Relationship="Self.FK_AssetThumbnails_Assets" FromRole="AssetThumbnails" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DoctorId" Type="Guid" Nullable="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Notes" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Patients_Users" FromRole="Patients" ToRole="Users" />
+          <NavigationProperty Name="Problems" Relationship="Self.FK_Problems_Patients" FromRole="Patients" ToRole="Problems" />
+          <NavigationProperty Name="Sessions" Relationship="Self.FK_Sessions_Patients" FromRole="Patients" ToRole="Sessions" />
+        </EntityType>
+        <EntityType Name="Problem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PatientId" Type="Guid" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SymptomDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SymptomType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SymptomStartDate" Type="DateTime" Precision="0" />
+          <Property Name="SymptomResults" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IGDPoints" Type="Int32" />
+          <Property Name="Avoidance" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precaution" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfFullSecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfSecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfHesitant" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfUnsecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PlaceOfFullUnsecure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Problems_Patients" FromRole="Problems" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Safe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Safes_Companies" FromRole="Safes" ToRole="Companies" />
+          <NavigationProperty Name="Asset" Relationship="Self.FK_Safes_Assets" FromRole="Safes" ToRole="Assets" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SessionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SensorData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="PatientId" Type="Guid" />
+          <NavigationProperty Name="Asset" Relationship="Self.FK_Sessions_Assets" FromRole="Sessions" ToRole="Assets" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Sessions_Patients" FromRole="Sessions" ToRole="Patients" />
+        </EntityType>
+        <Association Name="FK_Branches_Companies">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1" />
+          <End Role="Branches" Type="Self.Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branches_Consumers">
+          <End Role="Consumers" Type="Self.Consumer" Multiplicity="1" />
+          <End Role="Branches" Type="Self.Branch" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branches">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Branches">
+          <End Role="Branches" Type="Self.Branch" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Claims_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Claims" Type="Self.Claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="Claims">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Companies_Consumers">
+          <End Role="Consumers" Type="Self.Consumer" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Company" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Safes_Companies">
+          <End Role="Companies" Type="Self.Company" Multiplicity="1" />
+          <End Role="Safes" Type="Self.Safe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Safes">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_ConsumerPropertyTypes">
+          <End Role="ConsumerPropertyTypes" Type="Self.ConsumerPropertyType" Multiplicity="1" />
+          <End Role="ConsumerProperties" Type="Self.ConsumerProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConsumerPropertyTypes">
+              <PropertyRef Name="No" />
+            </Principal>
+            <Dependent Role="ConsumerProperties">
+              <PropertyRef Name="TypeNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsumerProperties_Organizations">
+          <End Role="Consumers" Type="Self.Consumer" Multiplicity="1" />
+          <End Role="ConsumerProperties" Type="Self.ConsumerProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ConsumerProperties">
+              <PropertyRef Name="ConsumerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Consumers">
+          <End Role="Consumers" Type="Self.Consumer" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Consumers">
+          <End Role="Consumers" Type="Self.Consumer" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Consumers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Groups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleToUserMaps" Type="Self.RoleToUserMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="RoleToUserMaps">
+              <PropertyRef Name="RoleCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleToUserMaps_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="RoleToUserMaps" Type="Self.RoleToUserMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleToUserMaps">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetCommands_Assets">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="1" />
+          <End Role="AssetCommands" Type="Self.AssetCommand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetCommands">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetDefaults_Assets">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="1" />
+          <End Role="AssetDefaults" Type="Self.AssetDefault" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetDefaults">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetThumbnails_Assets">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="1" />
+          <End Role="AssetThumbnails" Type="Self.AssetThumbnail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssetThumbnails">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Safes_Assets">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="1" />
+          <End Role="Safes" Type="Self.Safe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Safes">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Assets">
+          <End Role="Assets" Type="Self.Asset" Multiplicity="1" />
+          <End Role="Sessions" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="AssetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Problems_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Problems" Type="Self.Problem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Problems">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sessions_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Sessions" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VivosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Claims" EntityType="Self.Claim" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="ConsumerProperties" EntityType="Self.ConsumerProperty" />
+          <EntitySet Name="Consumers" EntityType="Self.Consumer" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RoleToUserMaps" EntityType="Self.RoleToUserMap" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="ConsumerPropertyTypes" EntityType="Self.ConsumerPropertyType" />
+          <EntitySet Name="AssetCommands" EntityType="Self.AssetCommand" />
+          <EntitySet Name="AssetDefaults" EntityType="Self.AssetDefault" />
+          <EntitySet Name="AssetGroups" EntityType="Self.AssetGroup" />
+          <EntitySet Name="Assets" EntityType="Self.Asset" />
+          <EntitySet Name="AssetThumbnails" EntityType="Self.AssetThumbnail" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Problems" EntityType="Self.Problem" />
+          <EntitySet Name="Safes" EntityType="Self.Safe" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <AssociationSet Name="FK_Branches_Companies" Association="Self.FK_Branches_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branches_Consumers" Association="Self.FK_Branches_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Branches" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Branches" Association="Self.FK_Groups_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Claims_Roles" Association="Self.FK_Claims_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Claims" EntitySet="Claims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Companies_Consumers" Association="Self.FK_Companies_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Safes_Companies" Association="Self.FK_Safes_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Safes" EntitySet="Safes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_ConsumerPropertyTypes" Association="Self.FK_ConsumerProperties_ConsumerPropertyTypes">
+            <End Role="ConsumerPropertyTypes" EntitySet="ConsumerPropertyTypes" />
+            <End Role="ConsumerProperties" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsumerProperties_Organizations" Association="Self.FK_ConsumerProperties_Organizations">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="ConsumerProperties" EntitySet="ConsumerProperties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Consumers" Association="Self.FK_Groups_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Consumers" Association="Self.FK_Users_Consumers">
+            <End Role="Consumers" EntitySet="Consumers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Groups" Association="Self.FK_Users_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Roles" Association="Self.FK_RoleToUserMaps_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RoleToUserMaps" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleToUserMaps_Users" Association="Self.FK_RoleToUserMaps_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RoleToUserMaps" EntitySet="RoleToUserMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_Users" Association="Self.FK_Patients_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetCommands_Assets" Association="Self.FK_AssetCommands_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetCommands" EntitySet="AssetCommands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetDefaults_Assets" Association="Self.FK_AssetDefaults_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetDefaults" EntitySet="AssetDefaults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetThumbnails_Assets" Association="Self.FK_AssetThumbnails_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="AssetThumbnails" EntitySet="AssetThumbnails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Safes_Assets" Association="Self.FK_Safes_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Safes" EntitySet="Safes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Assets" Association="Self.FK_Sessions_Assets">
+            <End Role="Assets" EntitySet="Assets" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Problems_Patients" Association="Self.FK_Problems_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Problems" EntitySet="Problems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sessions_Patients" Association="Self.FK_Sessions_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VivosModelStoreContainer" CdmEntityContainer="VivosEntities">
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="VivosModel.Branch">
+              <MappingFragment StoreEntitySet="Branches">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claims">
+            <EntityTypeMapping TypeName="VivosModel.Claim">
+              <MappingFragment StoreEntitySet="Claims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="Resource" ColumnName="Resource" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="VivosModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsumerProperties">
+            <EntityTypeMapping TypeName="VivosModel.ConsumerProperty">
+              <MappingFragment StoreEntitySet="ConsumerProperties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ConsumerId" ColumnName="ConsumerId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="TypeNo" ColumnName="TypeNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consumers">
+            <EntityTypeMapping TypeName="VivosModel.Consumer">
+              <MappingFragment StoreEntitySet="Consumers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="WindowsCode" ColumnName="WindowsCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="VivosModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="VivosModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleToUserMaps">
+            <EntityTypeMapping TypeName="VivosModel.RoleToUserMap">
+              <MappingFragment StoreEntitySet="RoleToUserMaps">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="ValidUntil" ColumnName="ValidUntil" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="VivosModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsumerPropertyTypes">
+            <EntityTypeMapping TypeName="VivosModel.ConsumerPropertyType">
+              <MappingFragment StoreEntitySet="ConsumerPropertyTypes">
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetCommands">
+            <EntityTypeMapping TypeName="VivosModel.AssetCommand">
+              <MappingFragment StoreEntitySet="AssetCommands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="CommandText" ColumnName="CommandText" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="EnDescription" ColumnName="EnDescription" />
+                <ScalarProperty Name="ArabicDescription" ColumnName="ArabicDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetDefaults">
+            <EntityTypeMapping TypeName="VivosModel.AssetDefault">
+              <MappingFragment StoreEntitySet="AssetDefaults">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="OnCommandText" ColumnName="OnCommandText" />
+                <ScalarProperty Name="OnCommandName" ColumnName="OnCommandName" />
+                <ScalarProperty Name="OffCommandText" ColumnName="OffCommandText" />
+                <ScalarProperty Name="OffCommandName" ColumnName="OffCommandName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetGroups">
+            <EntityTypeMapping TypeName="VivosModel.AssetGroup">
+              <MappingFragment StoreEntitySet="AssetGroups">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assets">
+            <EntityTypeMapping TypeName="VivosModel.Asset">
+              <MappingFragment StoreEntitySet="Assets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Exe" ColumnName="Exe" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="UpdateStamp" ColumnName="UpdateStamp" />
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="EnDescription" ColumnName="EnDescription" />
+                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+                <ScalarProperty Name="ArabicDescription" ColumnName="ArabicDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetThumbnails">
+            <EntityTypeMapping TypeName="VivosModel.AssetThumbnail">
+              <MappingFragment StoreEntitySet="AssetThumbnails">
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="VivosModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Problems">
+            <EntityTypeMapping TypeName="VivosModel.Problem">
+              <MappingFragment StoreEntitySet="Problems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SymptomDescription" ColumnName="SymptomDescription" />
+                <ScalarProperty Name="SymptomType" ColumnName="SymptomType" />
+                <ScalarProperty Name="SymptomStartDate" ColumnName="SymptomStartDate" />
+                <ScalarProperty Name="SymptomResults" ColumnName="SymptomResults" />
+                <ScalarProperty Name="IGDPoints" ColumnName="IGDPoints" />
+                <ScalarProperty Name="Avoidance" ColumnName="Avoidance" />
+                <ScalarProperty Name="Precaution" ColumnName="Precaution" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="PlaceOfFullSecure" ColumnName="PlaceOfFullSecure" />
+                <ScalarProperty Name="PlaceOfSecure" ColumnName="PlaceOfSecure" />
+                <ScalarProperty Name="PlaceOfHesitant" ColumnName="PlaceOfHesitant" />
+                <ScalarProperty Name="PlaceOfUnsecure" ColumnName="PlaceOfUnsecure" />
+                <ScalarProperty Name="PlaceOfFullUnsecure" ColumnName="PlaceOfFullUnsecure" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Safes">
+            <EntityTypeMapping TypeName="VivosModel.Safe">
+              <MappingFragment StoreEntitySet="Safes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="VivosModel.Session">
+              <MappingFragment StoreEntitySet="Sessions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SessionDateTime" ColumnName="SessionDateTime" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SensorData" ColumnName="SensorData" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
