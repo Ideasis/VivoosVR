@@ -38,6 +38,7 @@ namespace VivoosVR
         public New_Session_Controls_Page()
         {
             InitializeComponent();
+            PlaceSelfOnSecondMonitor();
             fill_datagrid();
             socket();
             taskHandler();
@@ -246,7 +247,16 @@ namespace VivoosVR
         }
         private void UpdateChart()
         {
+            if (pulse > chart1.ChartAreas[0].AxisY.Maximum)
+            {
+                chart1.ChartAreas[0].AxisY.Maximum = pulse + (pulse/2);
+            }
+            
             chart1.Series["Pulse"].Points.AddY(pulse);
+            if (gsr > chart2.ChartAreas[0].AxisY.Maximum)
+            {
+                chart2.ChartAreas[0].AxisY.Maximum = gsr + (gsr/2);
+            }
             chart2.Series["GSR"].Points.AddY(gsr);
             flag++;
 
@@ -329,7 +339,7 @@ namespace VivoosVR
                     db.Sessions.Add(new_session);
                     db.SaveChanges();
                     DialogResult information = new DialogResult();
-                    information = MessageBox.Show(resourceManager.GetString("msjSessionAdded", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    information = MessageBox.Show(resourceManager.GetString("msgSessionAdded", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 GlobalVariables.NewSessions_Search_Flag = 0;
                 Sessions_Page sessions = new Sessions_Page();

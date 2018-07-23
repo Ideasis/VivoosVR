@@ -284,7 +284,19 @@ namespace VivoosVR
                         new_asset_command[i].Description = txtTurkishExplanation[i].Text;
                         new_asset_command[i].EnDescription = txtEnglishExplanation[i].Text;
                         new_asset_command[i].ArabicDescription = txtArabicExplanation[i].Text;
-                        new_asset_command[i].Step = Convert.ToByte(txtStep[i].Text);
+                        try
+                        {
+                            new_asset_command[i].Step = Convert.ToByte(txtStep[i].Text);
+                        }
+                        catch (Exception)
+                        {
+
+                            new_asset_command[i].Step = Convert.ToByte(0);
+                        }
+                            
+                        
+                       
+                        
                         db.AssetCommands.Add(new_asset_command[i]);
 
                     }

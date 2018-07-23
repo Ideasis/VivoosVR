@@ -215,11 +215,11 @@
             // tlpLanguages
             // 
             this.tlpLanguages.ColumnCount = 5;
-            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.72358F));
-            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.27642F));
-            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
-            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
-            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.06551F));
+            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.9345F));
+            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
+            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tlpLanguages.Controls.Add(this.btnTurkish, 1, 0);
             this.tlpLanguages.Controls.Add(this.btnEnglish, 2, 0);
             this.tlpLanguages.Controls.Add(this.btnArabic, 3, 0);
@@ -227,14 +227,14 @@
             this.tlpLanguages.Name = "tlpLanguages";
             this.tlpLanguages.RowCount = 1;
             this.tlpLanguages.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpLanguages.Size = new System.Drawing.Size(436, 100);
+            this.tlpLanguages.Size = new System.Drawing.Size(436, 66);
             this.tlpLanguages.TabIndex = 5;
             // 
             // btnTurkish
             // 
-            this.btnTurkish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTurkish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTurkish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTurkish.Location = new System.Drawing.Point(146, 3);
+            this.btnTurkish.Location = new System.Drawing.Point(161, 36);
             this.btnTurkish.Name = "btnTurkish";
             this.btnTurkish.Size = new System.Drawing.Size(72, 27);
             this.btnTurkish.TabIndex = 1;
@@ -244,11 +244,11 @@
             // 
             // btnEnglish
             // 
-            this.btnEnglish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnglish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnglish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEnglish.Location = new System.Drawing.Point(228, 3);
+            this.btnEnglish.Location = new System.Drawing.Point(239, 36);
             this.btnEnglish.Name = "btnEnglish";
-            this.btnEnglish.Size = new System.Drawing.Size(73, 27);
+            this.btnEnglish.Size = new System.Drawing.Size(70, 27);
             this.btnEnglish.TabIndex = 0;
             this.btnEnglish.Text = "İngilizce";
             this.btnEnglish.UseVisualStyleBackColor = true;
@@ -256,10 +256,11 @@
             // 
             // btnArabic
             // 
+            this.btnArabic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnArabic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnArabic.Location = new System.Drawing.Point(307, 3);
+            this.btnArabic.Location = new System.Drawing.Point(316, 36);
             this.btnArabic.Name = "btnArabic";
-            this.btnArabic.Size = new System.Drawing.Size(73, 27);
+            this.btnArabic.Size = new System.Drawing.Size(71, 27);
             this.btnArabic.TabIndex = 2;
             this.btnArabic.Text = "Arapça";
             this.btnArabic.UseVisualStyleBackColor = true;

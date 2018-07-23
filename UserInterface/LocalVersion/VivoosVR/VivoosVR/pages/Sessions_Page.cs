@@ -175,7 +175,7 @@ namespace VivoosVR
                         workbook.Save(file);
                         Workbook book = Workbook.Load(file);
                         Worksheet sheet = book.Worksheets[0];
-                        MessageBox.Show(resourceManager.GetString("msgDataDownload", GlobalVariables.uiLanguage));
+                        MessageBox.Show(resourceManager.GetString("msgDataDownloaded", GlobalVariables.uiLanguage));
                     }
                 }
             }

@@ -130,7 +130,7 @@
     <value>إلغاء</value>
   </data>
   <data name="btnChangePassword" xml:space="preserve">
-    <value>aa</value>
+    <value>Change Password</value>
   </data>
   <data name="btnEnglish" xml:space="preserve">
     <value>الإنجليزية </value>
@@ -145,22 +145,22 @@
     <value>أضف مريض جديد </value>
   </data>
   <data name="btnNewScenario" xml:space="preserve">
-    <value>aa</value>
+    <value>Add New Scenario</value>
   </data>
   <data name="btnNewSession" xml:space="preserve">
     <value>جلسة جديدة </value>
   </data>
   <data name="btnNewUser" xml:space="preserve">
-    <value>aa</value>
+    <value>Add New User</value>
   </data>
   <data name="btnSave" xml:space="preserve">
     <value>تسجيل</value>
   </data>
   <data name="btnSelectFile" xml:space="preserve">
-    <value>aa</value>
+    <value>Select File</value>
   </data>
   <data name="btnSettings" xml:space="preserve">
-    <value>aa</value>
+    <value>Settings</value>
   </data>
   <data name="btnStart" xml:space="preserve">
     <value>إبدأ</value>
@@ -169,7 +169,7 @@
     <value>التركية </value>
   </data>
   <data name="formAdmin" xml:space="preserve">
-    <value>aa</value>
+    <value>Admin</value>
   </data>
   <data name="formLogin" xml:space="preserve">
     <value>دخول</value>
@@ -178,13 +178,13 @@
     <value>صفحةا المريض الجديد </value>
   </data>
   <data name="formNewScenario" xml:space="preserve">
-    <value>aa</value>
+    <value>New Scenario</value>
   </data>
   <data name="formNewSession" xml:space="preserve">
     <value>جلسة جديدة </value>
   </data>
   <data name="formNewUser" xml:space="preserve">
-    <value>aa</value>
+    <value>New User</value>
   </data>
   <data name="formPatient" xml:space="preserve">
     <value>صفحة المريض</value>
@@ -235,79 +235,79 @@
     <value>صورة صغيرة </value>
   </data>
   <data name="lblArabicDescription" xml:space="preserve">
-    <value>aa</value>
+    <value>Arabic Explanation</value>
   </data>
   <data name="lblArabicName" xml:space="preserve">
-    <value>aa</value>
+    <value>Arabic Name</value>
   </data>
   <data name="lblAvailable" xml:space="preserve">
-    <value>aa</value>
+    <value>Available</value>
   </data>
   <data name="lblCommands" xml:space="preserve">
-    <value>aa</value>
+    <value>Commands</value>
   </data>
   <data name="lblEnglishDescription" xml:space="preserve">
-    <value>aa</value>
+    <value>English Explanation</value>
   </data>
   <data name="lblEnglishName" xml:space="preserve">
-    <value>aa</value>
+    <value>English Name</value>
   </data>
   <data name="lblNameSurname" xml:space="preserve">
-    <value>aa</value>
+    <value>Name / Surname</value>
   </data>
   <data name="lblNeulogIP" xml:space="preserve">
-    <value>aa</value>
+    <value>Neulog IP</value>
   </data>
   <data name="lblNeulogPath" xml:space="preserve">
-    <value>aa</value>
+    <value>Neulog Path</value>
   </data>
   <data name="lblNeulogPort" xml:space="preserve">
-    <value>aa</value>
+    <value>Neulog Port</value>
   </data>
   <data name="lblNewPassword" xml:space="preserve">
-    <value>aa</value>
+    <value>New Password</value>
   </data>
   <data name="lblNewPasswordAgain" xml:space="preserve">
-    <value>aa</value>
+    <value>New Password Again</value>
   </data>
   <data name="lblOldPassword" xml:space="preserve">
-    <value>aa</value>
+    <value>Old Password</value>
   </data>
   <data name="lblPassword" xml:space="preserve">
     <value>كلمة السر </value>
   </data>
   <data name="lblScenarioExe" xml:space="preserve">
-    <value>aa</value>
+    <value>Scenario Exe</value>
   </data>
   <data name="lblScenarioPath" xml:space="preserve">
-    <value>aa</value>
+    <value>Scenario Path</value>
   </data>
   <data name="lblSearch" xml:space="preserve">
     <value>بحث</value>
   </data>
   <data name="lblSensorInterval" xml:space="preserve">
-    <value>aa</value>
+    <value>Sensor Interval (ms)</value>
   </data>
   <data name="lblSensorVisible" xml:space="preserve">
-    <value>aa</value>
+    <value>Sensor Visible</value>
   </data>
   <data name="lblSocketIP" xml:space="preserve">
-    <value>aa</value>
+    <value>Socket IP</value>
   </data>
   <data name="lblSocketPort" xml:space="preserve">
-    <value>aa</value>
+    <value>Socket Port</value>
   </data>
   <data name="lblStep" xml:space="preserve">
-    <value>aa</value>
+    <value>Step</value>
   </data>
   <data name="lblThumbnail" xml:space="preserve">
-    <value>aa</value>
+    <value>Thumbnail</value>
   </data>
   <data name="lblTurkishDescription" xml:space="preserve">
-    <value>aa</value>
+    <value>Turkish Explanation</value>
   </data>
   <data name="lblTurkishName" xml:space="preserve">
-    <value>aa</value>
+    <value>Turkish Name</value>
   </data>
   <data name="lblUsername" xml:space="preserve">
     <value>إسم المستخدم </value>
@@ -337,22 +337,22 @@
     <value>تقديم معلومة</value>
   </data>
   <data name="msgIsPatientDeleted" xml:space="preserve">
-    <value>aa</value>
+    <value>Delete patient?</value>
   </data>
   <data name="msgIsScenarioDeleted" xml:space="preserve">
-    <value>aa</value>
+    <value>Delete scenario?</value>
   </data>
   <data name="msgIsSessionDeleted" xml:space="preserve">
     <value>هل ترغب بمسح الجلسة ؟</value>
   </data>
   <data name="msgNewPasswordTwice" xml:space="preserve">
-    <value>aa</value>
+    <value>Please enter your new password twice correctly!</value>
   </data>
   <data name="msgOldPasswordWrong" xml:space="preserve">
-    <value>aa</value>
+    <value>Old password is wrong!</value>
   </data>
   <data name="msgPasswordChanged" xml:space="preserve">
-    <value>aa</value>
+    <value>Password is changed!</value>
   </data>
   <data name="msgPatient" xml:space="preserve">
     <value>يرجى إدخال رمز المريض !</value>
@@ -361,19 +361,19 @@
     <value>تم إضافة المريض !</value>
   </data>
   <data name="msgPatientDeleted" xml:space="preserve">
-    <value>aa</value>
+    <value>Patient deleted!</value>
   </data>
   <data name="msgPatientEdited" xml:space="preserve">
     <value>تم تحديث بيانات المريض ! </value>
   </data>
   <data name="msgScenarioAdded" xml:space="preserve">
-    <value>aa</value>
+    <value>Scenario is added!</value>
   </data>
   <data name="msgScenarioDeleted" xml:space="preserve">
-    <value>aa</value>
+    <value>Scenario deleted!</value>
   </data>
   <data name="msgScenarioEdited" xml:space="preserve">
-    <value>aa</value>
+    <value>Scenario is edited!</value>
   </data>
   <data name="msgSessionAdded" xml:space="preserve">
     <value>تم إضافة جلسة !</value>
@@ -382,16 +382,16 @@
     <value>تم مسح الجلسة !</value>
   </data>
   <data name="msgSettingsSaved" xml:space="preserve">
-    <value>aa</value>
+    <value>Settings are saved!</value>
   </data>
   <data name="msgUserAdded" xml:space="preserve">
-    <value>aa</value>
+    <value>User is added!</value>
   </data>
   <data name="msgUserExists" xml:space="preserve">
-    <value>aa</value>
+    <value>Username is already exists!</value>
   </data>
   <data name="msgUserNotFound" xml:space="preserve">
-    <value>aa</value>
+    <value>User can not found!</value>
   </data>
   <data name="msgWarning" xml:space="preserve">
     <value>تحذير</value>
