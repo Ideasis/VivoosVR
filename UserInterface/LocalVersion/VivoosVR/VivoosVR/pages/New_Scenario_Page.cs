@@ -73,7 +73,7 @@ namespace VivoosVR
                         commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = AssetCommandList[i].Description, Name = "txtTurkishExplanations" + (commandsLayout.RowCount - 1) }, 0, commandsLayout.RowCount - 1);
                         commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = AssetCommandList[i].EnDescription, Name = "txtEnglishExplanations" + (commandsLayout.RowCount - 1) }, 1, commandsLayout.RowCount - 1);
                         commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = AssetCommandList[i].ArabicDescription, Name = "txtArabicExplanations" + (commandsLayout.RowCount - 1) }, 2, commandsLayout.RowCount - 1);
-                        commandsLayout.Controls.Add(new TextBox() { Text = AssetCommandList[i].CommandText, Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
+                        commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = AssetCommandList[i].CommandText, Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
                         commandsLayout.Controls.Add(new TextBox() { Text = Convert.ToByte(AssetCommandList[i].Step).ToString(), Name = "txtSteps" + (commandsLayout.RowCount - 1) }, 4, commandsLayout.RowCount - 1);
                         commandsLayout.Controls.Add(new TextBox() { Visible = false, Text = AssetCommandList[i].Id.ToString(), Name = "txtID" + (commandsLayout.RowCount - 1) }, 5, commandsLayout.RowCount - 1);
                         txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
@@ -97,7 +97,7 @@ namespace VivoosVR
             txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
 
 
-            commandsLayout.Controls.Add(new TextBox() {  Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
+            commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
             System.Windows.Forms.Control[] denemelik = commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true);
             txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
 
@@ -127,12 +127,12 @@ namespace VivoosVR
             this.Text = resourceManager.GetString("btnSettings", GlobalVariables.uiLanguage);
 
             commandsLayout.ColumnCount = 6;
-            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
 
             commandsLayout.Controls.Add(new Label() { Text = resourceManager.GetString("lblTurkishDescription", GlobalVariables.uiLanguage) }, 0, 0);
             commandsLayout.Controls.Add(new Label() { Text = resourceManager.GetString("lblEnglishDescription", GlobalVariables.uiLanguage) }, 1, 0);
@@ -148,7 +148,7 @@ namespace VivoosVR
                 commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20),  Name = "txtTurkishExplanations" + (commandsLayout.RowCount - 1) }, 0, commandsLayout.RowCount - 1);
                 commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20),  Name = "txtEnglishExplanations" + (commandsLayout.RowCount - 1) }, 1, commandsLayout.RowCount - 1);
                 commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Name = "txtArabicExplanations" + (commandsLayout.RowCount - 1) }, 2, commandsLayout.RowCount - 1);
-                commandsLayout.Controls.Add(new TextBox() {  Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
+                commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
                 commandsLayout.Controls.Add(new TextBox() {  Name = "txtSteps" + (commandsLayout.RowCount - 1) }, 4, commandsLayout.RowCount - 1);
                 commandsLayout.Controls.Add(new TextBox() { Visible=false, Text = "00000000-0000-0000-0000-000000000000", Name = "txtID" + (commandsLayout.RowCount - 1) }, 5, commandsLayout.RowCount - 1);
 
