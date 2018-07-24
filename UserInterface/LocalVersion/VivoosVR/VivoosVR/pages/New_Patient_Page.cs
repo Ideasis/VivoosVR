@@ -21,6 +21,7 @@ namespace VivoosVR
         {
             InitializeComponent();
             edit_start();
+            PlaceSelfOnSecondMonitor();
         }
         public void edit_start()
         {

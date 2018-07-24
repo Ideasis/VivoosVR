@@ -17,6 +17,7 @@ namespace VivoosVR
         {
             InitializeComponent();
             Load_Settings();
+            PlaceSelfOnSecondMonitor();
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

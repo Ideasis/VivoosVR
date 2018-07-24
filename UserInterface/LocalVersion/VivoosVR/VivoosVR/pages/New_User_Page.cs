@@ -16,6 +16,7 @@ namespace VivoosVR
         public New_User_Page()
         {
             InitializeComponent();
+            PlaceSelfOnSecondMonitor();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

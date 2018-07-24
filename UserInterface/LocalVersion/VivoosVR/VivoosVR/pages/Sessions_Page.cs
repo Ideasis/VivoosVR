@@ -28,6 +28,7 @@ namespace VivoosVR
             string key = null;
             InitializeComponent();
             fill_datagrid(key);
+            PlaceSelfOnSecondMonitor();
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -244,27 +245,36 @@ namespace VivoosVR
             }
             else if (e.ColumnIndex == 4)
             {
-                GlobalVariables.Session_Data_ID = Guid.Parse(sessions_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                using (VivosEntities db = new VivosEntities())
+                try
                 {
-                    List<Session> sessionlist = (from x in db.Sessions where x.Id == GlobalVariables.Session_Data_ID select x).ToList();
-                    List<Asset> assetlist = (from x in db.Assets select x).ToList();
-                    for (int i = 0; i < assetlist.Count; i++)
+                    GlobalVariables.Session_Data_ID = Guid.Parse(sessions_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    using (VivosEntities db = new VivosEntities())
                     {
-                        if (assetlist[i].Id == sessionlist[0].AssetId)
+                        List<Session> sessionlist = (from x in db.Sessions where x.Id == GlobalVariables.Session_Data_ID select x).ToList();
+                        List<Asset> assetlist = (from x in db.Assets select x).ToList();
+                        for (int i = 0; i < assetlist.Count; i++)
                         {
-                            GlobalVariables.Session_Data_name = assetlist[0].Name;
-                            break;
+                            if (assetlist[i].Id == sessionlist[0].AssetId)
+                            {
+                                GlobalVariables.Session_Data_name = assetlist[0].Name;
+                                break;
+                            }
                         }
+                        if (sessionlist[0].SessionDateTime != null)
+                        {
+                            GlobalVariables.Session_Data_date = Convert.ToDateTime(sessionlist[0].SessionDateTime).ToString("dd.MM.yyyy HH.mm ", System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                        else
+                            GlobalVariables.Session_Data_date = null;
                     }
-                    if (sessionlist[0].SessionDateTime != null)
-                    {
-                        GlobalVariables.Session_Data_date = Convert.ToDateTime(sessionlist[0].SessionDateTime).ToString("dd.MM.yyyy HH.mm ", System.Globalization.CultureInfo.InvariantCulture);
-                    }
-                    else
-                        GlobalVariables.Session_Data_date = null;
+                    createDoc();
                 }
-                createDoc();
+                catch (Exception)
+                {
+
+                    
+                }
+               
             }
         }
     }

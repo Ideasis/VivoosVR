@@ -22,6 +22,7 @@ namespace VivoosVR
             string key = null;
             InitializeComponent();
             fill_datagrid(key);
+            PlaceSelfOnSecondMonitor();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -158,41 +159,57 @@ namespace VivoosVR
         {
             if (e.ColumnIndex == 4)
             {
-                DialogResult delete = new DialogResult();
-                delete = MessageBox.Show(resourceManager.GetString("msgIsScenarioDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (delete == DialogResult.Yes)
+                try
                 {
-                    GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    using (VivosEntities db = new VivosEntities())
+                    DialogResult delete = new DialogResult();
+                    delete = MessageBox.Show(resourceManager.GetString("msgIsScenarioDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (delete == DialogResult.Yes)
                     {
-                        List<AssetCommand> AssetCommandList = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID select x).ToList();
-                        AssetCommand[] asset_command = new AssetCommand[AssetCommandList.Count];
-
-                        for (int i = 0; i < asset_command.Length; i++)
+                        GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        using (VivosEntities db = new VivosEntities())
                         {
-                            asset_command[i] = AssetCommandList[i];
-                            db.AssetCommands.Remove(asset_command[i]);
+                            List<AssetCommand> AssetCommandList = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID select x).ToList();
+                            AssetCommand[] asset_command = new AssetCommand[AssetCommandList.Count];
+
+                            for (int i = 0; i < asset_command.Length; i++)
+                            {
+                                asset_command[i] = AssetCommandList[i];
+                                db.AssetCommands.Remove(asset_command[i]);
+                            }
+                            AssetThumbnail asset_thumbnail = db.AssetThumbnails.First(x => x.AssetId == GlobalVariables.Asset_Start_ID);
+                            Asset asset = db.Assets.First(x => x.Id == GlobalVariables.Asset_Start_ID);
+                            db.AssetThumbnails.Remove(asset_thumbnail);
+                            db.Assets.Remove(asset);
+                            db.SaveChanges();
+                            GlobalVariables.NewSessions_Search_Flag = 0;
+                            string key = null;
+                            fill_datagrid(key);
+                            DialogResult information = new DialogResult();
+                            information = MessageBox.Show(resourceManager.GetString("msgScenarioDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        AssetThumbnail asset_thumbnail = db.AssetThumbnails.First(x => x.AssetId == GlobalVariables.Asset_Start_ID);
-                        Asset asset = db.Assets.First(x => x.Id == GlobalVariables.Asset_Start_ID);
-                        db.AssetThumbnails.Remove(asset_thumbnail);
-                        db.Assets.Remove(asset);
-                        db.SaveChanges();
-                        GlobalVariables.NewSessions_Search_Flag = 0;
-                        string key = null;
-                        fill_datagrid(key);
-                        DialogResult information = new DialogResult();
-                        information = MessageBox.Show(resourceManager.GetString("msgScenarioDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                }
+                catch (Exception)
+                {
+
+                   
                 }
             }
             else if (e.ColumnIndex == 5)
             {
-                GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
-                GlobalVariables.Is_Edit = true;
-                New_Scenario_Page new_scenario = new New_Scenario_Page();
-                this.Hide();
-                new_scenario.Show();
+                try
+                {
+                    GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    GlobalVariables.Is_Edit = true;
+                    New_Scenario_Page new_scenario = new New_Scenario_Page();
+                    this.Hide();
+                    new_scenario.Show();
+                }
+                catch (Exception)
+                {
+
+                    
+                }
             }
         }
 

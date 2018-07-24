@@ -276,6 +276,9 @@
   <data name="lblPassword" xml:space="preserve">
     <value>كلمة السر </value>
   </data>
+  <data name="lblPresentationName" xml:space="preserve">
+    <value>Presentation Name</value>
+  </data>
   <data name="lblScenarioExe" xml:space="preserve">
     <value>Scenario Exe</value>
   </data>

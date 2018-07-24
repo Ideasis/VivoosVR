@@ -41,17 +41,18 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.commands_datagrid = new System.Windows.Forms.DataGridView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPresentationName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtSUD = new System.Windows.Forms.TextBox();
             this.btnSUDSave = new System.Windows.Forms.Button();
+            this.txtPresentationName = new System.Windows.Forms.TextBox();
+            this.btnPresentationSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -98,7 +99,6 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
             this.tableLayoutPanel2.Controls.Add(this.btnSave, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnCancel, 2, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // btnSave
@@ -107,13 +107,6 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            resources.ApplyResources(this.btnCancel, "btnCancel");
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel1_Click);
             // 
             // chart2
             // 
@@ -173,23 +166,23 @@
             // tableLayoutPanel5
             // 
             resources.ApplyResources(this.tableLayoutPanel5, "tableLayoutPanel5");
+            this.tableLayoutPanel5.Controls.Add(this.lblPresentationName, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.checkBox1, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtSUD, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnSUDSave, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.txtSUD, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnSUDSave, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.txtPresentationName, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btnPresentationSave, 2, 1);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            // 
+            // lblPresentationName
+            // 
+            resources.ApplyResources(this.lblPresentationName, "lblPresentationName");
+            this.lblPresentationName.Name = "lblPresentationName";
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // checkBox1
-            // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // txtSUD
             // 
@@ -202,6 +195,18 @@
             this.btnSUDSave.Name = "btnSUDSave";
             this.btnSUDSave.UseVisualStyleBackColor = true;
             this.btnSUDSave.Click += new System.EventHandler(this.btnSUDkaydet_Click);
+            // 
+            // txtPresentationName
+            // 
+            resources.ApplyResources(this.txtPresentationName, "txtPresentationName");
+            this.txtPresentationName.Name = "txtPresentationName";
+            // 
+            // btnPresentationSave
+            // 
+            resources.ApplyResources(this.btnPresentationSave, "btnPresentationSave");
+            this.btnPresentationSave.Name = "btnPresentationSave";
+            this.btnPresentationSave.UseVisualStyleBackColor = true;
+            this.btnPresentationSave.Click += new System.EventHandler(this.btnPresentationSave_Click);
             // 
             // New_Session_Controls_Page
             // 
@@ -238,15 +243,16 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.DataGridView commands_datagrid;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtSUD;
         private System.Windows.Forms.Button btnSUDSave;
+        private System.Windows.Forms.Label lblPresentationName;
+        private System.Windows.Forms.TextBox txtPresentationName;
+        private System.Windows.Forms.Button btnPresentationSave;
     }
 }

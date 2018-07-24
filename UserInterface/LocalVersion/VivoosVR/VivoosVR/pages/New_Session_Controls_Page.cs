@@ -140,6 +140,16 @@ namespace VivoosVR
                     commands_datagrid.Columns[i].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 }
                 List<AssetCommand> commandlist = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID orderby x.Step select x).ToList();
+                Asset asset = (from x in db.Assets where x.Id == GlobalVariables.Asset_Start_ID select x ).SingleOrDefault();
+                if (asset!=null)
+                {
+                    if (asset.Exe=="Class_Ideasis.exe")
+                    {
+                        lblPresentationName.Visible = true;
+                        txtPresentationName.Visible = true;
+                        btnPresentationSave.Visible = true;
+                    }
+                }
                 for (int i = 0; i < commandlist.Count; i++)
                 {
                     i = commands_datagrid.Rows.Add();
@@ -251,38 +261,25 @@ namespace VivoosVR
             {
                 chart1.ChartAreas[0].AxisY.Maximum = pulse + (pulse/2);
             }
-            
-            chart1.Series["Pulse"].Points.AddY(pulse);
+
+            //chart1.Series["Pulse"].Points.AddY(pulse);
+            chart1.Series["Pulse"].Points.AddXY(currentTimeHandler.TotalSeconds.ToString("0.00"),pulse);
+
             if (gsr > chart2.ChartAreas[0].AxisY.Maximum)
             {
                 chart2.ChartAreas[0].AxisY.Maximum = gsr + (gsr/2);
             }
-            chart2.Series["GSR"].Points.AddY(gsr);
+            //chart2.Series["GSR"].Points.AddY(gsr);
+            chart2.Series["GSR"].Points.AddXY(currentTimeHandler.TotalSeconds.ToString("0.00"), gsr);
             flag++;
 
-            if (flag > 500)
+            if (flag > 250)
             {
                 chart1.Series[0].Points.RemoveAt(0);
                 chart2.Series[0].Points.RemoveAt(0);
             }
         }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (sud_on_flag == true)
-            {
-                sud_on_flag = false;
-                sud_off_flag = true;
-                txtSUD.Visible = false;
-                btnSUDSave.Visible = false;
-            }
-            else if (sud_off_flag == true)
-            {
-                sud_off_flag = false;
-                sud_on_flag = true;
-                txtSUD.Visible = true;
-                btnSUDSave.Visible = true;
-            }
-        }
+        
         private void btnSUDkaydet_Click(object sender, EventArgs e)
         {
             SUD = Convert.ToInt32(txtSUD.Text);
@@ -292,7 +289,8 @@ namespace VivoosVR
         {
             btnExit.Text = resourceManager.GetString("btnExit", GlobalVariables.uiLanguage);
             btnBack.Text = resourceManager.GetString("btnBack", GlobalVariables.uiLanguage);
-            btnCancel.Text = resourceManager.GetString("btnCancel1", GlobalVariables.uiLanguage);
+            btnPresentationSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
+            lblPresentationName.Text = resourceManager.GetString("lblPresentationName", GlobalVariables.uiLanguage);
             btnSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
             btnSUDSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
             this.Text = resourceManager.GetString("formSessionControls", GlobalVariables.uiLanguage);
@@ -354,42 +352,7 @@ namespace VivoosVR
             
 
         }
-        private void btnCancel1_Click(object sender, EventArgs e)
-        {
-                DialogResult exit = new DialogResult();
-                exit = MessageBox.Show(resourceManager.GetString("msgContinue", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (exit == DialogResult.Yes)
-                {
-                    try
-                    {
-                        if (GlobalVariables.neulogProcess.HasExited == false)
-                        {
-                            GlobalVariables.neulogProcess.Kill();
-                        }
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    try
-                    {
-                        if (GlobalVariables.sessionProcess.HasExited == false)
-                        {
-                            var simProc = Process.GetProcesses().Where(pr => pr.ProcessName.Contains(GlobalVariables.sessionProcess.ProcessName));
-                            foreach (var procs in simProc)
-                            {
-                                procs.Kill();
-                            }
-                        }
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    GlobalVariables.NewSessions_Search_Flag = 0;
-                    New_Session_Page new_session = new New_Session_Page();
-                    this.Hide();
-                    new_session.Show();
-                }
-        }
+        
 
         private void New_SessionControls_Page_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -427,6 +390,23 @@ namespace VivoosVR
             }
             catch (Exception)
             {
+            }
+        }
+
+        private void btnPresentationSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtPresentationName != null)
+                {
+                    new_socket.Send(txtPresentationName.Text + "\r");
+                    new_socket.WaitForSendComplete();
+                }
+            }
+            catch (Exception)
+            {
+
+            
             }
         }
 

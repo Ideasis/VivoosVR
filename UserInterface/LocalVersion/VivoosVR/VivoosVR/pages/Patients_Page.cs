@@ -21,6 +21,7 @@ namespace VivoosVR
             string key=null;
             InitializeComponent();
             fill_datagrid(key);
+            PlaceSelfOnSecondMonitor();
         }
         public void fill_datagrid(string key)
         {
@@ -163,30 +164,54 @@ namespace VivoosVR
         {
             if (e.ColumnIndex == 4)
             {
-                Guid id = Guid.Parse(patients_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                find_notes(id);
+                try
+                {
+                    Guid id = Guid.Parse(patients_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    find_notes(id);
+                }
+                catch (Exception)
+                {
+
+                    
+                }
             }
             else if (e.ColumnIndex == 5)
             {
-                GlobalVariables.Session_ID = Guid.Parse(patients_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                GlobalVariables.Is_Session = true;
-                using (VivosEntities db = new VivosEntities())
+                try
                 {
-                    List<Patient> patientlist1 = (from x in db.Patients where x.Id == GlobalVariables.Session_ID select x).ToList();
-                    GlobalVariables.Session_ID_name = patientlist1[0].Code;
+                    GlobalVariables.Session_ID = Guid.Parse(patients_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    GlobalVariables.Is_Session = true;
+                    using (VivosEntities db = new VivosEntities())
+                    {
+                        List<Patient> patientlist1 = (from x in db.Patients where x.Id == GlobalVariables.Session_ID select x).ToList();
+                        GlobalVariables.Session_ID_name = patientlist1[0].Code;
+                    }
+                    GlobalVariables.Sessions_Search_Flag = 0;
+                    Sessions_Page sessions = new Sessions_Page();
+                    this.Hide();
+                    sessions.Show();
                 }
-                GlobalVariables.Sessions_Search_Flag = 0;
-                Sessions_Page sessions = new Sessions_Page();
-                this.Hide();
-                sessions.Show();
+                catch (Exception)
+                {
+
+                    
+                }
             }
             else if (e.ColumnIndex == 6)
             {
-                GlobalVariables.Edit_ID = Guid.Parse(patients_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                GlobalVariables.Is_Edit = true;
-                New_Patient_Page yeni_danısan = new New_Patient_Page();
-                this.Hide();
-                yeni_danısan.Show();
+                try
+                {
+                    GlobalVariables.Edit_ID = Guid.Parse(patients_datagrid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    GlobalVariables.Is_Edit = true;
+                    New_Patient_Page yeni_danısan = new New_Patient_Page();
+                    this.Hide();
+                    yeni_danısan.Show();
+                }
+                catch (Exception)
+                {
+
+                    
+                }
             }
             else if (e.ColumnIndex == 7)
             {

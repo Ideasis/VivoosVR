@@ -15,8 +15,8 @@ namespace VivoosVR
     {
         public Login_Page()
         {
-
             InitializeComponent();
+            PlaceSelfOnSecondMonitor();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {

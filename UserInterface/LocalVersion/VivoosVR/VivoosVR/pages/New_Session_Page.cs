@@ -22,6 +22,7 @@ namespace VivoosVR
             string key = null;
             InitializeComponent();
             fill_datagrid(key);
+            PlaceSelfOnSecondMonitor();
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -154,38 +155,47 @@ namespace VivoosVR
         {
             if (e.ColumnIndex == 4)
             {
-                GlobalVariables.Asset_Start_ID = Guid.Parse(newsession_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
-                using (VivosEntities db = new VivosEntities())
+                try
                 {
-                    List<Asset> assets = (from x in db.Assets select x).ToList();
-                    for (int i = 0; i < assets.Count; i++)
+                    GlobalVariables.Asset_Start_ID = Guid.Parse(newsession_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    using (VivosEntities db = new VivosEntities())
                     {
-                        if (GlobalVariables.Asset_Start_ID == assets[i].Id)
+                        List<Asset> assets = (from x in db.Assets select x).ToList();
+                        for (int i = 0; i < assets.Count; i++)
                         {
-                            try
+                            if (GlobalVariables.Asset_Start_ID == assets[i].Id)
                             {
+                                try
+                                {
 
-                                GlobalVariables.neulogProcess = System.Diagnostics.Process.Start(VivoosVR.Properties.Settings.Default.neulog_dizin);
+                                    GlobalVariables.neulogProcess = System.Diagnostics.Process.Start(VivoosVR.Properties.Settings.Default.neulog_dizin);
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("Neulog" + " " + VivoosVR.Properties.Settings.Default.neulog_dizin + " " + resourceManager.GetString("msgCannotFound", GlobalVariables.uiLanguage));
+                                }
+                                try
+                                {
+                                    GlobalVariables.sessionProcess = System.Diagnostics.Process.Start(@assets[i].Url);
+                                    New_Session_Controls_Page new_session_controls = new New_Session_Controls_Page();
+                                    new_session_controls.Show();
+                                    this.Hide();
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show(resourceManager.GetString("headerScenario", GlobalVariables.uiLanguage) + assets[i].Url + " " + resourceManager.GetString("msgCannotFound", GlobalVariables.uiLanguage));
+                                }
+                                break;
                             }
-                            catch (Exception)
-                            {
-                                MessageBox.Show("Neulog" + " " + VivoosVR.Properties.Settings.Default.neulog_dizin + " " + resourceManager.GetString("msgCannotFound", GlobalVariables.uiLanguage));
-                            }
-                            try
-                            {
-                                GlobalVariables.sessionProcess = System.Diagnostics.Process.Start(@assets[i].Url);
-                                New_Session_Controls_Page new_session_controls = new New_Session_Controls_Page();
-                                new_session_controls.Show();
-                                this.Hide();
-                            }
-                            catch (Exception)
-                            {
-                                MessageBox.Show(resourceManager.GetString("headerScenario", GlobalVariables.uiLanguage) + assets[i].Url + " " + resourceManager.GetString("msgCannotFound", GlobalVariables.uiLanguage));
-                            }
-                            break;
                         }
                     }
                 }
+                catch (Exception)
+                {
+
+                    
+                }
+               
             }
         }
     }

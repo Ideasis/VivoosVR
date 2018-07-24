@@ -16,6 +16,7 @@ namespace VivoosVR
     {
         protected static Assembly assembly = Assembly.Load("VivoosVR");
         protected static ResourceManager resourceManager = new ResourceManager("VivoosVR.lang.langres", assembly);
+
         public MasterForm()
         {
             InitializeComponent();
@@ -31,7 +32,5 @@ namespace VivoosVR
                 this.Location = GlobalVariables.secondaryScreen.WorkingArea.Location;
             }
         }
-
-      
     }
 }

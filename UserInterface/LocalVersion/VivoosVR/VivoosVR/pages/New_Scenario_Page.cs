@@ -27,6 +27,7 @@ namespace VivoosVR
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             edit_start();
+            PlaceSelfOnSecondMonitor();
         }
         public void edit_start()
         {
