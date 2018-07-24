@@ -212,3 +212,6 @@ _Pvt_Extensions/
 ModelManifest.xml
 UserInterface/LocalVersion/VivoosVR/.vs/VivoosVR/DesignTimeBuild/.dtbcache
 UserInterface/LocalVersion/VivoosVR/.vs/VivoosVR/v15/.suo
+UserInterface/LocalVersion/VivoosVR/VivoosVR/obj/Debug/VivoosVR.csproj.ResolveComReference.cache
+*.cache
+UserInterface/LocalVersion/VivoosVR/VivoosVR/obj/Debug/VivoosVR.csproj.CoreCompileInputs.cache

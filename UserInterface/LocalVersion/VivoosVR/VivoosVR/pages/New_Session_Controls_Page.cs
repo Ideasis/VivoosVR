@@ -283,6 +283,7 @@ namespace VivoosVR
         private void btnSUDkaydet_Click(object sender, EventArgs e)
         {
             SUD = Convert.ToInt32(txtSUD.Text);
+            txtSUD.Text = "";
         }
 
         private void new_session_controls_Load(object sender, EventArgs e)
@@ -401,6 +402,7 @@ namespace VivoosVR
                 {
                     new_socket.Send(txtPresentationName.Text + "\r");
                     new_socket.WaitForSendComplete();
+                    txtPresentationName.Text = "";
                 }
             }
             catch (Exception)
