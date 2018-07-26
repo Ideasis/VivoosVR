@@ -80,7 +80,7 @@ namespace VivoosVR
                 }
                 List<Session> sessionlist1 = (from x in db.Sessions join s in db.Assets on x.AssetId equals s.Id where x.PatientId == GlobalVariables.Session_ID orderby s.Name select x).ToList();
                 List<Asset> assetlist = (from x in db.Assets select x).ToList();
-                List<Session> sessionlist2 = (from x in db.Sessions join s in db.Assets on x.AssetId equals s.Id where s.Name.StartsWith(key) orderby s.Name select x).ToList();
+                List<Session> sessionlist2 = (from x in db.Sessions join s in db.Assets on x.AssetId equals s.Id where s.Name.StartsWith(key) && x.PatientId == GlobalVariables.Session_ID orderby s.Name select x).ToList();
                 List<Session> keyList = null;
                 if (GlobalVariables.Sessions_Search_Flag == 0)
                     keyList = sessionlist1;

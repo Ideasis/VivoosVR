@@ -21,6 +21,7 @@ namespace VivoosVR
         {
             string key = null;
             InitializeComponent();
+            GlobalVariables.NewSessions_Search_Flag=0;
             fill_datagrid(key);
             PlaceSelfOnSecondMonitor();
         }

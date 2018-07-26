@@ -97,6 +97,7 @@ namespace VivoosVR
         {
             if (GlobalVariables.Is_Edit == false)
             {
+                int flag = 0;
                 if (String.IsNullOrEmpty(txtPatientCode.Text))
                 {
                     DialogResult error = new DialogResult();
@@ -113,22 +114,39 @@ namespace VivoosVR
                     {
                         List<Patient> patientList = (from x in db.Patients select x).ToList();
                         Patient new_patient = new Patient();
-                        new_patient.Id = Guid.NewGuid();
-                        new_patient.DoctorId = GlobalVariables.LoginID;
-                        new_patient.IsApproved = true;
-                        new_patient.EntryDate = DateTime.Now;
-                        new_patient.Code = txtPatientCode.Text.ToString();
-                        string[] doğumTarihi = (clndrBirthday.Value.ToString()).Split(' ');
-                        string[] sistemTarihi = (DateTime.Now.ToString()).Split(' ');
-                        if (doğumTarihi[0] == sistemTarihi[0])
-                            new_patient.DateOfBirth = null;
-                        else
-                            new_patient.DateOfBirth = clndrBirthday.Value;
-                        new_patient.Notes = txtDescription.Text.ToString();
-                        db.Patients.Add(new_patient);
-                        db.SaveChanges();
-                        DialogResult information = new DialogResult();
-                        information = MessageBox.Show(resourceManager.GetString("msgPatientAdded", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        for (int i = 0; i < patientList.Count; i++)
+                        {
+                            if (patientList[i].Code == txtPatientCode.Text)
+                            {
+                                flag = 1;
+                                break;
+                            }
+                        }
+                        if (flag == 0)
+                        {
+                            new_patient.Code = txtPatientCode.Text.ToString();
+                            new_patient.Id = Guid.NewGuid();
+                            new_patient.DoctorId = GlobalVariables.LoginID;
+                            new_patient.IsApproved = true;
+                            new_patient.EntryDate = DateTime.Now;
+
+                            string[] doğumTarihi = (clndrBirthday.Value.ToString()).Split(' ');
+                            string[] sistemTarihi = (DateTime.Now.ToString()).Split(' ');
+                            if (doğumTarihi[0] == sistemTarihi[0])
+                                new_patient.DateOfBirth = null;
+                            else
+                                new_patient.DateOfBirth = clndrBirthday.Value;
+                            new_patient.Notes = txtDescription.Text.ToString();
+                            db.Patients.Add(new_patient);
+                            db.SaveChanges();
+                            DialogResult information = new DialogResult();
+                            information = MessageBox.Show(resourceManager.GetString("msgPatientAdded", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (flag == 1)
+                        {
+                            MessageBox.Show(resourceManager.GetString("msgUserExists", GlobalVariables.uiLanguage));
+                        }
+                       
                     }
                 }
             }
@@ -146,22 +164,56 @@ namespace VivoosVR
                 }
                 else
                 {
+                    int flag1 = 0;
                     using (VivosEntities db = new VivosEntities())
                     {
                         Patient patient = (from x in db.Patients where x.Id == GlobalVariables.Edit_ID select x).SingleOrDefault();
                         if (patient != null)
                         {
-                            patient.Code = txtPatientCode.Text.ToString();
-                            string[] doğumTarihi = (clndrBirthday.Value.ToString()).Split(' ');
-                            string[] sistemTarihi = (DateTime.Now.ToString()).Split(' ');
-                            if (doğumTarihi[0] == sistemTarihi[0])
-                                patient.DateOfBirth = null;
+                            if (patient.Code == txtPatientCode.Text)
+                            {
+                                string[] doğumTarihi = (clndrBirthday.Value.ToString()).Split(' ');
+                                string[] sistemTarihi = (DateTime.Now.ToString()).Split(' ');
+                                if (doğumTarihi[0] == sistemTarihi[0])
+                                    patient.DateOfBirth = null;
+                                else
+                                    patient.DateOfBirth = clndrBirthday.Value;
+                                patient.Notes = txtDescription.Text.ToString();
+                                db.SaveChanges();
+                                DialogResult information = new DialogResult();
+                                information = MessageBox.Show(resourceManager.GetString("msgPatientEdited", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                             else
-                                patient.DateOfBirth = clndrBirthday.Value;
-                            patient.Notes = txtDescription.Text.ToString();
-                            db.SaveChanges();
-                            DialogResult information = new DialogResult();
-                            information = MessageBox.Show(resourceManager.GetString("msgPatientEdited", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            {
+                                List<Patient> patientList = (from x in db.Patients select x).ToList();
+                                for (int i = 0; i < patientList.Count; i++)
+                                {
+                                    if (patientList[i].Code == txtPatientCode.Text)
+                                    {
+                                        flag1 = 1;
+                                        break;
+                                    }
+                                }
+                                if (flag1 == 0)
+                                {
+                                    patient.Code = txtPatientCode.Text;
+                                    string[] doğumTarihi = (clndrBirthday.Value.ToString()).Split(' ');
+                                    string[] sistemTarihi = (DateTime.Now.ToString()).Split(' ');
+                                    if (doğumTarihi[0] == sistemTarihi[0])
+                                        patient.DateOfBirth = null;
+                                    else
+                                        patient.DateOfBirth = clndrBirthday.Value;
+                                    patient.Notes = txtDescription.Text.ToString();
+                                    db.SaveChanges();
+                                    DialogResult information = new DialogResult();
+                                    information = MessageBox.Show(resourceManager.GetString("msgPatientEdited", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else if (flag1 == 1)
+                                {
+                                    MessageBox.Show(resourceManager.GetString("msgUserExists", GlobalVariables.uiLanguage));
+                                }
+                            }
+                            
                         }
 
                     }
