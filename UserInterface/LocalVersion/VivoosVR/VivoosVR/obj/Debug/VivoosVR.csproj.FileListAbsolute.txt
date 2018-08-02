@@ -160,3 +160,11 @@ D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\tr\Viv
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.csproj.CopyComplete
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.exe
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.pdb
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\itextsharp.dll
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\PdfSharp.Charting.dll
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\PdfSharp.dll
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\itextsharp.xml
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\PdfSharp.xml
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\PdfSharp.Charting.xml
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\de\PdfSharp.resources.dll
+C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\de\PdfSharp.Charting.resources.dll

@@ -17,6 +17,13 @@ using System.Reflection;
 using System.Resources;
 using System.Globalization;
 using System.Diagnostics;
+using PdfSharp;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Windows.Forms.DataVisualization.Charting;
+
+
+
 
 namespace VivoosVR
 {
@@ -143,7 +150,7 @@ namespace VivoosVR
             if (file1.ShowDialog() == DialogResult.OK)
             {
                 file = file1.FileName.ToString();
-                Workbook workbook = new Workbook();
+                /*Workbook workbook = new Workbook();
                 Worksheet worksheet = new Worksheet("First Sheet");
                 using (VivosEntities db = new VivosEntities())
                 {
@@ -178,9 +185,149 @@ namespace VivoosVR
                         Worksheet sheet = book.Worksheets[0];
                         MessageBox.Show(resourceManager.GetString("msgDataDownloaded", GlobalVariables.uiLanguage));
                     }
+                }*/
+
+                Excel.Application xlApp;
+                Excel.Workbooks xlWorkbooks;
+                Excel.Workbook xlWorkBook;
+                Excel.Sheets xlWorksheets;
+                Excel.Worksheet xlWorkSheet;
+
+                object misValue = Type.Missing;
+                xlApp = new Excel.Application();         
+                xlWorkbooks = xlApp.Workbooks;
+                //xlWorkBook = xlWorkbooks.Open(file, misValue, false, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook = xlWorkbooks.Add();
+                xlWorksheets = xlWorkBook.Worksheets;
+                xlWorkSheet = (Excel.Worksheet)xlWorksheets.get_Item(1);
+
+          
+                using (VivosEntities db = new VivosEntities())
+                {
+                    
+                    int k = 0;
+                    List<Session> sessionlist = (from x in db.Sessions where x.Id == GlobalVariables.Session_Data_ID select x).ToList();
+                    if (sessionlist == null)
+                        MessageBox.Show(resourceManager.GetString("msgData", GlobalVariables.uiLanguage));
+                    else
+                    {
+                        string data = sessionlist[0].SensorData.ToString();
+                        data = data.Replace("\r\n", ",");
+                        string[] data1 = (data.Split(','));
+                        /*xlWorkSheet.Columns[1].ColumnWidth = 24;
+                        xlWorkSheet.Columns[2].ColumnWidth = 24;
+                        xlWorkSheet.Columns[3].ColumnWidth = 24;*/
+                        xlWorkSheet.Cells[1, 1] = GlobalVariables.Session_ID_name;
+                        xlWorkSheet.Cells[1, 2] = GlobalVariables.Session_Data_name;
+                        xlWorkSheet.Cells[1, 3] = GlobalVariables.Session_Data_date;
+                        int i = 3;
+                        for (int a = 0; a < data1.Length / 7; a++)
+                        {
+                            for (int j = 1; j < 8; j++)
+                            {
+                               xlWorkSheet.Cells[i, j] = data1[k].ToString();
+                               k++;
+                            }
+                            i++;
+                        }
+                        
+
+                        Excel.Range chartRange;
+                        Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
+                        Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(400, 48, 300, 250);
+                        Excel.Chart chartPage = myChart.Chart;
+                        //chartRange = xlWorkSheet.get_Range("A2", "C" + (1 + data1.Length / 7));
+                        chartRange = xlWorkSheet.get_Range("A3:A" + ((2 + data1.Length / 7)).ToString() + ", C3:C" + ((2 + data1.Length / 7)).ToString());
+                        chartPage.SetSourceData(chartRange, misValue);
+                        chartPage.ChartType = Excel.XlChartType.xlLine;
+
+                        Excel.Range chartRange1;
+                        Excel.ChartObjects xlCharts1 = xlWorkSheet.ChartObjects(Type.Missing);
+                        Excel.ChartObject myChart1 = xlCharts.Add(400,328, 300, 250);
+                        Excel.Chart chartPage1 = myChart1.Chart;
+                        //chartRange1 = xlWorkSheet.get_Range("A2", "C" + (1 + data1.Length / 7));
+                        chartRange1 = xlWorkSheet.get_Range("A3:A" + ((2 + data1.Length / 7)).ToString() + ", B3:B" + ((2 + data1.Length / 7)).ToString());
+                        chartPage1.SetSourceData(chartRange1, misValue);
+                        chartPage1.ChartType = Excel.XlChartType.xlLine;
+
+                        xlWorkBook.SaveAs(file, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                        xlWorkBook.Close(false, misValue, misValue);
+                        xlApp.Quit();
+
+                       
+
+
+                        /*Marshal.ReleaseComObject(xlCharts);
+                        xlCharts = null;
+
+                        Marshal.ReleaseComObject(xlCharts1);
+                        xlCharts1 = null;
+
+                        Marshal.ReleaseComObject(myChart);
+                        myChart = null;
+
+                        Marshal.ReleaseComObject(myChart1);
+                        myChart1 = null;
+
+                        Marshal.ReleaseComObject(chartPage);
+                        chartPage = null;
+
+                        Marshal.ReleaseComObject(chartPage1);
+                        chartPage1 = null;
+
+                        Marshal.ReleaseComObject(chartRange);
+                        chartRange = null;
+
+                        Marshal.ReleaseComObject(chartRange1);
+                        chartRange1 = null;
+
+                        Marshal.ReleaseComObject(xlWorkSheet);
+                        xlWorkSheet = null;
+
+                        Marshal.ReleaseComObject(xlWorksheets);
+                        xlWorksheets = null; 
+
+                        Marshal.ReleaseComObject(xlWorkBook);
+                        xlWorkBook = null;
+
+                        Marshal.ReleaseComObject(xlWorkbooks);
+                        xlWorkbooks = null;
+
+                        xlApp.Quit();
+
+                        Marshal.ReleaseComObject(xlApp);
+                        xlApp = null;                      
+                        */
+
+                        releaseObject(xlWorkSheet);
+                        releaseObject(xlWorkBook);
+                        releaseObject(xlApp);
+                        
+                        MessageBox.Show(resourceManager.GetString("msgDataDownloaded", GlobalVariables.uiLanguage));
+
+                        
+                    }
                 }
             }
         }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             GlobalVariables.Sessions_Search_Flag = 1;
@@ -267,14 +414,15 @@ namespace VivoosVR
                         else
                             GlobalVariables.Session_Data_date = null;
                     }
-                    createDoc();
+                    
                 }
                 catch (Exception)
                 {
 
-                    
+                   
                 }
-               
+                createDoc();
+
             }
         }
     }

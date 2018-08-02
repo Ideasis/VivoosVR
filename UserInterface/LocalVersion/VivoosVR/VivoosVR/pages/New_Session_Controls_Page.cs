@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Resources;
 using System.Globalization;
+
 namespace VivoosVR
 {
     public partial class New_Session_Controls_Page : MasterForm
@@ -339,6 +340,7 @@ namespace VivoosVR
                     db.SaveChanges();
                     DialogResult information = new DialogResult();
                     information = MessageBox.Show(resourceManager.GetString("msgSessionAdded", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 GlobalVariables.NewSessions_Search_Flag = 0;
                 Sessions_Page sessions = new Sessions_Page();
