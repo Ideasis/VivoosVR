@@ -400,7 +400,7 @@ namespace VivoosVR
                         {
                             if (assetlist[i].Id == sessionlist[0].AssetId)
                             {
-                                GlobalVariables.Session_Data_name = assetlist[0].Name;
+                                GlobalVariables.Session_Data_name = assetlist[i].Name;
                                 break;
                             }
                         }

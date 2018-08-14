@@ -168,38 +168,55 @@ namespace VivoosVR
         {
             if (e.ColumnIndex == 4)
             {
-                using (VivosEntities db = new VivosEntities())
+                try
                 {
-                    GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    Asset exported_asset = (from x in db.Assets where x.Id == GlobalVariables.Asset_Start_ID select x).SingleOrDefault();
-                    List<AssetCommand> exported_asset_commands = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID orderby x.Step select x).ToList();
-                    AssetThumbnail exported_asset_thumbnail = (from x in db.AssetThumbnails where x.AssetId == GlobalVariables.Asset_Start_ID select x).SingleOrDefault();
-                    SaveFileDialog file1 = new SaveFileDialog();
-                    file1.InitialDirectory = ".\\desktop";
-                    file1.Filter = "Text|*.txt";
-                    file1.FileName = exported_asset.Name;
-                    if (file1.ShowDialog() == DialogResult.OK)
+                    using (VivosEntities db = new VivosEntities())
                     {
-                        data = data + "Ad" + "," + exported_asset.Name + "," + exported_asset.EnName + "," + exported_asset.ArabicName + Environment.NewLine;
-                        data = data + "Açıklama" + "," + exported_asset.Description + "," + exported_asset.EnDescription + "," + exported_asset.ArabicDescription + Environment.NewLine;
-                        data = data + "Senaryo URL" + "," + exported_asset.Url + Environment.NewLine;
-                        data = data + "Senaryo Exe" + "," + exported_asset.Exe + Environment.NewLine;
-                        data = data + "Aktif" + "," + exported_asset.Available + Environment.NewLine ;
+                        GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        Asset exported_asset = (from x in db.Assets where x.Id == GlobalVariables.Asset_Start_ID select x).SingleOrDefault();
+                        List<AssetCommand> exported_asset_commands = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID orderby x.Step select x).ToList();
+                        AssetThumbnail exported_asset_thumbnail = (from x in db.AssetThumbnails where x.AssetId == GlobalVariables.Asset_Start_ID select x).SingleOrDefault();
+                        SaveFileDialog file1 = new SaveFileDialog();
+                        file1.InitialDirectory = ".\\desktop";
+                        file1.Filter = "Text|*.txt";
+                        file1.FileName = exported_asset.Name;
+                        if (file1.ShowDialog() == DialogResult.OK)
+                        {
+                            data = data + resourceManager.GetString("lblName", GlobalVariables.uiLanguage) + "," + exported_asset.Name + "," + exported_asset.EnName + "," + exported_asset.ArabicName + Environment.NewLine;
+                            data = data + resourceManager.GetString("lblDescription", GlobalVariables.uiLanguage) + "," + exported_asset.Description + "," + exported_asset.EnDescription + "," + exported_asset.ArabicDescription + Environment.NewLine;
+                            data = data + resourceManager.GetString("lblScenarioPath", GlobalVariables.uiLanguage) + "," + exported_asset.Url + Environment.NewLine;
+                            data = data + resourceManager.GetString("lblScenarioExe", GlobalVariables.uiLanguage) + "," + exported_asset.Exe + Environment.NewLine;
+                            data = data + resourceManager.GetString("lblAvailable", GlobalVariables.uiLanguage) + "," + exported_asset.Available + Environment.NewLine;
 
-                        for (int i = 0; i < exported_asset_commands.Count; i++)
-                        {
-                            data = data + "Komut" + i + "," + exported_asset_commands[i].Description + "," + exported_asset_commands[i].EnDescription + "," + exported_asset_commands[i].ArabicDescription + "," + exported_asset_commands[i].CommandText + "," + exported_asset_commands[i].Step + Environment.NewLine;
+                            for (int i = 0; i < exported_asset_commands.Count; i++)
+                            {
+                                data = data + resourceManager.GetString("lblCommands", GlobalVariables.uiLanguage) + i + "," + exported_asset_commands[i].Description + "," + exported_asset_commands[i].EnDescription + "," + exported_asset_commands[i].ArabicDescription + "," + exported_asset_commands[i].CommandText + "," + exported_asset_commands[i].Step + Environment.NewLine;
+                            }
+                            /*byte[] thumbnail= exported_asset_thumbnail.Thumbnail;
+                            data = data + resourceManager.GetString("headerThumbnail", GlobalVariables.uiLanguage) + ",";
+                            for (int i = 0; i < thumbnail.Length; i++)
+                            {
+                                data = data + thumbnail[i] + "-";
+                            }
+                            data = data + Environment.NewLine;*/
+                            /* using (MemoryStream memoryStream = new MemoryStream(exported_asset_thumbnail.Thumbnail))
+                             {
+                                 Bitmap bmp = new Bitmap(memoryStream);
+                                 data = data + resourceManager.GetString("headerThumbnail", GlobalVariables.uiLanguage) + "," + bmp + Environment.NewLine;
+                             }*/
+                            data = data.Replace("\r\n,", ",");
+                            data = data.Replace("\r\n\r\n", "\r\n");
+                            System.IO.File.WriteAllText(file1.FileName, data);
+                            MessageBox.Show(resourceManager.GetString("msgScenarioExported", GlobalVariables.uiLanguage));
                         }
-                        using (MemoryStream memoryStream = new MemoryStream(exported_asset_thumbnail.Thumbnail))
-                        {
-                            Bitmap bmp = new Bitmap(memoryStream);
-                            data = data + "Küçük Resim" + "," + bmp + Environment.NewLine;
-                        }
-                        data = data.Replace("\r\n,", ",");
-                        data = data.Replace("\r\n\r\n", "\r\n");
-                        System.IO.File.WriteAllText(file1.FileName, data);
                     }
                 }
+                catch (Exception)
+                {
+
+                   
+                }
+                
             }
             else if (e.ColumnIndex == 5)
             {

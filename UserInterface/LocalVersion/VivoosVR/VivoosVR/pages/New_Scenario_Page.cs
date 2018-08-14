@@ -411,74 +411,90 @@ namespace VivoosVR
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            commandsLayout.Controls.Clear();
-            commandsLayout.RowCount = commandsLayout.RowCount - 1;
-            txtTurkishExplanation.Clear();
-            txtEnglishExplanation.Clear();
-            txtArabicExplanation.Clear();
-            txtCommand.Clear();
-            txtStep.Clear();
-            txtID.Clear();
-            string[] asset_imformation = null;
-            OpenFileDialog file1 = new OpenFileDialog();
-            file1.InitialDirectory = ".\\desktop";
-            file1.Filter = "Text|*.txt";
-            if (file1.ShowDialog() == DialogResult.OK)
+            try
             {
-                asset_imformation = System.IO.File.ReadAllLines(file1.FileName);
+                commandsLayout.Controls.Clear();
+                commandsLayout.RowCount = commandsLayout.RowCount - 1;
+                txtTurkishExplanation.Clear();
+                txtEnglishExplanation.Clear();
+                txtArabicExplanation.Clear();
+                txtCommand.Clear();
+                txtStep.Clear();
+                txtID.Clear();
+                string[] asset_imformation = null;
+                OpenFileDialog file1 = new OpenFileDialog();
+                file1.InitialDirectory = ".\\desktop";
+                file1.Filter = "Text|*.txt";
+                if (file1.ShowDialog() == DialogResult.OK)
+                {
+                    asset_imformation = System.IO.File.ReadAllLines(file1.FileName);
+                }
+                for (int i = 0; i < asset_imformation.Length; i++)
+                {
+                    var splitted = asset_imformation[i].Split(new char[] { ',' });
+                    if (splitted[0].Contains(resourceManager.GetString("lblName", GlobalVariables.uiLanguage)) == true)
+                    {
+                        txtTurkishName.Text = splitted[1];
+                        txtEnglishName.Text = splitted[2];
+                        txtArabicName.Text = splitted[3];
+                    }
+                    else if (splitted[0].Contains(resourceManager.GetString("lblDescription", GlobalVariables.uiLanguage)) == true)
+                    {
+                        txtTurkishDescription.Text = splitted[1];
+                        txtEnglishDescription.Text = splitted[2];
+                        txtArabicDescription.Text = splitted[3];
+                    }
+                    else if (splitted[0].Contains(resourceManager.GetString("lblScenarioPath", GlobalVariables.uiLanguage)) == true)
+                    {
+                        txtScenarioPath.Text = splitted[1];
+                    }
+                    else if (splitted[0].Contains(resourceManager.GetString("lblScenarioExe", GlobalVariables.uiLanguage)) == true)
+                    {
+                        txtScenarioExe.Text = splitted[1];
+                    }
+                    else if (splitted[0].Contains(resourceManager.GetString("lblAvailable", GlobalVariables.uiLanguage)) == true)
+                    {
+                        if (splitted[1].Contains("True") == true)
+                        {
+                            cbAvaliable.Checked = true;
+                        }
+                        else
+                        {
+                            cbAvaliable.Checked = false;
+                        }
+                    }
+                    else if (splitted[0].Contains(resourceManager.GetString("lblCommands", GlobalVariables.uiLanguage)) == true)
+                    {
+                        commandsLayout.RowCount = commandsLayout.RowCount + 1;
+                        commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[1], Name = "txtTurkishExplanations" + (commandsLayout.RowCount - 1) }, 0, commandsLayout.RowCount - 1);
+                        commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[2], Name = "txtEnglishExplanations" + (commandsLayout.RowCount - 1) }, 1, commandsLayout.RowCount - 1);
+                        commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[3], Name = "txtArabicExplanations" + (commandsLayout.RowCount - 1) }, 2, commandsLayout.RowCount - 1);
+                        commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[4], Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
+                        commandsLayout.Controls.Add(new TextBox() { Text = Convert.ToByte(splitted[5]).ToString(), Name = "txtSteps" + (commandsLayout.RowCount - 1) }, 4, commandsLayout.RowCount - 1);
+                        commandsLayout.Controls.Add(new TextBox() { Visible = false, Text = "00000000-0000-0000-0000-000000000000", Name = "txtID" + (commandsLayout.RowCount - 1) }, 5, commandsLayout.RowCount - 1);
+                        txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                        txtEnglishExplanation.Add((commandsLayout.Controls.Find(("txtEnglishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                        txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                        txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                        txtStep.Add((commandsLayout.Controls.Find(("txtSteps" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                        txtID.Add((commandsLayout.Controls.Find(("txtID" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    }
+                    else if (splitted[0].Contains(resourceManager.GetString("headerThumbnail", GlobalVariables.uiLanguage)) == true)
+                    {
+                        /* using (MemoryStream memoryStream = new MemoryStream(Convert.ToByte(splitted[1])))
+                         {
+                             Bitmap bmp = new Bitmap(memoryStream);
+                             pictureBox2.Image = bmp;
+                         }*/
+                    }
+                }
             }
-            for (int i = 0; i < asset_imformation.Length ; i++)
+            catch (Exception)
             {
-                var splitted = asset_imformation[i].Split(new char[] { ','});
-                if (splitted[0].Contains("Ad") == true)
-                {
-                    txtTurkishName.Text = splitted[1];
-                    txtEnglishName.Text = splitted[2];
-                    txtArabicName.Text = splitted[3];
-                }
-                else if (splitted[0].Contains("Açıklama") == true)
-                {
-                    txtTurkishDescription.Text = splitted[1];
-                    txtEnglishDescription.Text = splitted[2];
-                    txtArabicDescription.Text = splitted[3];
-                }
-                else if (splitted[0].Contains("Senaryo URL") == true)
-                {
-                    txtScenarioPath.Text = splitted[1];
-                }
-                else if (splitted[0].Contains("Senaryo Exe") == true)
-                {
-                    txtScenarioExe.Text = splitted[1];
-                }
-                else if (splitted[0].Contains("Aktif") == true)
-                {
-                    if (splitted[1].Contains("True")==true)
-                    {
-                        cbAvaliable.Checked = true;
-                    }
-                    else
-                    {
-                        cbAvaliable.Checked = false;
-                    }
-                }
-                else if (splitted[0].Contains("Komut") == true)
-                {
-                    commandsLayout.RowCount = commandsLayout.RowCount + 1;
-                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[1], Name = "txtTurkishExplanations" + (commandsLayout.RowCount - 1) }, 0, commandsLayout.RowCount - 1);
-                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[2], Name = "txtEnglishExplanations" + (commandsLayout.RowCount - 1) }, 1, commandsLayout.RowCount - 1);
-                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[3], Name = "txtArabicExplanations" + (commandsLayout.RowCount - 1) }, 2, commandsLayout.RowCount - 1);
-                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[4], Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
-                    commandsLayout.Controls.Add(new TextBox() { Text = Convert.ToByte(splitted[5]).ToString(), Name = "txtSteps" + (commandsLayout.RowCount - 1) }, 4, commandsLayout.RowCount - 1);
-                    commandsLayout.Controls.Add(new TextBox() { Visible = false, Text = "00000000-0000-0000-0000-000000000000", Name = "txtID" + (commandsLayout.RowCount - 1) }, 5, commandsLayout.RowCount - 1);
-                    txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-                    txtEnglishExplanation.Add((commandsLayout.Controls.Find(("txtEnglishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-                    txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-                    txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-                    txtStep.Add((commandsLayout.Controls.Find(("txtSteps" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-                    txtID.Add((commandsLayout.Controls.Find(("txtID" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-                    
-                }
+
+               
             }
+            
         }
 
        

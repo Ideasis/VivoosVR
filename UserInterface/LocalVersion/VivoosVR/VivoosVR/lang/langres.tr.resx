@@ -252,11 +252,17 @@
   <data name="lblCommands" xml:space="preserve">
     <value>Komutlar</value>
   </data>
+  <data name="lblDescription" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
   <data name="lblEnglishDescription" xml:space="preserve">
     <value>İngilizce Açıklama</value>
   </data>
   <data name="lblEnglishName" xml:space="preserve">
     <value>İngilizce Ad</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Ad</value>
   </data>
   <data name="lblNameSurname" xml:space="preserve">
     <value>Ad / Soyad</value>
@@ -383,6 +389,9 @@
   </data>
   <data name="msgScenarioEdited" xml:space="preserve">
     <value>Senaryo Düzenlendi!</value>
+  </data>
+  <data name="msgScenarioExported" xml:space="preserve">
+    <value>Senaryo dışarı aktarıldı!</value>
   </data>
   <data name="msgSessionAdded" xml:space="preserve">
     <value>Oturum eklendi!</value>
