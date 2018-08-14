@@ -138,6 +138,9 @@
   <data name="btnExit" xml:space="preserve">
     <value>خروج</value>
   </data>
+  <data name="btnImport" xml:space="preserve">
+    <value>Import</value>
+  </data>
   <data name="btnLogin" xml:space="preserve">
     <value>دخول</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="headerExplanation" xml:space="preserve">
     <value>توضيح </value>
+  </data>
+  <data name="headerExport" xml:space="preserve">
+    <value>Export</value>
   </data>
   <data name="headerNotes" xml:space="preserve">
     <value>ملاحظات </value>

@@ -91,26 +91,24 @@ namespace VivoosVR
         { 
             commandsLayout.RowCount = commandsLayout.RowCount + 1;
             commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), /*Text = (commandsLayout.RowCount - 1).ToString(),*/ Name = "txtTurkishExplanations" + (commandsLayout.RowCount - 1) }, 0, commandsLayout.RowCount - 1);
-            txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
             commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20),  Name = "txtEnglishExplanations" + (commandsLayout.RowCount - 1) }, 1, commandsLayout.RowCount - 1);
-            txtEnglishExplanation.Add((commandsLayout.Controls.Find(("txtEnglishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
             commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20),  Name = "txtArabicExplanations" + (commandsLayout.RowCount - 1) }, 2, commandsLayout.RowCount - 1);
-            txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-
-
             commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
-            System.Windows.Forms.Control[] denemelik = commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true);
-            txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-
-
             commandsLayout.Controls.Add(new TextBox() { Name = "txtSteps" + (commandsLayout.RowCount - 1) }, 4, commandsLayout.RowCount - 1);
-            txtStep.Add((commandsLayout.Controls.Find(("txtSteps" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
             commandsLayout.Controls.Add(new TextBox() { Visible = false, Text = "00000000-0000-0000-0000-000000000000", Name = "txtID" + (commandsLayout.RowCount - 1) }, 5, commandsLayout.RowCount - 1);
+
+            txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+            txtEnglishExplanation.Add((commandsLayout.Controls.Find(("txtEnglishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+            txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+            txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+            txtStep.Add((commandsLayout.Controls.Find(("txtSteps" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
             txtID.Add((commandsLayout.Controls.Find(("txtID" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+
         }
         private void new_scenario_Load(object sender, EventArgs e)
         {
             lblAvailable.Text = resourceManager.GetString("lblAvailable", GlobalVariables.uiLanguage);
+            btnImport.Text = resourceManager.GetString("btnImport", GlobalVariables.uiLanguage);
             lblTurkishName.Text = resourceManager.GetString("lblTurkishName", GlobalVariables.uiLanguage);
             lblEnglishName.Text = resourceManager.GetString("lblEnglishName", GlobalVariables.uiLanguage);
             lblArabicName.Text = resourceManager.GetString("lblArabicName", GlobalVariables.uiLanguage);
@@ -156,11 +154,7 @@ namespace VivoosVR
                 txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
                 txtEnglishExplanation.Add((commandsLayout.Controls.Find(("txtEnglishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
                 txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-
-
                 txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
-
-
                 txtStep.Add((commandsLayout.Controls.Find(("txtSteps" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
                 txtID.Add((commandsLayout.Controls.Find(("txtID" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
 
@@ -203,11 +197,11 @@ namespace VivoosVR
 
         private void txtAd_TextChanged(object sender, EventArgs e)
         {
-            if (GlobalVariables.Is_Edit==false)
+            /*if (GlobalVariables.Is_Edit==false)
             {
                 txtScenarioExe.Text = txtTurkishName.Text + ".exe";
                 txtScenarioPath.Text = VivoosVR.Properties.Settings.Default.senaryo_dizin + txtTurkishName.Text + Convert.ToString(@"\") + txtScenarioExe.Text ;
-            }  
+            }  */
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -414,5 +408,79 @@ namespace VivoosVR
                 procs.Kill();
             }
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            commandsLayout.Controls.Clear();
+            commandsLayout.RowCount = commandsLayout.RowCount - 1;
+            txtTurkishExplanation.Clear();
+            txtEnglishExplanation.Clear();
+            txtArabicExplanation.Clear();
+            txtCommand.Clear();
+            txtStep.Clear();
+            txtID.Clear();
+            string[] asset_imformation = null;
+            OpenFileDialog file1 = new OpenFileDialog();
+            file1.InitialDirectory = ".\\desktop";
+            file1.Filter = "Text|*.txt";
+            if (file1.ShowDialog() == DialogResult.OK)
+            {
+                asset_imformation = System.IO.File.ReadAllLines(file1.FileName);
+            }
+            for (int i = 0; i < asset_imformation.Length ; i++)
+            {
+                var splitted = asset_imformation[i].Split(new char[] { ','});
+                if (splitted[0].Contains("Ad") == true)
+                {
+                    txtTurkishName.Text = splitted[1];
+                    txtEnglishName.Text = splitted[2];
+                    txtArabicName.Text = splitted[3];
+                }
+                else if (splitted[0].Contains("Açıklama") == true)
+                {
+                    txtTurkishDescription.Text = splitted[1];
+                    txtEnglishDescription.Text = splitted[2];
+                    txtArabicDescription.Text = splitted[3];
+                }
+                else if (splitted[0].Contains("Senaryo URL") == true)
+                {
+                    txtScenarioPath.Text = splitted[1];
+                }
+                else if (splitted[0].Contains("Senaryo Exe") == true)
+                {
+                    txtScenarioExe.Text = splitted[1];
+                }
+                else if (splitted[0].Contains("Aktif") == true)
+                {
+                    if (splitted[1].Contains("True")==true)
+                    {
+                        cbAvaliable.Checked = true;
+                    }
+                    else
+                    {
+                        cbAvaliable.Checked = false;
+                    }
+                }
+                else if (splitted[0].Contains("Komut") == true)
+                {
+                    commandsLayout.RowCount = commandsLayout.RowCount + 1;
+                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[1], Name = "txtTurkishExplanations" + (commandsLayout.RowCount - 1) }, 0, commandsLayout.RowCount - 1);
+                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[2], Name = "txtEnglishExplanations" + (commandsLayout.RowCount - 1) }, 1, commandsLayout.RowCount - 1);
+                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[3], Name = "txtArabicExplanations" + (commandsLayout.RowCount - 1) }, 2, commandsLayout.RowCount - 1);
+                    commandsLayout.Controls.Add(new TextBox() { Size = new Size(242, 20), Text = splitted[4], Name = "txtCommands" + (commandsLayout.RowCount - 1) }, 3, commandsLayout.RowCount - 1);
+                    commandsLayout.Controls.Add(new TextBox() { Text = Convert.ToByte(splitted[5]).ToString(), Name = "txtSteps" + (commandsLayout.RowCount - 1) }, 4, commandsLayout.RowCount - 1);
+                    commandsLayout.Controls.Add(new TextBox() { Visible = false, Text = "00000000-0000-0000-0000-000000000000", Name = "txtID" + (commandsLayout.RowCount - 1) }, 5, commandsLayout.RowCount - 1);
+                    txtTurkishExplanation.Add((commandsLayout.Controls.Find(("txtTurkishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    txtEnglishExplanation.Add((commandsLayout.Controls.Find(("txtEnglishExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    txtArabicExplanation.Add((commandsLayout.Controls.Find(("txtArabicExplanations" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    txtCommand.Add((commandsLayout.Controls.Find(("txtCommands" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    txtStep.Add((commandsLayout.Controls.Find(("txtSteps" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    txtID.Add((commandsLayout.Controls.Find(("txtID" + (commandsLayout.RowCount - 1)), true)[0]) as TextBox);
+                    
+                }
+            }
+        }
+
+       
     }
 }

@@ -17,6 +17,7 @@ namespace VivoosVR
 {
     public partial class Admin_Page : MasterForm
     {
+        string data;
         public Admin_Page()
         {
             string key = null;
@@ -71,7 +72,7 @@ namespace VivoosVR
 
                 add_button();
                 scenarios_datagrid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                for (int i = 0; i < scenarios_datagrid.ColumnCount - 2; i++)
+                for (int i = 0; i < scenarios_datagrid.ColumnCount - 3; i++)
                 {
                     scenarios_datagrid.Columns[i].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 }
@@ -124,6 +125,13 @@ namespace VivoosVR
         }
         public void add_button()
         {
+            DataGridViewButtonColumn btnExport = new DataGridViewButtonColumn();
+            scenarios_datagrid.Columns.Add(btnExport);
+            btnExport.HeaderText = resourceManager.GetString("headerExport", GlobalVariables.uiLanguage);
+            btnExport.Text = resourceManager.GetString("headerExport", GlobalVariables.uiLanguage);
+            btnExport.Name = "exportBtn";
+            btnExport.UseColumnTextForButtonValue = true;
+
             DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
             scenarios_datagrid.Columns.Add(btnDelete);
             btnDelete.HeaderText = resourceManager.GetString("headerDelete", GlobalVariables.uiLanguage);
@@ -159,6 +167,41 @@ namespace VivoosVR
         private void scenarios_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4)
+            {
+                using (VivosEntities db = new VivosEntities())
+                {
+                    GlobalVariables.Asset_Start_ID = Guid.Parse(scenarios_datagrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    Asset exported_asset = (from x in db.Assets where x.Id == GlobalVariables.Asset_Start_ID select x).SingleOrDefault();
+                    List<AssetCommand> exported_asset_commands = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID orderby x.Step select x).ToList();
+                    AssetThumbnail exported_asset_thumbnail = (from x in db.AssetThumbnails where x.AssetId == GlobalVariables.Asset_Start_ID select x).SingleOrDefault();
+                    SaveFileDialog file1 = new SaveFileDialog();
+                    file1.InitialDirectory = ".\\desktop";
+                    file1.Filter = "Text|*.txt";
+                    file1.FileName = exported_asset.Name;
+                    if (file1.ShowDialog() == DialogResult.OK)
+                    {
+                        data = data + "Ad" + "," + exported_asset.Name + "," + exported_asset.EnName + "," + exported_asset.ArabicName + Environment.NewLine;
+                        data = data + "Açıklama" + "," + exported_asset.Description + "," + exported_asset.EnDescription + "," + exported_asset.ArabicDescription + Environment.NewLine;
+                        data = data + "Senaryo URL" + "," + exported_asset.Url + Environment.NewLine;
+                        data = data + "Senaryo Exe" + "," + exported_asset.Exe + Environment.NewLine;
+                        data = data + "Aktif" + "," + exported_asset.Available + Environment.NewLine ;
+
+                        for (int i = 0; i < exported_asset_commands.Count; i++)
+                        {
+                            data = data + "Komut" + i + "," + exported_asset_commands[i].Description + "," + exported_asset_commands[i].EnDescription + "," + exported_asset_commands[i].ArabicDescription + "," + exported_asset_commands[i].CommandText + "," + exported_asset_commands[i].Step + Environment.NewLine;
+                        }
+                        using (MemoryStream memoryStream = new MemoryStream(exported_asset_thumbnail.Thumbnail))
+                        {
+                            Bitmap bmp = new Bitmap(memoryStream);
+                            data = data + "Küçük Resim" + "," + bmp + Environment.NewLine;
+                        }
+                        data = data.Replace("\r\n,", ",");
+                        data = data.Replace("\r\n\r\n", "\r\n");
+                        System.IO.File.WriteAllText(file1.FileName, data);
+                    }
+                }
+            }
+            else if (e.ColumnIndex == 5)
             {
                 try
                 {
@@ -196,7 +239,7 @@ namespace VivoosVR
                    
                 }
             }
-            else if (e.ColumnIndex == 5)
+            else if (e.ColumnIndex == 6)
             {
                 try
                 {

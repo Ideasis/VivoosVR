@@ -138,6 +138,9 @@
   <data name="btnExit" xml:space="preserve">
     <value>Çıkış</value>
   </data>
+  <data name="btnImport" xml:space="preserve">
+    <value>İçeri Aktar</value>
+  </data>
   <data name="btnLogin" xml:space="preserve">
     <value>Giriş</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="headerExplanation" xml:space="preserve">
     <value>Açıklama</value>
+  </data>
+  <data name="headerExport" xml:space="preserve">
+    <value>Dışarı Aktar</value>
   </data>
   <data name="headerNotes" xml:space="preserve">
     <value>Notlar</value>

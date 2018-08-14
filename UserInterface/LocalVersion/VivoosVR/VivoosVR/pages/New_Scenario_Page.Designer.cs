@@ -34,6 +34,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.commandsLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -144,6 +145,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 217F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
             this.tableLayoutPanel2.Controls.Add(this.btnSave, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnImport, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 793);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -163,6 +165,17 @@
             this.btnSave.Text = "Kaydet";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImport.Location = new System.Drawing.Point(1053, 3);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(187, 40);
+            this.btnImport.TabIndex = 1;
+            this.btnImport.Text = "İçeri Aktar";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -346,7 +359,7 @@
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.40486F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.59514F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 221F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
             this.tableLayoutPanel7.Controls.Add(this.lblEnglishName, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.lblArabicName, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.lblTurkishName, 0, 0);
@@ -361,7 +374,7 @@
             // 
             this.lblEnglishName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEnglishName.AutoSize = true;
-            this.lblEnglishName.Location = new System.Drawing.Point(248, 33);
+            this.lblEnglishName.Location = new System.Drawing.Point(247, 33);
             this.lblEnglishName.Name = "lblEnglishName";
             this.lblEnglishName.Size = new System.Drawing.Size(61, 13);
             this.lblEnglishName.TabIndex = 2;
@@ -371,7 +384,7 @@
             // 
             this.lblArabicName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblArabicName.AutoSize = true;
-            this.lblArabicName.Location = new System.Drawing.Point(490, 33);
+            this.lblArabicName.Location = new System.Drawing.Point(488, 33);
             this.lblArabicName.Name = "lblArabicName";
             this.lblArabicName.Size = new System.Drawing.Size(57, 13);
             this.lblArabicName.TabIndex = 1;
@@ -627,5 +640,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label lblAvailable;
         private System.Windows.Forms.CheckBox cbAvaliable;
+        private System.Windows.Forms.Button btnImport;
     }
 }

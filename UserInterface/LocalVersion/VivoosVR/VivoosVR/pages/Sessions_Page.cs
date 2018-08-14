@@ -22,9 +22,6 @@ using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System.Windows.Forms.DataVisualization.Charting;
 
-
-
-
 namespace VivoosVR
 {
     public partial class Sessions_Page : MasterForm
@@ -150,7 +147,7 @@ namespace VivoosVR
             if (file1.ShowDialog() == DialogResult.OK)
             {
                 file = file1.FileName.ToString();
-                /*Workbook workbook = new Workbook();
+                Workbook workbook = new Workbook();
                 Worksheet worksheet = new Worksheet("First Sheet");
                 using (VivosEntities db = new VivosEntities())
                 {
@@ -185,9 +182,9 @@ namespace VivoosVR
                         Worksheet sheet = book.Worksheets[0];
                         MessageBox.Show(resourceManager.GetString("msgDataDownloaded", GlobalVariables.uiLanguage));
                     }
-                }*/
+                }
 
-                Excel.Application xlApp;
+                /*Excel.Application xlApp;
                 Excel.Workbooks xlWorkbooks;
                 Excel.Workbook xlWorkBook;
                 Excel.Sheets xlWorksheets;
@@ -214,9 +211,9 @@ namespace VivoosVR
                         string data = sessionlist[0].SensorData.ToString();
                         data = data.Replace("\r\n", ",");
                         string[] data1 = (data.Split(','));
-                        /*xlWorkSheet.Columns[1].ColumnWidth = 24;
+                        xlWorkSheet.Columns[1].ColumnWidth = 24;
                         xlWorkSheet.Columns[2].ColumnWidth = 24;
-                        xlWorkSheet.Columns[3].ColumnWidth = 24;*/
+                        xlWorkSheet.Columns[3].ColumnWidth = 24;
                         xlWorkSheet.Cells[1, 1] = GlobalVariables.Session_ID_name;
                         xlWorkSheet.Cells[1, 2] = GlobalVariables.Session_Data_name;
                         xlWorkSheet.Cells[1, 3] = GlobalVariables.Session_Data_date;
@@ -257,7 +254,7 @@ namespace VivoosVR
                        
 
 
-                        /*Marshal.ReleaseComObject(xlCharts);
+                        Marshal.ReleaseComObject(xlCharts);
                         xlCharts = null;
 
                         Marshal.ReleaseComObject(xlCharts1);
@@ -297,7 +294,7 @@ namespace VivoosVR
 
                         Marshal.ReleaseComObject(xlApp);
                         xlApp = null;                      
-                        */
+                        
 
                         releaseObject(xlWorkSheet);
                         releaseObject(xlWorkBook);
@@ -307,7 +304,7 @@ namespace VivoosVR
 
                         
                     }
-                }
+                }*/
             }
         }
         private void releaseObject(object obj)
@@ -414,14 +411,15 @@ namespace VivoosVR
                         else
                             GlobalVariables.Session_Data_date = null;
                     }
-                    
+                    createDoc();
+
                 }
                 catch (Exception)
                 {
 
                    
                 }
-                createDoc();
+               
 
             }
         }
