@@ -15,6 +15,6 @@ Links to the latest version of the scenarios can be found below:
 
 WebVR related links can be found below:
 
-1. Fear of Height - Balcony Scenario - WebVR
-	1.1. Build: [Fear of Height - Balcony Scenario - WebVR version 0.8.0](https://www.dropbox.com/sh/lkpk96ujhm44h6e/AABFP2dSAdalOsYrVswlkaTfa?dl=0) 
-	1.2. Try: [Fear of Height - Balcony Scenario](http://www.ideasis.com.tr/Content/Balkon/index.html)
+1. Fear of Height - Balcony Scenario - WebVR:
+	1. Build: [Fear of Height - Balcony Scenario - WebVR version 0.8.0](https://www.dropbox.com/sh/lkpk96ujhm44h6e/AABFP2dSAdalOsYrVswlkaTfa?dl=0) 
+	1. Try: [Fear of Height - Balcony Scenario](http://www.ideasis.com.tr/Content/Balkon/index.html)
