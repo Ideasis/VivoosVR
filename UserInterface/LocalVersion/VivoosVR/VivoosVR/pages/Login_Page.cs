@@ -8,6 +8,11 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Resources;
 using System.Globalization;
+using System.Data.SqlClient;
+using Microsoft.SqlServer.Server;
+using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
+using System.IO;
 
 namespace VivoosVR
 {
@@ -15,53 +20,152 @@ namespace VivoosVR
     {
         public Login_Page()
         {
+            Page_Load();
             InitializeComponent();
             PlaceSelfOnSecondMonitor();
         }
-        private void btnLogin_Click(object sender, EventArgs e)
+        protected void Page_Load()
         {
-            //Checks the case of all textboxes are filled
-            if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text))
+            int flag = 0;
+            string connectionString = "Data Source=.\\SQLEXPRESS; Integrated Security=True;";
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                DialogResult error = new DialogResult();
-                error = MessageBox.Show(resourceManager.GetString("msgFields", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            else
-            {
-                using (VivosEntities db = new VivosEntities())
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT name from sys.databases", con))
                 {
-                    Consumer consumer = (Consumer)(from x in db.Consumers where x.Email.Equals(txtUsername.Text) select x).FirstOrDefault();
-
-                    if (consumer != null)
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        User user = (User)(from x in db.Users where consumer.Id.Equals(x.Id) && x.Password.Equals(txtPassword.Text) select x).FirstOrDefault();
-
-                        if (user != null)
+                        while (dr.Read())
                         {
-                            GlobalVariables.LoginID = consumer.Id;
-
-                            if (consumer.Code.Equals("admin"))
+                            if (dr[0].ToString() == "Vivos")
                             {
-                                Admin_Page admin = new Admin_Page();
-                                this.Hide();
-                                admin.Show();
+                                flag = 1;
+                                con.Close();
+                                break;
                             }
-
-                            else
-                            {
-                                Patients_Page patients = new Patients_Page();
-                                this.Hide();
-                                patients.Show();
-                            }
-                            return;
                         }
                     }
                 }
 
-                DialogResult error = new DialogResult();
-                error = MessageBox.Show(resourceManager.GetString("msgWrong", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (flag == 0)
+                {
+                    string startuppath = System.IO.Path.GetFullPath(".\\");
+                    string MDFCreator = startuppath + "\\VivoosMDFCreator.sql";
+                    string TableCreator = startuppath + "\\VivoosTableCreator.sql";
+                    string elementAdder = startuppath + "\\ElementAdder.sql";
+                    try
+                    {
+                        string sqlConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosMDFCreator.sql");
+                        string script = File.ReadAllText(MDFCreator);
+                        SqlConnection conn = new SqlConnection(sqlConnectionString);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        Server server = new Server(new ServerConnection(conn));
+                        server.ConnectionContext.ExecuteNonQuery(script);
+
+                        string sqlConnectionString1 = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script1 = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
+                        string script1 = File.ReadAllText(TableCreator);
+                        SqlConnection conn1 = new SqlConnection(sqlConnectionString1);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        Server server1 = new Server(new ServerConnection(conn));
+                        server.ConnectionContext.ExecuteNonQuery(script);
+
+                        string sqlConnectionString2 = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
+                        string script2 = File.ReadAllText(elementAdder);
+                        SqlConnection conn2 = new SqlConnection(sqlConnectionString2);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        Server server2 = new Server(new ServerConnection(conn2));
+                        server.ConnectionContext.ExecuteNonQuery(script2);
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show(ex.ToString());
+
+                        string sqlConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
+                        string script = File.ReadAllText(TableCreator);
+                        SqlConnection conn = new SqlConnection(sqlConnectionString);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        Server server = new Server(new ServerConnection(conn));
+                        server.ConnectionContext.ExecuteNonQuery(script);
+
+                        string sqlConnectionString1 = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
+                        string script1 = File.ReadAllText(elementAdder);
+                        SqlConnection conn1 = new SqlConnection(sqlConnectionString1);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        Server server1 = new Server(new ServerConnection(conn1));
+                        server.ConnectionContext.ExecuteNonQuery(script1);
+                    }
+                }
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //Checks the case of all textboxes are filled
+            try
+            {
+                if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text))
+                {
+                    DialogResult error = new DialogResult();
+                    error = MessageBox.Show(resourceManager.GetString("msgFields", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else
+                {
+                    using (VivosEntities db = new VivosEntities())
+                    {
+                        Consumer consumer = (Consumer)(from x in db.Consumers where x.Email.Equals(txtUsername.Text) select x).FirstOrDefault();
+
+                        if (consumer != null)
+                        {
+                            User user = (User)(from x in db.Users where consumer.Id.Equals(x.Id) && x.Password.Equals(txtPassword.Text) select x).FirstOrDefault();
+
+                            if (user != null)
+                            {
+                                GlobalVariables.LoginID = consumer.Id;
+
+                                if (consumer.Code.Equals("admin"))
+                                {
+                                    Admin_Page admin = new Admin_Page();
+                                    this.Hide();
+                                    admin.Show();
+                                }
+
+                                else
+                                {
+                                    Patients_Page patients = new Patients_Page();
+                                    this.Hide();
+                                    patients.Show();
+                                }
+                                return;
+                            }
+                        }
+                    }
+
+                    DialogResult error = new DialogResult();
+                    error = MessageBox.Show(resourceManager.GetString("msgWrong", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                /*SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                con.Open();
+                string str = "USE Master;";
+                //string str1 = "ALTER DATABASE Vivos SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+                string str2 = "RESTORE DATABASE Vivos FROM DISK='.\\Vivos.bak' WITH REPLACE";
+                SqlCommand cmd = new SqlCommand(str, con);
+                //SqlCommand cmd1 = new SqlCommand(str1, con);
+                SqlCommand cmd2 = new SqlCommand(str2, con);
+                cmd.ExecuteNonQuery();
+                // cmd1.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                con.Close();*/
+            }
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -132,6 +236,60 @@ namespace VivoosVR
             Change_Password_Page change_password = new Change_Password_Page();
             this.Hide();
             change_password.Show();
+        }
+
+        private void Login_Page_Load(object sender, EventArgs e)
+        {
+            /*int flag = 0;
+            string connectionString = "Data Source=.\\SQLEXPRESS; Integrated Security=True;";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT name from sys.databases", con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            if (dr[0].ToString()=="Vivos")
+                            {
+                                flag = 1;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (flag==0)
+                {
+                    string startupPath = System.IO.Path.GetFullPath(".\\");
+                    string bak= startupPath + "\\Vivos.bak"; 
+                    try
+                    {
+                        startupPath = System.IO.Path.GetFullPath(".\\");
+                        string startupPath1 = System.IO.Directory.GetParent(@"../../../").FullName;
+                        // System.IO.File.Copy(startupPath1 + "\\Database\\Vivos.bak", "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup", true);
+                        //System.IO.File.Move(startupPath1 + "\\Database\\Vivos.bak", "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup");
+                        SqlConnection con1 = new SqlConnection(@"Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        con1.Open();
+                        string str = "USE Master;";
+                        string bak1 = startupPath1 + "\\Database\\Vivos.bak";
+                        bak = startupPath + "\\Vivos.bak";
+                        string str1 = "RESTORE DATABASE Vivos FROM DISK='.\\Vivos.bak' WITH REPLACE";
+                        //string str1 = "RESTORE DATABASE Vivos FROM DISK='" + bak + "' WITH REPLACE";
+                        //string str1 = "RESTORE DATABASE Vivos FROM DISK='.\\Vivos.bak' WITH REPLACE";
+                        SqlCommand cmd = new SqlCommand(str, con1);
+                        SqlCommand cmd1 = new SqlCommand(str1, con1);
+                        cmd.ExecuteNonQuery();
+                        cmd1.ExecuteNonQuery();
+                        con1.Close();
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show(bak);
+                    }
+                }
+            }*/
         }
     }
 }

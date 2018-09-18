@@ -17,9 +17,6 @@ using System.Reflection;
 using System.Resources;
 using System.Globalization;
 using System.Diagnostics;
-using PdfSharp;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace VivoosVR

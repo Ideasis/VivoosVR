@@ -237,9 +237,18 @@ namespace VivoosVR
                                 asset_command[i] = AssetCommandList[i];
                                 db.AssetCommands.Remove(asset_command[i]);
                             }
-                            AssetThumbnail asset_thumbnail = db.AssetThumbnails.First(x => x.AssetId == GlobalVariables.Asset_Start_ID);
+                            
                             Asset asset = db.Assets.First(x => x.Id == GlobalVariables.Asset_Start_ID);
-                            db.AssetThumbnails.Remove(asset_thumbnail);
+                            try
+                            {
+                                AssetThumbnail asset_thumbnail = db.AssetThumbnails.First(x => x.AssetId == GlobalVariables.Asset_Start_ID);
+                                db.AssetThumbnails.Remove(asset_thumbnail);
+                            }
+                            catch (Exception)
+                            {
+
+                                
+                            }
                             db.Assets.Remove(asset);
                             db.SaveChanges();
                             GlobalVariables.NewSessions_Search_Flag = 0;

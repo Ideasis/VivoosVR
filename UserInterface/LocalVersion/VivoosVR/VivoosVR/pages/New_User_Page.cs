@@ -72,8 +72,11 @@ namespace VivoosVR
                             new_consumer.Email = txtUser.Text;
                             new_consumer.EntryDate = DateTime.Now;
 
+                            Consumer consumer = (from x in db.Consumers where x.Code == "admin" select x).SingleOrDefault();
+                            User user = (from x in db.Users where x.Id == consumer.Id select x).SingleOrDefault();
+
                             new_user.Id = consumer_id;
-                            new_user.GroupId = new Guid("60276429-422d-4337-83d5-9ca2da11f8a9");
+                            new_user.GroupId = user.GroupId;
                             new_user.Password = txtNewPassword.Text;
                             db.Consumers.Add(new_consumer);
                             db.Users.Add(new_user);

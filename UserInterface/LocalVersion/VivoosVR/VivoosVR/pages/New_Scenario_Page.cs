@@ -56,14 +56,23 @@ namespace VivoosVR
                         cbAvaliable.Checked = false;
                     }
 
-                    if (AssetThumbnailList[0].Thumbnail!=null)
+                    try
                     {
-                        using (MemoryStream memoryStream = new MemoryStream(AssetThumbnailList[0].Thumbnail))
+                        if (AssetThumbnailList[0].Thumbnail != null)
                         {
-                            Bitmap bmp = new Bitmap(memoryStream);
-                            pictureBox2.Image = bmp;
+                            using (MemoryStream memoryStream = new MemoryStream(AssetThumbnailList[0].Thumbnail))
+                            {
+                                Bitmap bmp = new Bitmap(memoryStream);
+                                pictureBox2.Image = bmp;
+                            }
                         }
                     }
+                    catch (Exception)
+                    {
+
+                        
+                    }
+                    
                     
 
                     List<AssetCommand> AssetCommandList = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID orderby x.Step select x).ToList();

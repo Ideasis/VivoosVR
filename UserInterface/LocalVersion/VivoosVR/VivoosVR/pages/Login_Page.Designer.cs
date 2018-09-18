@@ -219,7 +219,7 @@
             this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.9345F));
             this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tlpLanguages.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tlpLanguages.Controls.Add(this.btnTurkish, 1, 0);
             this.tlpLanguages.Controls.Add(this.btnEnglish, 2, 0);
             this.tlpLanguages.Controls.Add(this.btnArabic, 3, 0);
@@ -234,7 +234,7 @@
             // 
             this.btnTurkish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTurkish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTurkish.Location = new System.Drawing.Point(161, 36);
+            this.btnTurkish.Location = new System.Drawing.Point(160, 36);
             this.btnTurkish.Name = "btnTurkish";
             this.btnTurkish.Size = new System.Drawing.Size(72, 27);
             this.btnTurkish.TabIndex = 1;
@@ -246,7 +246,7 @@
             // 
             this.btnEnglish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnglish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEnglish.Location = new System.Drawing.Point(239, 36);
+            this.btnEnglish.Location = new System.Drawing.Point(238, 36);
             this.btnEnglish.Name = "btnEnglish";
             this.btnEnglish.Size = new System.Drawing.Size(70, 27);
             this.btnEnglish.TabIndex = 0;
@@ -258,7 +258,7 @@
             // 
             this.btnArabic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnArabic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnArabic.Location = new System.Drawing.Point(316, 36);
+            this.btnArabic.Location = new System.Drawing.Point(315, 36);
             this.btnArabic.Name = "btnArabic";
             this.btnArabic.Size = new System.Drawing.Size(71, 27);
             this.btnArabic.TabIndex = 2;
@@ -299,12 +299,12 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1426, 839);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login_Page";
             this.Text = "Giriş";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
+            this.Load += new System.EventHandler(this.Login_Page_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpInput.ResumeLayout(false);
             this.tlpInput.PerformLayout();
