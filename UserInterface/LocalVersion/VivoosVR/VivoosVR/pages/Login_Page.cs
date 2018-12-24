@@ -20,7 +20,7 @@ namespace VivoosVR
     {
         public Login_Page()
         {
-            Page_Load();
+            //Page_Load();
             InitializeComponent();
             PlaceSelfOnSecondMonitor();
         }

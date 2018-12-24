@@ -208,6 +208,7 @@ namespace VivoosVR
                             data = data.Replace("\r\n\r\n", "\r\n");
                             System.IO.File.WriteAllText(file1.FileName, data);
                             MessageBox.Show(resourceManager.GetString("msgScenarioExported", GlobalVariables.uiLanguage));
+                            data = null;
                         }
                     }
                 }

@@ -47,12 +47,12 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPresentationName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtSUD = new System.Windows.Forms.TextBox();
             this.btnSUDSave = new System.Windows.Forms.Button();
-            this.txtPresentationName = new System.Windows.Forms.TextBox();
-            this.btnPresentationSave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.applicationControl1 = new AppControl.ApplicationControl();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,12 +131,14 @@
             this.tableLayoutPanel4.Controls.Add(this.chart1, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // commands_datagrid
             // 
             this.commands_datagrid.AllowUserToAddRows = false;
             this.commands_datagrid.AllowUserToDeleteRows = false;
             this.commands_datagrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.commands_datagrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.commands_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.commands_datagrid, "commands_datagrid");
             this.commands_datagrid.Name = "commands_datagrid";
@@ -161,28 +163,17 @@
             // 
             resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.applicationControl1, 0, 1);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             // 
             // tableLayoutPanel5
             // 
             resources.ApplyResources(this.tableLayoutPanel5, "tableLayoutPanel5");
-            this.tableLayoutPanel5.Controls.Add(this.lblPresentationName, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.txtSUD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnSUDSave, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtPresentationName, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.btnPresentationSave, 2, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label1, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            // 
-            // lblPresentationName
-            // 
-            resources.ApplyResources(this.lblPresentationName, "lblPresentationName");
-            this.lblPresentationName.Name = "lblPresentationName";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // txtSUD
             // 
@@ -196,17 +187,21 @@
             this.btnSUDSave.UseVisualStyleBackColor = true;
             this.btnSUDSave.Click += new System.EventHandler(this.btnSUDkaydet_Click);
             // 
-            // txtPresentationName
+            // label1
             // 
-            resources.ApplyResources(this.txtPresentationName, "txtPresentationName");
-            this.txtPresentationName.Name = "txtPresentationName";
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
-            // btnPresentationSave
+            // label2
             // 
-            resources.ApplyResources(this.btnPresentationSave, "btnPresentationSave");
-            this.btnPresentationSave.Name = "btnPresentationSave";
-            this.btnPresentationSave.UseVisualStyleBackColor = true;
-            this.btnPresentationSave.Click += new System.EventHandler(this.btnPresentationSave_Click);
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // applicationControl1
+            // 
+            resources.ApplyResources(this.applicationControl1, "applicationControl1");
+           
+            this.applicationControl1.Name = "applicationControl1";
             // 
             // New_Session_Controls_Page
             // 
@@ -225,12 +220,15 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.commands_datagrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -251,8 +249,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSUD;
         private System.Windows.Forms.Button btnSUDSave;
-        private System.Windows.Forms.Label lblPresentationName;
-        private System.Windows.Forms.TextBox txtPresentationName;
-        private System.Windows.Forms.Button btnPresentationSave;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private AppControl.ApplicationControl applicationControl1;
+        private System.Windows.Forms.Label label2;
     }
 }

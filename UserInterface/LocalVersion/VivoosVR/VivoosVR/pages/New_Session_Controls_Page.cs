@@ -37,8 +37,9 @@ namespace VivoosVR
         public int flag = 0;
 
         public New_Session_Controls_Page()
-        {
+        {     
             InitializeComponent();
+            Initialize_SelectedSimulation();
             PlaceSelfOnSecondMonitor();
             fill_datagrid();
             socket();
@@ -64,6 +65,7 @@ namespace VivoosVR
                 {
                     if (GlobalVariables.sessionProcess.HasExited == false)
                     {
+                        GlobalVariables.sessionProcess = applicationControl1.getStartedProcess();
                         var process = Process.GetProcesses().Where(pr => pr.ProcessName.Contains(GlobalVariables.sessionProcess.ProcessName));
                         foreach (var procs in process)
                         {
@@ -141,16 +143,6 @@ namespace VivoosVR
                     commands_datagrid.Columns[i].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
                 }
                 List<AssetCommand> commandlist = (from x in db.AssetCommands where x.AssetId == GlobalVariables.Asset_Start_ID orderby x.Step select x).ToList();
-                Asset asset = (from x in db.Assets where x.Id == GlobalVariables.Asset_Start_ID select x ).SingleOrDefault();
-                if (asset!=null)
-                {
-                    if (asset.Exe=="Class_Ideasis.exe")
-                    {
-                        lblPresentationName.Visible = true;
-                        txtPresentationName.Visible = true;
-                        btnPresentationSave.Visible = true;
-                    }
-                }
                 for (int i = 0; i < commandlist.Count; i++)
                 {
                     i = commands_datagrid.Rows.Add();
@@ -291,8 +283,6 @@ namespace VivoosVR
         {
             btnExit.Text = resourceManager.GetString("btnExit", GlobalVariables.uiLanguage);
             btnBack.Text = resourceManager.GetString("btnBack", GlobalVariables.uiLanguage);
-            btnPresentationSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
-            lblPresentationName.Text = resourceManager.GetString("lblPresentationName", GlobalVariables.uiLanguage);
             btnSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
             btnSUDSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
             this.Text = resourceManager.GetString("formSessionControls", GlobalVariables.uiLanguage);
@@ -396,22 +386,9 @@ namespace VivoosVR
             }
         }
 
-        private void btnPresentationSave_Click(object sender, EventArgs e)
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
-            try
-            {
-                if (txtPresentationName != null)
-                {
-                    new_socket.Send(txtPresentationName.Text + "\r");
-                    new_socket.WaitForSendComplete();
-                    txtPresentationName.Text = "";
-                }
-            }
-            catch (Exception)
-            {
 
-            
-            }
         }
 
         private void commands_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -453,6 +430,12 @@ namespace VivoosVR
                 }
 
             }
+        }
+
+        private void Initialize_SelectedSimulation()
+        {
+            GlobalVariables.processURL = GlobalVariables.processURL.Remove(GlobalVariables.processURL.Length - 4);
+            this.applicationControl1.paraProcess = GlobalVariables.sessionProcess; 
         }
     }
 }

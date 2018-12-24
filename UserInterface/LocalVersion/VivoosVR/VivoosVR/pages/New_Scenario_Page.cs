@@ -310,6 +310,12 @@ namespace VivoosVR
                     db.SaveChanges();
                     DialogResult information = new DialogResult();
                     information = MessageBox.Show(resourceManager.GetString("msgScenarioAdded", GlobalVariables.uiLanguage));
+                    if (information == DialogResult.OK)
+                    {
+                        Admin_Page admin_page = new Admin_Page();
+                        this.Hide();
+                        admin_page.Show();
+                    }
 
 
                 }
@@ -404,6 +410,12 @@ namespace VivoosVR
                     db.SaveChanges();
                     DialogResult information = new DialogResult();
                     information = MessageBox.Show(resourceManager.GetString("msgScenarioEdited", GlobalVariables.uiLanguage));
+                    if (information == DialogResult.OK)
+                    {
+                        Admin_Page admin_page = new Admin_Page();
+                        this.Hide();
+                        admin_page.Show();
+                    }
                 }
 
             }

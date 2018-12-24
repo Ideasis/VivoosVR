@@ -33,6 +33,8 @@ namespace VivoosVR
 
         public static Screen secondaryScreen;
 
+        public static string processURL;
+
 
         //Called on MasterForm Initializer
         public static void FindSecondMonitor()

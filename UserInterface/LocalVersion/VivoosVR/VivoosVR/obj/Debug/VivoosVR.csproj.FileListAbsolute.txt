@@ -153,11 +153,9 @@ D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\Vivoos
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.lang.langres.en.resources
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.lang.langres.tr.resources
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.csproj.GenerateResource.cache
-D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.csproj.CoreCompileInputs.cache
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\ar\VivoosVR.resources.dll
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\en\VivoosVR.resources.dll
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\tr\VivoosVR.resources.dll
-D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.csproj.CopyComplete
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.exe
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.pdb
 C:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\itextsharp.dll
@@ -210,3 +208,13 @@ C:\Users\ilker\Documents\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\Viv
 C:\Users\ilker\Documents\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
 C:\Users\ilker\Documents\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
 C:\Users\ilker\Documents\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.Smo.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.Dmf.Common.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.Diagnostics.STrace.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\AppControl.dll
+D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\AppControl.pdb

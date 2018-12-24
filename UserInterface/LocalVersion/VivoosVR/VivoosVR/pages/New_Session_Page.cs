@@ -18,7 +18,7 @@ namespace VivoosVR
     public partial class New_Session_Page : MasterForm
     {
         public New_Session_Page()
-        {
+        {   
             string key = null;
             InitializeComponent();
             fill_datagrid(key);
@@ -177,6 +177,7 @@ namespace VivoosVR
                                 try
                                 {
                                     GlobalVariables.sessionProcess = System.Diagnostics.Process.Start(@assets[i].Url);
+                                    GlobalVariables.processURL = @assets[i].Url;
                                     New_Session_Controls_Page new_session_controls = new New_Session_Controls_Page();
                                     new_session_controls.Show();
                                     this.Hide();
