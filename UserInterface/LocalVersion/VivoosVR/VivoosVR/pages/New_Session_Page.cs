@@ -176,6 +176,18 @@ namespace VivoosVR
                                 }
                                 try
                                 {
+                                    if (Convert.ToString(GlobalVariables.uiLanguage) == "en-US")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].EnName;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "tr-TR")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].Name;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "ar-SA")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].ArabicName;
+                                    }
                                     GlobalVariables.sessionProcess = System.Diagnostics.Process.Start(@assets[i].Url);
                                     GlobalVariables.processURL = @assets[i].Url;
                                     New_Session_Controls_Page new_session_controls = new New_Session_Controls_Page();

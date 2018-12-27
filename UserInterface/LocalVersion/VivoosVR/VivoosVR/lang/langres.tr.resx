@@ -162,6 +162,9 @@
   <data name="btnSelectFile" xml:space="preserve">
     <value>Dosya Seç</value>
   </data>
+  <data name="btnSet" xml:space="preserve">
+    <value>Ayarla</value>
+  </data>
   <data name="btnSettings" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
@@ -290,6 +293,9 @@
   </data>
   <data name="lblPresentationName" xml:space="preserve">
     <value>Sunum Adı</value>
+  </data>
+  <data name="lblResetHMD" xml:space="preserve">
+    <value>Gözlüğü Ayarla</value>
   </data>
   <data name="lblScenarioExe" xml:space="preserve">
     <value>Senaryo Exe</value>

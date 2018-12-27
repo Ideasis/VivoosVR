@@ -136,8 +136,8 @@ namespace VivoosVR
                 commands_datagrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
                 commands_datagrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
-                add_button();
-                for (int i = 0; i < commands_datagrid.ColumnCount - 1; i++)
+                //add_button();
+                for (int i = 0; i < commands_datagrid.ColumnCount; i++)
                 {
                     commands_datagrid.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     commands_datagrid.Columns[i].DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
@@ -147,9 +147,15 @@ namespace VivoosVR
                 {
                     i = commands_datagrid.Rows.Add();
                     commands_datagrid.Rows[i].Cells[0].Value = commandlist[i].Id;
+
+                    /*DataGridViewCellStyle style = new DataGridViewCellStyle();
+                    style.Font = new Font(commands_datagrid.Font, FontStyle.Underline);
+                    commands_datagrid.Rows[i].DefaultCellStyle = style;*/
+
                     if (Convert.ToString(GlobalVariables.uiLanguage) == "en-US")
                     {
                         commands_datagrid.Rows[i].Cells[1].Value = commandlist[i].EnDescription;
+                   
                     }
                     else if (Convert.ToString(GlobalVariables.uiLanguage) == "tr-TR")
                     {
@@ -238,7 +244,6 @@ namespace VivoosVR
                                 this.Invoke((MethodInvoker)delegate { UpdateChart(); });
                             }
                             Thread.Sleep(VivoosVR.Properties.Settings.Default.sensor_interval);
-                            
                         }
                     }
                 }
@@ -285,7 +290,10 @@ namespace VivoosVR
             btnBack.Text = resourceManager.GetString("btnBack", GlobalVariables.uiLanguage);
             btnSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
             btnSUDSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
-            this.Text = resourceManager.GetString("formSessionControls", GlobalVariables.uiLanguage);
+            lblResetHMD.Text = resourceManager.GetString("lblResetHMD", GlobalVariables.uiLanguage);
+            btnSet.Text = resourceManager.GetString("btnSet", GlobalVariables.uiLanguage);
+            //this.Text = resourceManager.GetString("formSessionControls", GlobalVariables.uiLanguage);
+            this.Text = GlobalVariables.Asset_Start_name;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -342,11 +350,7 @@ namespace VivoosVR
 
                 
             }
-            
-
         }
-        
-
         private void New_SessionControls_Page_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -385,15 +389,9 @@ namespace VivoosVR
             {
             }
         }
-
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        private void commands_datagrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void commands_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 1)
             {
                 try
                 {
@@ -403,7 +401,7 @@ namespace VivoosVR
                         using (VivosEntities db = new VivosEntities())
                         {
                             List<AssetCommand> commandList = (from x in db.AssetCommands where x.Id == GlobalVariables.Command_Start_ID select x).ToList();
-                           
+
                             if (Convert.ToString(GlobalVariables.uiLanguage) == "en-US")
                             {
                                 komut = commandList[0].EnDescription;
@@ -421,17 +419,28 @@ namespace VivoosVR
                             new_socket.WaitForSendComplete();
                         }
                     }
-
                 }
                 catch (Exception)
                 {
 
-
                 }
-
             }
         }
-
+        private void btnSet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GlobalVariables.sessionProcess.HasExited == false)
+                {
+                        new_socket.Send("recenter" + "\r");
+                        new_socket.WaitForSendComplete();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
         private void Initialize_SelectedSimulation()
         {
             GlobalVariables.processURL = GlobalVariables.processURL.Remove(GlobalVariables.processURL.Length - 4);

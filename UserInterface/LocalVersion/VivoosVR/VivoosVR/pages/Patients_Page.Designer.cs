@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.patients_datagrid = new System.Windows.Forms.DataGridView();
@@ -38,8 +40,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddNewPatient = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patients_datagrid)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
@@ -49,29 +51,55 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 622F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.01636F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.98364F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 946F));
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnLogout, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1436, 42);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.btnLogout, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(492, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(941, 36);
+            this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLogout.Location = new System.Drawing.Point(800, 3);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(138, 30);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Çıkış";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::VivoosVR.Properties.Resources.logo2;
             this.pictureBox1.Location = new System.Drawing.Point(2, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 37);
+            this.pictureBox1.Size = new System.Drawing.Size(133, 37);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -108,7 +136,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.87097F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.12903F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 172F));
             this.tableLayoutPanel4.Controls.Add(this.txtSearch, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblSearch, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
@@ -120,7 +148,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(129, 3);
+            this.txtSearch.Location = new System.Drawing.Point(119, 3);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(95, 20);
             this.txtSearch.TabIndex = 3;
@@ -130,7 +158,7 @@
             // 
             this.lblSearch.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(86, 6);
+            this.lblSearch.Location = new System.Drawing.Point(76, 6);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(37, 13);
             this.lblSearch.TabIndex = 6;
@@ -150,6 +178,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.812834F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.18716F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1436, 748);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
@@ -182,17 +211,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1436, 46);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLogout.Location = new System.Drawing.Point(1295, 3);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(138, 36);
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.Text = "Çıkış";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // Patients_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,7 +220,6 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Patients_Page";
             this.Text = "Danışan Sayfası";
@@ -210,6 +227,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.patients_FormClosing);
             this.Load += new System.EventHandler(this.patients_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patients_datagrid)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -232,6 +250,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnAddNewPatient;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnLogout;
     }
 }

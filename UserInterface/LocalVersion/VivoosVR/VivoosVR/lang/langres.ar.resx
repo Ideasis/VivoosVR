@@ -162,6 +162,9 @@
   <data name="btnSelectFile" xml:space="preserve">
     <value>Select File</value>
   </data>
+  <data name="btnSet" xml:space="preserve">
+    <value>Set</value>
+  </data>
   <data name="btnSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -290,6 +293,9 @@
   </data>
   <data name="lblPresentationName" xml:space="preserve">
     <value>Presentation Name</value>
+  </data>
+  <data name="lblResetHMD" xml:space="preserve">
+    <value>يتم إعادة تشغيل الكاميرا</value>
   </data>
   <data name="lblScenarioExe" xml:space="preserve">
     <value>Scenario Exe</value>
