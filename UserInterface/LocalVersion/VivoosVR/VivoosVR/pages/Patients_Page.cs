@@ -240,7 +240,7 @@ namespace VivoosVR
                             string key = null;
                             fill_datagrid(key);
                             DialogResult information = new DialogResult();
-                            information = MessageBox.Show(resourceManager.GetString("msgPatientDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("mesajBilgilendirme", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            information = MessageBox.Show(resourceManager.GetString("msgPatientDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }

@@ -13,6 +13,7 @@ namespace VivoosVR
     {
         public static Guid Edit_ID;
         public static Guid Session_ID;
+        public static Guid Command_ID;
         public static string Session_ID_name;
         public static Guid Session_Data_ID;
         public static string Session_Data_name;

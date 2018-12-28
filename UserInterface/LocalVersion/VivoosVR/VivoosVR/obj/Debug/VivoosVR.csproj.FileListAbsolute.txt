@@ -218,3 +218,4 @@ D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Micros
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\AppControl.dll
 D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\bin\Debug\AppControl.pdb
+C:\Users\ilker\Documents\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\obj\Debug\VivoosVR.Command_Delete_Page.resources

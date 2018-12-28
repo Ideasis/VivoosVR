@@ -132,6 +132,9 @@
   <data name="btnChangePassword" xml:space="preserve">
     <value>Change Password</value>
   </data>
+  <data name="btnDeleteCommands" xml:space="preserve">
+    <value>Delete Commands</value>
+  </data>
   <data name="btnEnglish" xml:space="preserve">
     <value>الإنجليزية </value>
   </data>
@@ -357,6 +360,9 @@
   <data name="msgInformation" xml:space="preserve">
     <value>تقديم معلومة</value>
   </data>
+  <data name="msgIscommandDeleted" xml:space="preserve">
+    <value>Delete command?</value>
+  </data>
   <data name="msgIsPatientDeleted" xml:space="preserve">
     <value>Delete patient?</value>
   </data>
@@ -422,5 +428,8 @@
   </data>
   <data name="msgWrong" xml:space="preserve">
     <value>إسم المستخدم أو كلمة السر خاطئة ! </value>
+  </data>
+  <data name="msgCommandDeleted" xml:space="preserve">
+    <value>Command deleted!</value>
   </data>
 </root>

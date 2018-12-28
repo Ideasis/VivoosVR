@@ -115,6 +115,12 @@
     <Compile Include="Branch.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="pages\Command_Delete_Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\Command_Delete_Page.Designer.cs">
+      <DependentUpon>Command_Delete_Page.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     <EmbeddedResource Include="lang\langres.tr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>langres.tr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\Command_Delete_Page.resx">
+      <DependentUpon>Command_Delete_Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\New_Scenario_Page.resx">
       <DependentUpon>New_Scenario_Page.cs</DependentUpon>

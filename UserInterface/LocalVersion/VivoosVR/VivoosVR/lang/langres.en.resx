@@ -132,6 +132,9 @@
   <data name="btnChangePassword" xml:space="preserve">
     <value>Change Password</value>
   </data>
+  <data name="btnDeleteCommands" xml:space="preserve">
+    <value>Delete Commands</value>
+  </data>
   <data name="btnEnglish" xml:space="preserve">
     <value>English</value>
   </data>
@@ -339,6 +342,9 @@
   <data name="msgCannotFound" xml:space="preserve">
     <value>path isn't found!</value>
   </data>
+  <data name="msgCommandDeleted" xml:space="preserve">
+    <value>Command deleted!</value>
+  </data>
   <data name="msgContinue" xml:space="preserve">
     <value>Do you want to continue?</value>
   </data>
@@ -356,6 +362,9 @@
   </data>
   <data name="msgInformation" xml:space="preserve">
     <value>Notify</value>
+  </data>
+  <data name="msgIscommandDeleted" xml:space="preserve">
+    <value>Delete command?</value>
   </data>
   <data name="msgIsPatientDeleted" xml:space="preserve">
     <value>Delete patient?</value>

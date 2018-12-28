@@ -132,6 +132,9 @@
   <data name="btnChangePassword" xml:space="preserve">
     <value>Şifre Değiştir</value>
   </data>
+  <data name="btnDeleteCommands" xml:space="preserve">
+    <value>Komutları Sil</value>
+  </data>
   <data name="btnEnglish" xml:space="preserve">
     <value>İngilizce</value>
   </data>
@@ -339,6 +342,9 @@
   <data name="msgCannotFound" xml:space="preserve">
     <value>adresinde bulunamadı!</value>
   </data>
+  <data name="msgCommandDeleted" xml:space="preserve">
+    <value>Komut silindi!</value>
+  </data>
   <data name="msgContinue" xml:space="preserve">
     <value>Devam etmek istiyor musunuz ?</value>
   </data>
@@ -356,6 +362,9 @@
   </data>
   <data name="msgInformation" xml:space="preserve">
     <value>Bilgilendirme</value>
+  </data>
+  <data name="msgIscommandDeleted" xml:space="preserve">
+    <value>Komut silinsin mi?</value>
   </data>
   <data name="msgIsPatientDeleted" xml:space="preserve">
     <value>Danışan silinsin mi? (Danışana ait tüm oturumlar ve veriler kalıcı olarak silinecektir.)</value>
