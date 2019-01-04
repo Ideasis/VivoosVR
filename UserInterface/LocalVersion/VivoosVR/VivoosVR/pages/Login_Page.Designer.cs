@@ -304,7 +304,6 @@
             this.Text = "Giriş";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
-            this.Load += new System.EventHandler(this.Login_Page_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tlpInput.ResumeLayout(false);
             this.tlpInput.PerformLayout();

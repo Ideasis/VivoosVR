@@ -404,6 +404,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Fear Of Height.PNG" />
+    <None Include="Resources\Fear Of Dog %28Indoor%29.PNG" />
+    <None Include="Resources\Köpek Fobisi - Dış Mekan.txt" />
+    <None Include="Resources\Yükseklik Fobisi - Teras.txt" />
+    <None Include="Resources\Örümcek Fobisi.txt" />
+    <None Include="Resources\Fear Of Dog %28Park%29.PNG" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

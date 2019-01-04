@@ -19,7 +19,7 @@ namespace VivoosVR.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,11 +61,76 @@ namespace VivoosVR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ad,Köpek Fobisi - Dış Mekan,Fear of dogs (Park),رهاب الكلاب 
+        ///Açıklama,Park ortamında köpeğe maruz bırakma senaryosu,Exposure to dogs in a park environment,في هذا السيناريو يُترك المريض مع  كلب في الحديقة . يتم تقريب وإبعاد الكلب من المريض بإشراف من المختص ويُترك الكلب للنباح وحفر الأرض وما شابه ذلك
+        ///Senaryo Dizini,C:\Scenarios\FearOfDog_Park\FearOfDog_Park.exe
+        ///Senaryo Exe,FearOfDog_Park.exe
+        ///Aktif,True
+        ///Komutlar0,Havlama sesi,Barking sound,صوت نباح ,dog_single_barking,2
+        ///Komutlar1,Uzak konumda dolaşır,Wal [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Fear_Of_Dog_Park_File {
+            get {
+                return ResourceManager.GetString("Fear_Of_Dog_Park_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1200px_Flag_of_Turkey_svg {
+        internal static System.Drawing.Bitmap Fear_Of_Dog_Park_Image {
             get {
-                object obj = ResourceManager.GetObject("1200px-Flag_of_Turkey.svg", resourceCulture);
+                object obj = ResourceManager.GetObject("Fear_Of_Dog_Park_Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad,Yükseklik Fobisi - Teras,Fear of heights,رهاب إرتفاع الشرفة 
+        ///Açıklama,Teras ortamında yüksekliğe maruz bırakma senaryosu,Exposure to height in a rooftop environment,في هذا السيناريو يترك المريض في الشرفة المرتفعة ويتم تقريبه وإبعاده عن حافة الشرفة من قبل الإخصائي 
+        ///Senaryo Dizini,C:\Scenarios\FearOfHeight_Balcony\FearOfHeight_Balcony.exe
+        ///Senaryo Exe,FearOfHeight_Balcony
+        ///Aktif,True
+        ///Komutlar0,Bir aşama ilerle,Follow marker,يتم تأمين متابعة المريض للإشارات المتواجدة على الأرض ,nextposition,1
+        ///Komutlar1, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Fear_Of_Height_Balcony_File {
+            get {
+                return ResourceManager.GetString("Fear_Of_Height_Balcony_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fear_Of_Height_Balcony_Image {
+            get {
+                object obj = ResourceManager.GetObject("Fear_Of_Height_Balcony_Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad,Örümcek Fobisi,Fear of Spiders,رهاب العنكبوت في الصالة 
+        ///Açıklama,Dış ortamda örümceklere maruz bırakma senaryosu,Exposure therapy scenario for fear of spiders in an indoor environment,في هذا السيناريو يتم تعريض المريض للعناكب في الصالة وعلى طاولة الطعام 
+        ///Senaryo Dizini,C:\Scenarios\FearOfSpiders_Salon\FearOfSpiders_Salon.exe
+        ///Senaryo Exe,FearOfSpiders_Salon.exe
+        ///Aktif,True
+        ///Komutlar0,Örümcek uzakta görünür,Spider appears - Far,يظهر العنكبوت عن بعد ,spidergofar,1
+        ///Komutlar1,Örümcek bir aşama yaklaşır ve [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Fear_Of_Spider_File {
+            get {
+                return ResourceManager.GetString("Fear_Of_Spider_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fear_Of_Spider_Image {
+            get {
+                object obj = ResourceManager.GetObject("Fear_Of_Spider_Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,26 +161,6 @@ namespace VivoosVR.Properties {
         internal static System.Drawing.Bitmap logo2 {
             get {
                 object obj = ResourceManager.GetObject("logo2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap main_qimg_ddbee5cee8dbf55585ed6962a81384c3 {
-            get {
-                object obj = ResourceManager.GetObject("main-qimg-ddbee5cee8dbf55585ed6962a81384c3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sa {
-            get {
-                object obj = ResourceManager.GetObject("sa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
