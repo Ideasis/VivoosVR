@@ -1,6 +1,0 @@
-﻿CREATE FUNCTION [dbo].[blankid]()
-RETURNS uniqueidentifier
-AS
-BEGIN
-	return ('00000000-0000-0000-0000-000000000000')
-END

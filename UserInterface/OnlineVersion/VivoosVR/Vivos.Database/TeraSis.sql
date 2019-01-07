@@ -1,3 +1,0 @@
-﻿CREATE SCHEMA [TeraSis]
-    AUTHORIZATION [dbo];
-
