@@ -1,30 +1,66 @@
-## Getting Started
+# VivoosVR
 
-In order to use VivoosVr User Interface, you must do some steps:
+## License
 
-1.	Firstly, you can download Microsoft SQL Server Express which is free in the [link](https://www.microsoft.com/en-us/download/details.aspx?id=55994)
-2.	Then, you can download SQL Server Management Studio which is also free in the [link](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
+[**BSD 3-Clause**](https://opensource.org/licenses/BSD-3-Clause)
 
-    Note: SQL Server and management studio setup is bit complicated so you can watch helpful videos on youtube. 
+See [LICENSE](https://github.com/Ideasis/VivoosVR/blob/master/UserInterface/LocalVersion/VivoosVR/LICENSE)
 
-3.	Then, you can download VivoosVR User Interface Local Version in github. In the setup folder, there is a database folder. In this folder, there is a Vivoos.bak file. Copy it to C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\Backup
-![1](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/1.JPG)
+## Prerequisites
 
-4.	Open the SQL Server Management Studio and login. In the Object Explorer tab, right click the Databases and select Restore Database.
+* [SQL Server 2014 (or above) Express](https://download.microsoft.com/download/5/E/9/5E9B18CC-8FD5-467E-B5BF-BADE39C51F73/SQLServer2017-SSEI-Expr.exe)
+    * If you have problems while installing, this [link](http://help.dugeo.com/m/Insight4-0/l/438911-downloading-and-installing-sql-server) can guide you through installation
 
-![2](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/2.jpg)
+* [SQL Server Management Studio 2017 (or above)](https://go.microsoft.com/fwlink/?linkid=2043154)
 
-5.	Select Device part, click add and find the Vivoos.bak file (previously do in the third step).
-![3](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/3.JPG)
+* [Neulog API](https://neulog.com/Downloads/neulog_api_ver_002b.exe)
 
-![4](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/4.JPG)
+* Acquire and install either or both of the following products:
+    * [HTC Vive](https://support.steampowered.com/steamvr/HTC_Vive/)
+    * [Oculus Rift](https://www.oculus.com/download_app/?id=1582076955407037)
 
-![5](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/5.JPG)
+* [Visual Studio](https://visualstudio.microsoft.com/tr/downloads/?rr=https%3A%2F%2Fwww.google.com%2F)     
 
-6.	If there is no error, Vivoos VR User Interface database is ready to use. Please close the Management Studio.
-7.	Finally, download Neulog Api in the [link](https://neulog.com/software/)
+## Git initialisation 
 
-## VivoosVR User Interface
+### GitHub Desktop
+
+1. Download and install [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
+
+2. Run GitHub Desktop Application and click on File -> Clone Repository:
+    ![Screenshot of Clone Repository](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS1_CloneRepository.png)
+
+3. Click on "URL" tab and copy the following link of the VivoosVR Repo and paste it on the URL part:
+    ![Screenshot of PasteRepoLink](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS2_PasteRepoLink.png)
+
+4. Set local path of the repo
+
+5. Click on "Clone" to complete connecting to VivoosVR Repo using GitHub Desktop.
+
+## Installation
+
+### SQL Server Management Studio
+
+1. Locate "Database" folder in your local repo path and copy "Vivoos.bak" file in this folder to "C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\Backup"
+
+2. Open the SQL Server Management Studio and login. In the Object Explorer tab, right click on "Databases" and select "Restore Database".
+
+    ![2](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/2.jpg)
+    
+3. Select Device part, click add and find "Vivoos.bak" file
+    
+    ![3](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/3.JPG)
+    
+    ![4](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/4.JPG)
+
+    ![5](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/5.JPG)
+
+4. 	Close the SQL Server Management Studio Application.
+
+## How to Use 
+
+### VivoosVR
+
 1.  If you click the exe of the program (VivoosVR\VivoosVR\bin\debug), login form welcomes you. 
     Default user: Username: user Password:123 
     Default admin: Username: admin Password:123
