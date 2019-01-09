@@ -138,15 +138,15 @@ You need to perform following tasks to make Neulog modules and sensors work corr
 
 1.	Plug USB module, Heart Rate & Pulse Logger Sensor and GSR Logger Sensor to each other and plug them to your computer via USB Port (Order of the modules are not important!)
 
-![Neulog_PlugModules](https://github.com/Ideasis/VivoosVR/blob/master/Neulog_SS/Neulog_PlugModules_SS.jpeg)
+![Neulog_PlugModules](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Neulog_SS/Neulog_PlugModules_SS.jpeg)
 
 2.	Attach handle of the heart rate and pulse sensor to little finger of your right hand in a way that glassy side of the handle touches the bottom side of your finger
 
-![Neulog_HeartRate](https://github.com/Ideasis/VivoosVR/blob/master/Neulog_SS/Neulog_HeartRate_SS.jpeg)
+![Neulog_HeartRate](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Neulog_SS/Neulog_HeartRate_SS.jpg)
 
 3.	Attach the handles of the gsr module to ring finger and index finger of your right hand in a way that metal part of the handles touches the bottom side of your finger
 
-![Neulog_GSR](https://github.com/Ideasis/VivoosVR/blob/master/Neulog_SS/Neulog_GSR_SS.jpeg)
+![Neulog_GSR](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Neulog_SS/Neulog_GSR_SS.jpg)
 
 ## Testing
 
