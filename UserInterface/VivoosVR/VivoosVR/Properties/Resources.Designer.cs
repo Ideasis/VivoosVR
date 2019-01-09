@@ -61,6 +61,31 @@ namespace VivoosVR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ad,Karanlık Korkusu,Fear of Dark,الخوف من الظلام
+        ///Açıklama,Karanlıktan korku üzerine hazırlanmış senaryo,Exposure therapy scenario for fear of dark,سيناريو بخصوص الخوف من الظلام 
+        ///Senaryo Dizini,C:\Scenarios\FearOfDark\FearOfDark.exe
+        ///Senaryo Exe,FearOfDark.exe
+        ///Aktif,True
+        ///Komutlar0,Oda ışığı 10 sn yanıp söner,Ceiling lights flickering (10 seconds),تبدأ الإضاءة المتواجدة في الغرفة بالإضاءة والإنطفاء طوال 10 ثواني,roomlightflick,2
+        ///Komutlar1,Oda ışığı aç / kapa,Ceiling lights On / Off,ينفتح \ ينغلق مصباح ال [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Fear_Of_Dark_File {
+            get {
+                return ResourceManager.GetString("Fear_Of_Dark_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fear_Of_Dark_Image {
+            get {
+                object obj = ResourceManager.GetObject("Fear_Of_Dark_Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ad,Köpek Fobisi - Dış Mekan,Fear of dogs (Park),رهاب الكلاب 
         ///Açıklama,Park ortamında köpeğe maruz bırakma senaryosu,Exposure to dogs in a park environment,في هذا السيناريو يُترك المريض مع  كلب في الحديقة . يتم تقريب وإبعاد الكلب من المريض بإشراف من المختص ويُترك الكلب للنباح وحفر الأرض وما شابه ذلك
         ///Senaryo Dizini,C:\Scenarios\FearOfDog_Park\FearOfDog_Park.exe
@@ -86,6 +111,33 @@ namespace VivoosVR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ad,Uçak Fobisi,Fear of flight,رهاب الطائرة 
+        ///Açıklama,Uçuş Fobisi,Fear of flight,رهاب الطائرة 
+        ///Senaryo Dizini,C:\Scenarios\Plane\Plane.exe
+        ///Senaryo Exe,Plane.exe
+        ///Aktif,True
+        ///Komutlar0,Yolcular yerlerine oturur,Passangers take a seat,يأتي شخصين من خلف الطائرة ويجلسان ,peopletakeseats,2
+        ///Komutlar1,Danışanın yanına yolcu oturur,Passanger sits next to advisee,يجلس شخص بجانب المريض ,peoplegotoplayer,3
+        ///Komutlar2,Anons,Announcement,يبدأ الطيار بالتحدث عن قواعد السلامة \ يتوقف ,safetyspeech,4
+        ///Komutlar3,Hareket  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Fear_Of_Flight_File {
+            get {
+                return ResourceManager.GetString("Fear_Of_Flight_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fear_Of_Flight_Image {
+            get {
+                object obj = ResourceManager.GetObject("Fear_Of_Flight_Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ad,Yükseklik Fobisi - Teras,Fear of heights,رهاب إرتفاع الشرفة 
         ///Açıklama,Teras ortamında yüksekliğe maruz bırakma senaryosu,Exposure to height in a rooftop environment,في هذا السيناريو يترك المريض في الشرفة المرتفعة ويتم تقريبه وإبعاده عن حافة الشرفة من قبل الإخصائي 
         ///Senaryo Dizini,C:\Scenarios\FearOfHeight_Balcony\FearOfHeight_Balcony.exe
@@ -106,6 +158,31 @@ namespace VivoosVR.Properties {
         internal static System.Drawing.Bitmap Fear_Of_Height_Balcony_Image {
             get {
                 object obj = ResourceManager.GetObject("Fear_Of_Height_Balcony_Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad,Yükseklik Korkusu - Asansör,Fear of Heights - Elevator,Fear of Heights - Elevator
+        ///Açıklama,Yükseklik korkusu için hazırlanmış asansör ortamı,Inside of an elevator for fear of height,Inside of an elevator for fear of height
+        ///Senaryo Dizini,C:/Scenarios/FearOfHeight_Elevator/FearOfHeight_Elevator.exe
+        ///Senaryo Exe,FearOfHeight_Elevator.exe
+        ///Aktif,True
+        ///Komutlar0,Asansör yukarı çıkar,Elevator goes up,Elevator goes up,elevatorgoup,1
+        ///Komutlar1,Asansör aşağı iner,Elevator goes down,Elevator goes down,elevator [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Fear_Of_Height_Elevator_File {
+            get {
+                return ResourceManager.GetString("Fear_Of_Height_Elevator_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fear_Of_Height_Elevator_Image {
+            get {
+                object obj = ResourceManager.GetObject("Fear_Of_Height_Elevator_Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -161,6 +238,60 @@ namespace VivoosVR.Properties {
         internal static System.Drawing.Bitmap logo2 {
             get {
                 object obj = ResourceManager.GetObject("logo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad,360 Park Ayda,360 Park Ayda,360 Park Ayda
+        ///Açıklama,360 kamera ile parkta çekim,360 kamera ile parkta çekim,360 kamera ile parkta çekim
+        ///Senaryo Dizini,C:\Scenarios\Balkon\Balkon.exe
+        ///Senaryo Exe,Balkon
+        ///Aktif,True
+        ///Komutlar0,Kızlar yaklaşır,Kızlar yaklaşır,Kızlar yaklaşır,0,2
+        ///Komutlar1,Kızlar kendini tanıtır,Kızlar kendini tanıtır,Kızlar kendini tanıtır,1,3
+        ///Komutlar2,Kaçıncı sınıf,Kaçıncı sınıf,Kaçıncı sınıf,2,4
+        ///Komutlar3,Hangi okul,Hangi okul,Hangi okul,3,5
+        ///Komutlar4,Müzik dinleme,Müzik dinleme,Müz [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Park_Ayda_File {
+            get {
+                return ResourceManager.GetString("Park_Ayda_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Park_Ayda_Image {
+            get {
+                object obj = ResourceManager.GetObject("Park_Ayda_Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad,Sosyal Anksiyete - Sınıfta ,Social anxiety (Classroom),صف للقلق الإجتماعي
+        ///Açıklama,Sınıf ortamında sosyal anksiyete senaryosu,Presentation scenario in a classroom environment,تنظيم تقديم لصف المرضى الشباب الذين يعانون من القلق الإجتماعي 
+        ///Senaryo Dizini,C:\Scenarios\Class_Ideasis\Class_Ideasis.exe
+        ///Senaryo Exe,Class_Ideasis.exe
+        ///Aktif,True
+        ///Komutlar0,Zil çalar,Break time over,Break time over,bellring,2
+        ///Komutlar1,Hasta ilerler,Advisee is moved,Advisee is moved,teleportplayer,3
+        ///Komutlar2,Öğretmen konuşu [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Social_Anxiety_Classroom_File {
+            get {
+                return ResourceManager.GetString("Social_Anxiety_Classroom_File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Social_Anxiety_Classroom_Image {
+            get {
+                object obj = ResourceManager.GetObject("Social_Anxiety_Classroom_Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

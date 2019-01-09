@@ -1,0 +1,20 @@
+Ad,360 Park Ayda,360 Park Ayda,360 Park Ayda
+Açıklama,360 kamera ile parkta çekim,360 kamera ile parkta çekim,360 kamera ile parkta çekim
+Senaryo Dizini,C:\Scenarios\Balkon\Balkon.exe
+Senaryo Exe,Balkon
+Aktif,True
+Komutlar0,Kızlar yaklaşır,Kızlar yaklaşır,Kızlar yaklaşır,0,2
+Komutlar1,Kızlar kendini tanıtır,Kızlar kendini tanıtır,Kızlar kendini tanıtır,1,3
+Komutlar2,Kaçıncı sınıf,Kaçıncı sınıf,Kaçıncı sınıf,2,4
+Komutlar3,Hangi okul,Hangi okul,Hangi okul,3,5
+Komutlar4,Müzik dinleme,Müzik dinleme,Müzik dinleme,4,6
+Komutlar5,Ne tür müzik,Ne tür müzik,Ne tür müzik,5,7
+Komutlar6,Kitap okuma,Kitap okuma,Kitap okuma,6,8
+Komutlar7,Ne tür kitap,Ne tür kitap,Ne tür kitap,7,9
+Komutlar8,Film izleme,Film izleme,Film izleme,8,10
+Komutlar9,Ne tür film,Ne tür film,Ne tür film,9,11
+Komutlar10,Spor yapma,Spor yapma,Spor yapma,10,12
+Komutlar11,Ne tür spor,Ne tür spor,Ne tür spor,11,13
+Komutlar12,Oyun oynama,Oyun oynama,Oyun oynama,12,14
+Komutlar13,Ne tür oyun,Ne tür oyun,Ne tür oyun,13,15
+Komutlar14,Kızlar uzaklaşır,Kızlar uzaklaşır,Kızlar uzaklaşır,14,16

@@ -21,7 +21,7 @@ namespace VivoosVR
     {
         public Login_Page()
         {
-            //Page_Load();
+            Page_Load();
             InitializeComponent();
             PlaceSelfOnSecondMonitor();
         }
@@ -74,9 +74,23 @@ namespace VivoosVR
                         Server server2 = new Server(new ServerConnection(conn2));
                         server.ConnectionContext.ExecuteNonQuery(script2);
 
-                        add_scenarios(Properties.Resources.Fear_Of_Dog_Park_File.ToString(), Properties.Resources.Fear_Of_Dog_Park_Image);
-                        add_scenarios(Properties.Resources.Fear_Of_Height_Balcony_File.ToString(), Properties.Resources.Fear_Of_Height_Balcony_Image);
-                        add_scenarios(Properties.Resources.Fear_Of_Spider_File.ToString(), Properties.Resources.Fear_Of_Spider_Image);
+                        try
+                        {
+                            add_scenarios(Properties.Resources.Fear_Of_Dog_Park_File.ToString(), Properties.Resources.Fear_Of_Dog_Park_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Height_Balcony_File.ToString(), Properties.Resources.Fear_Of_Height_Balcony_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Spider_File.ToString(), Properties.Resources.Fear_Of_Spider_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Dark_File.ToString(), Properties.Resources.Fear_Of_Dark_Image);
+                            add_scenarios(Properties.Resources.Social_Anxiety_Classroom_File.ToString(), Properties.Resources.Social_Anxiety_Classroom_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Height_Elevator_File.ToString(), Properties.Resources.Fear_Of_Height_Elevator_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Flight_File.ToString(), Properties.Resources.Fear_Of_Flight_Image);
+                            add_scenarios(Properties.Resources.Park_Ayda_File.ToString(), Properties.Resources.Park_Ayda_Image);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.ToString());
+                        }
+                        
                     }
                     catch (Exception)
                     {
@@ -92,9 +106,23 @@ namespace VivoosVR
                         Server server1 = new Server(new ServerConnection(conn1));
                         server.ConnectionContext.ExecuteNonQuery(script1);
 
-                        add_scenarios(Properties.Resources.Fear_Of_Dog_Park_File.ToString(), Properties.Resources.Fear_Of_Dog_Park_Image);
-                        add_scenarios(Properties.Resources.Fear_Of_Height_Balcony_File.ToString(), Properties.Resources.Fear_Of_Height_Balcony_Image);
-                        add_scenarios(Properties.Resources.Fear_Of_Spider_File.ToString(), Properties.Resources.Fear_Of_Spider_Image);
+
+                        try
+                        {
+                            add_scenarios(Properties.Resources.Fear_Of_Dog_Park_File.ToString(), Properties.Resources.Fear_Of_Dog_Park_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Height_Balcony_File.ToString(), Properties.Resources.Fear_Of_Height_Balcony_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Spider_File.ToString(), Properties.Resources.Fear_Of_Spider_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Dark_File.ToString(), Properties.Resources.Fear_Of_Dark_Image);
+                            add_scenarios(Properties.Resources.Social_Anxiety_Classroom_File.ToString(), Properties.Resources.Social_Anxiety_Classroom_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Height_Elevator_File.ToString(), Properties.Resources.Fear_Of_Height_Elevator_Image);
+                            add_scenarios(Properties.Resources.Fear_Of_Flight_File.ToString(), Properties.Resources.Fear_Of_Flight_Image);
+                            add_scenarios(Properties.Resources.Park_Ayda_File.ToString(), Properties.Resources.Park_Ayda_Image);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.ToString());
+                        }
                     }
                 }
             }

@@ -404,6 +404,16 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\360 Park Ayda.txt" />
+    <None Include="Resources\360 Park Ayda.PNG" />
+    <None Include="Resources\Fear Of Flight.PNG" />
+    <None Include="Resources\Uçak Fobisi.txt" />
+    <None Include="Resources\Yükseklik Korkusu - Asansör.txt" />
+    <None Include="Resources\Fear Of Height %28Elevator%29.PNG" />
+    <None Include="Resources\Social Anxiety %28Classroom%29.PNG" />
+    <None Include="Resources\Sosyal Anksiyete - Sınıfta .txt" />
+    <None Include="Resources\Karanlık Korkusu.txt" />
+    <None Include="Resources\Fear Of Dark.PNG" />
     <None Include="Resources\Fear Of Height.PNG" />
     <None Include="Resources\Fear Of Dog %28Indoor%29.PNG" />
     <None Include="Resources\Köpek Fobisi - Dış Mekan.txt" />

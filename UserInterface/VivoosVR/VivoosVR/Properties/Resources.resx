@@ -145,4 +145,34 @@
   <data name="Fear_Of_Spider_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fear Of Dog (Indoor).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Fear_Of_Dark_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Karanlık Korkusu.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Fear_Of_Dark_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fear Of Dark.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fear_Of_Flight_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Uçak Fobisi.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Fear_Of_Flight_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fear Of Flight.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fear_Of_Height_Elevator_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Yükseklik Korkusu - Asansör.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Fear_Of_Height_Elevator_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fear Of Height (Elevator).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Park_Ayda_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\360 Park Ayda.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Park_Ayda_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\360 Park Ayda.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social_Anxiety_Classroom_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sosyal Anksiyete - Sınıfta .txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Social_Anxiety_Classroom_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Social Anxiety (Classroom).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
