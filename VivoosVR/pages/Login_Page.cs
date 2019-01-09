@@ -13,7 +13,6 @@ using Microsoft.SqlServer.Server;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
 using System.IO;
-using System.Drawing;
 
 namespace VivoosVR
 {
@@ -57,197 +56,56 @@ namespace VivoosVR
                     try
                     {
                         string sqlConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosMDFCreator.sql");
                         string script = File.ReadAllText(MDFCreator);
                         SqlConnection conn = new SqlConnection(sqlConnectionString);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
                         Server server = new Server(new ServerConnection(conn));
                         server.ConnectionContext.ExecuteNonQuery(script);
 
                         string sqlConnectionString1 = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script1 = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
                         string script1 = File.ReadAllText(TableCreator);
                         SqlConnection conn1 = new SqlConnection(sqlConnectionString1);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
                         Server server1 = new Server(new ServerConnection(conn));
                         server.ConnectionContext.ExecuteNonQuery(script);
 
                         string sqlConnectionString2 = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
                         string script2 = File.ReadAllText(elementAdder);
                         SqlConnection conn2 = new SqlConnection(sqlConnectionString2);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
                         Server server2 = new Server(new ServerConnection(conn2));
                         server.ConnectionContext.ExecuteNonQuery(script2);
-
-                        try
-                        {
-                            add_scenarios(Properties.Resources.Fear_Of_Dog_Park_File.ToString(), Properties.Resources.Fear_Of_Dog_Park_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Height_Balcony_File.ToString(), Properties.Resources.Fear_Of_Height_Balcony_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Spider_File.ToString(), Properties.Resources.Fear_Of_Spider_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Dark_File.ToString(), Properties.Resources.Fear_Of_Dark_Image);
-                            add_scenarios(Properties.Resources.Social_Anxiety_Classroom_File.ToString(), Properties.Resources.Social_Anxiety_Classroom_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Height_Elevator_File.ToString(), Properties.Resources.Fear_Of_Height_Elevator_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Flight_File.ToString(), Properties.Resources.Fear_Of_Flight_Image);
-                            add_scenarios(Properties.Resources.Park_Ayda_File.ToString(), Properties.Resources.Park_Ayda_Image);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show(ex.ToString());
-                        }
-                        
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        //MessageBox.Show(ex.ToString());
+
                         string sqlConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
                         string script = File.ReadAllText(TableCreator);
                         SqlConnection conn = new SqlConnection(sqlConnectionString);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
                         Server server = new Server(new ServerConnection(conn));
                         server.ConnectionContext.ExecuteNonQuery(script);
 
                         string sqlConnectionString1 = @"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS";
+                        //string script = File.ReadAllText(@"D:\GitHub\VivoosVR\UserInterface\LocalVersion\VivoosVR\VivoosVR\VivoosTableCreator.sql");
                         string script1 = File.ReadAllText(elementAdder);
                         SqlConnection conn1 = new SqlConnection(sqlConnectionString1);
+                        //SqlConnection conn = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
                         Server server1 = new Server(new ServerConnection(conn1));
                         server.ConnectionContext.ExecuteNonQuery(script1);
-
-
-                        try
-                        {
-                            add_scenarios(Properties.Resources.Fear_Of_Dog_Park_File.ToString(), Properties.Resources.Fear_Of_Dog_Park_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Height_Balcony_File.ToString(), Properties.Resources.Fear_Of_Height_Balcony_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Spider_File.ToString(), Properties.Resources.Fear_Of_Spider_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Dark_File.ToString(), Properties.Resources.Fear_Of_Dark_Image);
-                            add_scenarios(Properties.Resources.Social_Anxiety_Classroom_File.ToString(), Properties.Resources.Social_Anxiety_Classroom_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Height_Elevator_File.ToString(), Properties.Resources.Fear_Of_Height_Elevator_Image);
-                            add_scenarios(Properties.Resources.Fear_Of_Flight_File.ToString(), Properties.Resources.Fear_Of_Flight_Image);
-                            add_scenarios(Properties.Resources.Park_Ayda_File.ToString(), Properties.Resources.Park_Ayda_Image);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            MessageBox.Show(ex.ToString());
-                        }
                     }
                 }
             }
         }
-        public void add_scenarios(string file,Image image)
-        {
-            try
-            {
-                using (VivosEntities db = new VivosEntities())
-                {
-                    string asset_imformation1 = null;
-                    string[] asset_imformation = null;
-                    asset_imformation1 = file;
-                    asset_imformation = asset_imformation1.Split(new char[] { '\n' });
 
-                    for (int i = 0; i < asset_imformation.Length - 1; i++)
-                    {
-                        asset_imformation[i] = asset_imformation[i].Remove(asset_imformation[i].Length - 1);
-                    }
-
-                    List<Asset> AssetList = (from x in db.Assets select x).ToList();
-                    List<AssetThumbnail> AssetThumbnailList = (from x in db.AssetThumbnails select x).ToList();
-                    List<AssetCommand> AssetCommandList = (from x in db.AssetCommands select x).ToList();
-
-                    int command_count = 0;
-                    for (int i = 0; i < asset_imformation.Length; i++)
-                    {
-                        var splitted = asset_imformation[i].Split(new char[] { ',' });
-                        if (splitted[0].Contains("Komutlar") == true)
-                        {
-                            command_count++;
-                        }
-                    }
-                    Asset new_asset = new Asset();
-                    AssetThumbnail new_asset_thumbnail = new AssetThumbnail();
-                    AssetCommand[] new_asset_command = new AssetCommand[command_count];
-
-                    for (int i = 0; i < new_asset_command.Length; i++)
-                    {
-                        new_asset_command[i] = new AssetCommand();
-                    }
-
-                    Guid new_asset_id = Guid.NewGuid();
-                    new_asset.Id = new_asset_id;
-                    new_asset.GroupId = new Guid("00000000-0000-0000-0000-000000000000");
-                    new_asset.EntryDate = DateTime.Now;
-                    int command_add_number = 0;
-                    for (int i = 0; i < asset_imformation.Length; i++)
-                    {
-                        var splitted = asset_imformation[i].Split(new char[] { ',' });
-
-                        if (splitted[0].Contains("Ad") == true)
-                        {
-                            new_asset.Name = splitted[1];
-                            new_asset.EnName = splitted[2];
-                            new_asset.ArabicName = splitted[3];
-                        }
-                        else if (splitted[0].Contains("Açıklama") == true)
-                        {
-                            new_asset.Description = splitted[1];
-                            new_asset.EnDescription = splitted[2];
-                            new_asset.ArabicDescription = splitted[3];
-                        }
-                        else if (splitted[0].Contains("Aktif") == true)
-                        {
-                            if (splitted[1].Contains("True") == true)
-                            {
-                                new_asset.Available = true;
-                            }
-                            else
-                            {
-                                new_asset.Available = false;
-                            }
-                        }
-                        else if (splitted[0].Contains("Senaryo Dizini") == true)
-                        {
-                            new_asset.Url = splitted[1];
-                        }
-                        else if (splitted[0].Contains("Senaryo Exe") == true)
-                        {
-                            new_asset.Exe = splitted[1];
-                        }
-                        else if (splitted[0].Contains("Komutlar") == true)
-                        {
-                            Guid new_asset_command_id = Guid.NewGuid();
-                            new_asset_command[command_add_number].Id = new_asset_command_id;
-                            new_asset_command[command_add_number].AssetId = new_asset_id;
-                            new_asset_command[command_add_number].Description = splitted[1];
-                            new_asset_command[command_add_number].EnDescription = splitted[2];
-                            new_asset_command[command_add_number].ArabicDescription = splitted[3];
-                            new_asset_command[command_add_number].CommandText = splitted[4];
-                            try
-                            {
-                                new_asset_command[command_add_number].Step = Convert.ToByte(splitted[5]);
-                            }
-                            catch (Exception)
-                            {
-                                new_asset_command[command_add_number].Step = Convert.ToByte(0);
-                            }
-                            db.AssetCommands.Add(new_asset_command[command_add_number]);
-                            command_add_number++;
-                        }
-                    }
-                    try
-                    {
-                        Image img = image;
-                        Bitmap bmp = new Bitmap(img);
-                        ImageConverter converter = new ImageConverter();
-                        new_asset_thumbnail.Thumbnail = (byte[])converter.ConvertTo(img, typeof(byte[]));
-                        new_asset_thumbnail.AssetId = new_asset_id;
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    db.Assets.Add(new_asset);
-                    db.AssetThumbnails.Add(new_asset_thumbnail);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-            }
-        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //Checks the case of all textboxes are filled
             try
             {
                 if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text))
@@ -255,6 +113,7 @@ namespace VivoosVR
                     DialogResult error = new DialogResult();
                     error = MessageBox.Show(resourceManager.GetString("msgFields", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
                 else
                 {
                     using (VivosEntities db = new VivosEntities())
@@ -275,6 +134,7 @@ namespace VivoosVR
                                     this.Hide();
                                     admin.Show();
                                 }
+
                                 else
                                 {
                                     Patients_Page patients = new Patients_Page();
@@ -285,14 +145,27 @@ namespace VivoosVR
                             }
                         }
                     }
+
                     DialogResult error = new DialogResult();
                     error = MessageBox.Show(resourceManager.GetString("msgWrong", GlobalVariables.uiLanguage), resourceManager.GetString("msgWarning", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception)
             {
-               
+                /*SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                con.Open();
+                string str = "USE Master;";
+                //string str1 = "ALTER DATABASE Vivos SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+                string str2 = "RESTORE DATABASE Vivos FROM DISK='.\\Vivos.bak' WITH REPLACE";
+                SqlCommand cmd = new SqlCommand(str, con);
+                //SqlCommand cmd1 = new SqlCommand(str1, con);
+                SqlCommand cmd2 = new SqlCommand(str2, con);
+                cmd.ExecuteNonQuery();
+                // cmd1.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                con.Close();*/
             }
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -363,6 +236,60 @@ namespace VivoosVR
             Change_Password_Page change_password = new Change_Password_Page();
             this.Hide();
             change_password.Show();
+        }
+
+        private void Login_Page_Load(object sender, EventArgs e)
+        {
+            /*int flag = 0;
+            string connectionString = "Data Source=.\\SQLEXPRESS; Integrated Security=True;";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT name from sys.databases", con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            if (dr[0].ToString()=="Vivos")
+                            {
+                                flag = 1;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (flag==0)
+                {
+                    string startupPath = System.IO.Path.GetFullPath(".\\");
+                    string bak= startupPath + "\\Vivos.bak"; 
+                    try
+                    {
+                        startupPath = System.IO.Path.GetFullPath(".\\");
+                        string startupPath1 = System.IO.Directory.GetParent(@"../../../").FullName;
+                        // System.IO.File.Copy(startupPath1 + "\\Database\\Vivos.bak", "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup", true);
+                        //System.IO.File.Move(startupPath1 + "\\Database\\Vivos.bak", "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup");
+                        SqlConnection con1 = new SqlConnection(@"Data Source=.\SQLEXPRESS" + ";" + ";Integrated Security=True");
+                        con1.Open();
+                        string str = "USE Master;";
+                        string bak1 = startupPath1 + "\\Database\\Vivos.bak";
+                        bak = startupPath + "\\Vivos.bak";
+                        string str1 = "RESTORE DATABASE Vivos FROM DISK='.\\Vivos.bak' WITH REPLACE";
+                        //string str1 = "RESTORE DATABASE Vivos FROM DISK='" + bak + "' WITH REPLACE";
+                        //string str1 = "RESTORE DATABASE Vivos FROM DISK='.\\Vivos.bak' WITH REPLACE";
+                        SqlCommand cmd = new SqlCommand(str, con1);
+                        SqlCommand cmd1 = new SqlCommand(str1, con1);
+                        cmd.ExecuteNonQuery();
+                        cmd1.ExecuteNonQuery();
+                        con1.Close();
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show(bak);
+                    }
+                }
+            }*/
         }
     }
 }

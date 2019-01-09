@@ -133,7 +133,6 @@ namespace VivoosVR
             btnSave.Text = resourceManager.GetString("btnSave", GlobalVariables.uiLanguage);
             btnExit.Text = resourceManager.GetString("btnExit", GlobalVariables.uiLanguage);
             this.Text = resourceManager.GetString("btnSettings", GlobalVariables.uiLanguage);
-            btnDeleteCommands.Text = resourceManager.GetString("btnDeleteCommands", GlobalVariables.uiLanguage);
 
             commandsLayout.ColumnCount = 6;
             commandsLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
@@ -317,8 +316,6 @@ namespace VivoosVR
                         this.Hide();
                         admin_page.Show();
                     }
-
-
                 }
                 
             }
@@ -519,11 +516,6 @@ namespace VivoosVR
             
         }
 
-        private void btnDeleteCommands_Click(object sender, EventArgs e)
-        {
-            Command_Delete_Page command_delete_page = new Command_Delete_Page();
-            this.Hide();
-            command_delete_page.Show();  
-        }
+       
     }
 }

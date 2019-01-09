@@ -118,61 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="1200px-Flag_of_Turkey.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images1\1200px-Flag_of_Turkey.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ideasis1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images1\ideasis.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images1\logo2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="main-qimg-ddbee5cee8dbf55585ed6962a81384c3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images1\main-qimg-ddbee5cee8dbf55585ed6962a81384c3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ideasis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images1\ideasis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fear_Of_Dog_Park_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Köpek Fobisi - Dış Mekan.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Fear_Of_Dog_Park_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fear Of Dog (Park).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fear_Of_Height_Balcony_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Yükseklik Fobisi - Teras.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Fear_Of_Height_Balcony_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fear Of Height.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fear_Of_Spider_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Örümcek Fobisi.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Fear_Of_Spider_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fear Of Dog (Indoor).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fear_Of_Dark_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Karanlık Korkusu.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Fear_Of_Dark_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fear Of Dark.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fear_Of_Flight_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Uçak Fobisi.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Fear_Of_Flight_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fear Of Flight.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Fear_Of_Height_Elevator_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Yükseklik Korkusu - Asansör.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Fear_Of_Height_Elevator_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fear Of Height (Elevator).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Park_Ayda_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\360 Park Ayda.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Park_Ayda_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\360 Park Ayda.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Social_Anxiety_Classroom_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sosyal Anksiyete - Sınıfta .txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Social_Anxiety_Classroom_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Social Anxiety (Classroom).PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images1\sa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

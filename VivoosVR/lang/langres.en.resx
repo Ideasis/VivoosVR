@@ -132,9 +132,6 @@
   <data name="btnChangePassword" xml:space="preserve">
     <value>Change Password</value>
   </data>
-  <data name="btnDeleteCommands" xml:space="preserve">
-    <value>Delete Commands</value>
-  </data>
   <data name="btnEnglish" xml:space="preserve">
     <value>English</value>
   </data>
@@ -164,9 +161,6 @@
   </data>
   <data name="btnSelectFile" xml:space="preserve">
     <value>Select File</value>
-  </data>
-  <data name="btnSet" xml:space="preserve">
-    <value>Set</value>
   </data>
   <data name="btnSettings" xml:space="preserve">
     <value>Settings</value>
@@ -297,9 +291,6 @@
   <data name="lblPresentationName" xml:space="preserve">
     <value>Presentation Name</value>
   </data>
-  <data name="lblResetHMD" xml:space="preserve">
-    <value>Reset HMD</value>
-  </data>
   <data name="lblScenarioExe" xml:space="preserve">
     <value>Scenario Exe</value>
   </data>
@@ -342,9 +333,6 @@
   <data name="msgCannotFound" xml:space="preserve">
     <value>path isn't found!</value>
   </data>
-  <data name="msgCommandDeleted" xml:space="preserve">
-    <value>Command deleted!</value>
-  </data>
   <data name="msgContinue" xml:space="preserve">
     <value>Do you want to continue?</value>
   </data>
@@ -362,9 +350,6 @@
   </data>
   <data name="msgInformation" xml:space="preserve">
     <value>Notify</value>
-  </data>
-  <data name="msgIscommandDeleted" xml:space="preserve">
-    <value>Delete command?</value>
   </data>
   <data name="msgIsPatientDeleted" xml:space="preserve">
     <value>Delete patient?</value>

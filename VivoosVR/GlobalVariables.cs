@@ -13,13 +13,11 @@ namespace VivoosVR
     {
         public static Guid Edit_ID;
         public static Guid Session_ID;
-        public static Guid Command_ID;
         public static string Session_ID_name;
         public static Guid Session_Data_ID;
         public static string Session_Data_name;
         public static string Session_Data_date;
         public static Guid Asset_Start_ID;
-        public static string Asset_Start_name;
         public static Guid Command_Start_ID;
         //public static Guid Default_Start_ID;
         public static Guid LoginID;
@@ -34,8 +32,6 @@ namespace VivoosVR
         public static CultureInfo uiLanguage = new CultureInfo("tr-TR");
 
         public static Screen secondaryScreen;
-
-        public static string processURL;
 
 
         //Called on MasterForm Initializer
