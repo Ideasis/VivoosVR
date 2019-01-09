@@ -1,0 +1,16 @@
+Ad,Karanlık Korkusu,Fear of Dark,الخوف من الظلام
+Açıklama,Karanlıktan korku üzerine hazırlanmış senaryo,Exposure therapy scenario for fear of dark,سيناريو بخصوص الخوف من الظلام 
+Senaryo Dizini,C:\Scenarios\FearOfDark\FearOfDark.exe
+Senaryo Exe,FearOfDark.exe
+Aktif,True
+Komutlar0,Oda ışığı 10 sn yanıp söner,Ceiling lights flickering (10 seconds),تبدأ الإضاءة المتواجدة في الغرفة بالإضاءة والإنطفاء طوال 10 ثواني,roomlightflick,2
+Komutlar1,Oda ışığı aç / kapa,Ceiling lights On / Off,ينفتح \ ينغلق مصباح الغرفة,roomlighttoggle,3
+Komutlar2,Masa lambası 10 sn yanıp söner,Night light flickering (10 seconds),تبدأ الإضاءة المتواجدة على الطاولة بالإضاءة والإنطفاء طوال 10 ثواني,tablelightflick,4
+Komutlar3,Masa lambasını aç / kapa,Night light on / off,يتم فتح \ إغلاق الإضاءة المتواجدة على الطاولة ,tablelighttoggle,5
+Komutlar4,Kapı açılır,Open door,يتم فتح الباب ,opendoor,6
+Komutlar5,TV ışığı açılır/kapanır,TV light On / Off,ينفتح \ ينغلق التلفاز ,TVToggle,7
+Komutlar6,Kapı kapanır,Close door,يتم إغلاق الباب ,closedoor,8
+Komutlar7,Tıkırtı sesi başlat,Rattling noise starts,يبدأ صدور أصوات داخل الغرفة ,playtapping,9
+Komutlar8,Perdeyi aç,Open curtain,يتم فتح الستائر ,opencurtain,10
+Komutlar9,Tıkırtı sesi durur,Rattling noise stops,تنقطع الأصوات في داخل الغرفة ,stoptapping,11
+Komutlar10,Perdeyi kapat,Close curtain,يتم إغلاق الستائر ,closecurtain,12

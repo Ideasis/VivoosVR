@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="VivoosVR.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="soket_ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="soket_port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">9001</Value>
+    </Setting>
+    <Setting Name="senaryo_dizin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\oguzh\Desktop\VivoosVR\extracted\</Value>
+    </Setting>
+    <Setting Name="neulog_dizin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\neulog_api\neulog_api.exe</Value>
+    </Setting>
+    <Setting Name="neulog_ip" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="neulog_port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">22002</Value>
+    </Setting>
+    <Setting Name="sensor_visible" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00:00:30</Value>
+    </Setting>
+    <Setting Name="sensor_interval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

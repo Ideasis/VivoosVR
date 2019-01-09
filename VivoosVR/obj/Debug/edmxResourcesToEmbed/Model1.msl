@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VivosModelStoreContainer" CdmEntityContainer="VivosEntities">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="VivosModel.Branch">
+        <MappingFragment StoreEntitySet="Branches">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Claims">
+      <EntityTypeMapping TypeName="VivosModel.Claim">
+        <MappingFragment StoreEntitySet="Claims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="Resource" ColumnName="Resource" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="VivosModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumerProperties">
+      <EntityTypeMapping TypeName="VivosModel.ConsumerProperty">
+        <MappingFragment StoreEntitySet="ConsumerProperties">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConsumerId" ColumnName="ConsumerId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="TypeNo" ColumnName="TypeNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consumers">
+      <EntityTypeMapping TypeName="VivosModel.Consumer">
+        <MappingFragment StoreEntitySet="Consumers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="WindowsCode" ColumnName="WindowsCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="VivosModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="VivosModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleToUserMaps">
+      <EntityTypeMapping TypeName="VivosModel.RoleToUserMap">
+        <MappingFragment StoreEntitySet="RoleToUserMaps">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="ValidUntil" ColumnName="ValidUntil" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="VivosModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumerPropertyTypes">
+      <EntityTypeMapping TypeName="VivosModel.ConsumerPropertyType">
+        <MappingFragment StoreEntitySet="ConsumerPropertyTypes">
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetCommands">
+      <EntityTypeMapping TypeName="VivosModel.AssetCommand">
+        <MappingFragment StoreEntitySet="AssetCommands">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="CommandText" ColumnName="CommandText" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Step" ColumnName="Step" />
+          <ScalarProperty Name="EnDescription" ColumnName="EnDescription" />
+          <ScalarProperty Name="ArabicDescription" ColumnName="ArabicDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetDefaults">
+      <EntityTypeMapping TypeName="VivosModel.AssetDefault">
+        <MappingFragment StoreEntitySet="AssetDefaults">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="OnCommandText" ColumnName="OnCommandText" />
+          <ScalarProperty Name="OnCommandName" ColumnName="OnCommandName" />
+          <ScalarProperty Name="OffCommandText" ColumnName="OffCommandText" />
+          <ScalarProperty Name="OffCommandName" ColumnName="OffCommandName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Step" ColumnName="Step" />
+          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetGroups">
+      <EntityTypeMapping TypeName="VivosModel.AssetGroup">
+        <MappingFragment StoreEntitySet="AssetGroups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Assets">
+      <EntityTypeMapping TypeName="VivosModel.Asset">
+        <MappingFragment StoreEntitySet="Assets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Exe" ColumnName="Exe" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="UpdateStamp" ColumnName="UpdateStamp" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EnDescription" ColumnName="EnDescription" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="ArabicDescription" ColumnName="ArabicDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssetThumbnails">
+      <EntityTypeMapping TypeName="VivosModel.AssetThumbnail">
+        <MappingFragment StoreEntitySet="AssetThumbnails">
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="VivosModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Problems">
+      <EntityTypeMapping TypeName="VivosModel.Problem">
+        <MappingFragment StoreEntitySet="Problems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="SymptomDescription" ColumnName="SymptomDescription" />
+          <ScalarProperty Name="SymptomType" ColumnName="SymptomType" />
+          <ScalarProperty Name="SymptomStartDate" ColumnName="SymptomStartDate" />
+          <ScalarProperty Name="SymptomResults" ColumnName="SymptomResults" />
+          <ScalarProperty Name="IGDPoints" ColumnName="IGDPoints" />
+          <ScalarProperty Name="Avoidance" ColumnName="Avoidance" />
+          <ScalarProperty Name="Precaution" ColumnName="Precaution" />
+          <ScalarProperty Name="History" ColumnName="History" />
+          <ScalarProperty Name="PlaceOfFullSecure" ColumnName="PlaceOfFullSecure" />
+          <ScalarProperty Name="PlaceOfSecure" ColumnName="PlaceOfSecure" />
+          <ScalarProperty Name="PlaceOfHesitant" ColumnName="PlaceOfHesitant" />
+          <ScalarProperty Name="PlaceOfUnsecure" ColumnName="PlaceOfUnsecure" />
+          <ScalarProperty Name="PlaceOfFullUnsecure" ColumnName="PlaceOfFullUnsecure" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Safes">
+      <EntityTypeMapping TypeName="VivosModel.Safe">
+        <MappingFragment StoreEntitySet="Safes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="VivosModel.Session">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionDateTime" ColumnName="SessionDateTime" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="SensorData" ColumnName="SensorData" />
+          <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
