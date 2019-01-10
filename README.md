@@ -43,6 +43,8 @@ VivoosVR is being developed in cooperation with a team of psychology / psychiatr
 
 3. Click on "URL" tab and copy the following link of the VivoosVR Repo and paste it on the URL part:
     ![Screenshot of PasteRepoLink](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS2_PasteRepoLink.png)
+    
+    https://github.com/Ideasis/VivoosVR.git
 
 4. Set local path of the repo
 
