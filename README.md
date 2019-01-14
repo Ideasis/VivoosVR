@@ -1,4 +1,4 @@
-# VivoosVR
+﻿# VivoosVR
 
 ## License
 
@@ -171,6 +171,6 @@ Assuming you have the stated Unreal Engine 4 version, you need to perform the fo
 
 [Click here for the project stat files](https://www.dropbox.com/sh/dqk3hrw7geeqrhw/AADFIQme4_-vGRnH9F0rV_Lfa?dl=0)
 
-### Coverage Tests
+### Feature Tests
 
-You can download the document regarding coverage tests of VivoosVR User Interface through this [link](https://github.com/Ideasis/VivoosVR/raw/master/VivoosVR%20Test%20Document.docx).
+You can download the document regarding feature tests of VivoosVR User Interface through this [link](https://github.com/Ideasis/VivoosVR/raw/master/VivoosVR%20Test%20Document.docx).
