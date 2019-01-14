@@ -173,4 +173,4 @@ Assuming you have the stated Unreal Engine 4 version, you need to perform the fo
 
 ### Feature Tests
 
-You can download the document regarding feature tests of VivoosVR User Interface through this [link](https://github.com/Ideasis/VivoosVR/raw/master/VivoosVR%20Test%20Document.docx).
+You can download the document regarding feature tests of VivoosVR User Interface through this [link](https://github.com/Ideasis/VivoosVR/raw/master/VivoosVR%20Feature%20Tests.docx).
