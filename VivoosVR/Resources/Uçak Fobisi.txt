@@ -1,0 +1,10 @@
+Ad,Uçak Fobisi,Fear of flight,رهاب الطائرة 
+Açıklama,Uçuş Fobisi,Fear of flight,رهاب الطائرة 
+Senaryo Dizini,C:\Scenarios\Plane\Plane.exe
+Senaryo Exe,Plane.exe
+Aktif,True
+Komutlar0,Yolcular yerlerine oturur,Passangers take a seat,يأتي شخصين من خلف الطائرة ويجلسان ,peopletakeseats,2
+Komutlar1,Danışanın yanına yolcu oturur,Passanger sits next to advisee,يجلس شخص بجانب المريض ,peoplegotoplayer,3
+Komutlar2,Anons,Announcement,يبدأ الطيار بالتحدث عن قواعد السلامة \ يتوقف ,safetyspeech,4
+Komutlar3,Hareket et / dur,Take off / Stop,تبدأ الطائرة بالتحرك \ تتوقف الطائرة ,takeoff,5
+Komutlar4,İnişe geç,Start landing,تبدأ الطائرة بالهبوط  ,landing,6

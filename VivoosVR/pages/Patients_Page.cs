@@ -37,15 +37,16 @@ namespace VivoosVR
 
                 patients_datagrid.BorderStyle = BorderStyle.None;
                 patients_datagrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-                patients_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                patients_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.Single;
                 patients_datagrid.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
                 patients_datagrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
                 patients_datagrid.BackgroundColor = Color.White;
 
                 patients_datagrid.EnableHeadersVisualStyles = false;
-                patients_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                patients_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
                 patients_datagrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
                 patients_datagrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                patients_datagrid.ColumnHeadersDefaultCellStyle.Font = new Font(patients_datagrid.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f ,FontStyle.Bold);
 
                 add_button();
                 for (int i = 0; i < patients_datagrid.ColumnCount-3; i++)
@@ -55,7 +56,7 @@ namespace VivoosVR
                 }
                 List<Patient> patientlist = (from x in db.Patients where x.DoctorId == GlobalVariables.LoginID select x).ToList();
                 List<Patient> patientlist1 = patientlist.OrderBy(o => o.Code).ToList();
-                List<Patient> patientlist02 = (from x in db.Patients where x.Code.StartsWith(key) && x.DoctorId == GlobalVariables.LoginID select x).ToList();
+                List<Patient> patientlist02 = (from x in db.Patients where x.Code.Contains(key) && x.DoctorId == GlobalVariables.LoginID select x).ToList();
                 List<Patient> patientlist2 = patientlist02.OrderBy(o => o.Code).ToList();
                 List<Patient> keyList = null;
                 if (GlobalVariables.Patients_Search_Flag==0)
@@ -89,11 +90,12 @@ namespace VivoosVR
             lnkNotes.HeaderText = resourceManager.GetString("headerNotes", GlobalVariables.uiLanguage); 
             lnkNotes.UseColumnTextForLinkValue = true;
             lnkNotes.Text = resourceManager.GetString("linkNotes", GlobalVariables.uiLanguage);
-            lnkNotes.ActiveLinkColor = Color.White;
+            lnkNotes.ActiveLinkColor = Color.Black;
             lnkNotes.LinkBehavior = LinkBehavior.SystemDefault;
             lnkNotes.LinkColor = Color.Blue;
             lnkNotes.TrackVisitedState = true;
-            lnkNotes.VisitedLinkColor = Color.YellowGreen;
+            lnkNotes.VisitedLinkColor = Color.Blue;
+            lnkNotes.Width = 150;
 
             DataGridViewButtonColumn btnSessions = new DataGridViewButtonColumn();
             patients_datagrid.Columns.Add(btnSessions);
@@ -101,6 +103,7 @@ namespace VivoosVR
             btnSessions.Text = resourceManager.GetString("headerSession", GlobalVariables.uiLanguage);
             btnSessions.Name = "sessionBtn";
             btnSessions.UseColumnTextForButtonValue = true;
+            btnSessions.Width = 150;
 
             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
             patients_datagrid.Columns.Add(btnEdit);
@@ -108,6 +111,7 @@ namespace VivoosVR
             btnEdit.Text = resourceManager.GetString("headerEdit", GlobalVariables.uiLanguage);
             btnEdit.Name = "gridBtn";
             btnEdit.UseColumnTextForButtonValue = true;
+            btnEdit.Width = 150;
 
             DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
             patients_datagrid.Columns.Add(btnDelete);
@@ -115,6 +119,7 @@ namespace VivoosVR
             btnDelete.Text = resourceManager.GetString("headerDelete", GlobalVariables.uiLanguage);
             btnDelete.Name = "deleteBtn";
             btnDelete.UseColumnTextForButtonValue = true;
+            btnDelete.Width = 150;
         }
        
         public void find_notes (Guid id)
@@ -159,6 +164,12 @@ namespace VivoosVR
             this.Hide();
             yeni_danısan.Show();
         }
+
+        private void patients_datagrid_SelectionChanged(Object sender, EventArgs e)
+        {
+            patients_datagrid.ClearSelection();
+        }
+
 
         private void patients_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -240,7 +251,7 @@ namespace VivoosVR
                             string key = null;
                             fill_datagrid(key);
                             DialogResult information = new DialogResult();
-                            information = MessageBox.Show(resourceManager.GetString("msgPatientDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("mesajBilgilendirme", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            information = MessageBox.Show(resourceManager.GetString("msgPatientDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -264,6 +275,12 @@ namespace VivoosVR
                 this.Hide();
                 login_page.Show();
             }
+        }
+
+        private void patients_datagrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            /*DataGridViewRow row = patients_datagrid.Rows[e.RowIndex];
+            row.DefaultCellStyle.BackColor = Color.Green;*/
         }
     }
 }

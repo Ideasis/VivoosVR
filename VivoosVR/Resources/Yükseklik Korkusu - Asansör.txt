@@ -1,0 +1,7 @@
+Ad,Yükseklik Korkusu - Asansör,Fear of Heights - Elevator,Fear of Heights - Elevator
+Açıklama,Yükseklik korkusu için hazırlanmış asansör ortamı,Inside of an elevator for fear of height,Inside of an elevator for fear of height
+Senaryo Dizini,C:/Scenarios/FearOfHeight_Elevator/FearOfHeight_Elevator.exe
+Senaryo Exe,FearOfHeight_Elevator.exe
+Aktif,True
+Komutlar0,Asansör yukarı çıkar,Elevator goes up,Elevator goes up,elevatorgoup,1
+Komutlar1,Asansör aşağı iner,Elevator goes down,Elevator goes down,elevatorgodown,2

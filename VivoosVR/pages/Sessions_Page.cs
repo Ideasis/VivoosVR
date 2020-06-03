@@ -63,16 +63,16 @@ namespace VivoosVR
 
                 sessions_datagrid.BorderStyle = BorderStyle.None;
                 sessions_datagrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-                sessions_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                sessions_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.Single;
                 sessions_datagrid.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
                 sessions_datagrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
                 sessions_datagrid.BackgroundColor = Color.White;
 
                 sessions_datagrid.EnableHeadersVisualStyles = false;
-                sessions_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                sessions_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
                 sessions_datagrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
                 sessions_datagrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
+                sessions_datagrid.ColumnHeadersDefaultCellStyle.Font = new Font(sessions_datagrid.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold);
                 add_button();
                 for (int i = 0; i < sessions_datagrid.ColumnCount - 2; i++)
                 {
@@ -113,6 +113,10 @@ namespace VivoosVR
                             {
                                 sessions_datagrid.Rows[i].Cells[2].Value = assetlist[j].ArabicName;
                             }
+                            else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                            {
+                                sessions_datagrid.Rows[i].Cells[2].Value = assetlist[j].FrName;
+                            }
                             break;
                         }
                     }
@@ -127,6 +131,9 @@ namespace VivoosVR
             btnDelete.Text = resourceManager.GetString("headerDelete", GlobalVariables.uiLanguage);
             btnDelete.Name = "deleteBtn";
             btnDelete.UseColumnTextForButtonValue = true;
+            btnDelete.Width = 150;
+            //btnDelete.FlatStyle = FlatStyle.Flat;
+            //btnDelete.DefaultCellStyle.BackColor = Color.FromArgb(255, 167, 38);
 
             DataGridViewButtonColumn btnData = new DataGridViewButtonColumn();
             sessions_datagrid.Columns.Add(btnData);
@@ -134,6 +141,7 @@ namespace VivoosVR
             btnData.Text = resourceManager.GetString("headerDataDownload", GlobalVariables.uiLanguage);
             btnData.Name = "dataBtn";
             btnData.UseColumnTextForButtonValue = true;
+            btnData.Width = 150;
         }
         public void createDoc()
         {
@@ -353,6 +361,11 @@ namespace VivoosVR
             new_session.Show();
         }
 
+        private void sessions_datagrid_SelectionChanged(Object sender, EventArgs e)
+        {
+            sessions_datagrid.ClearSelection();
+        }
+
         private void sessions_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.ColumnIndex == 3)
@@ -397,7 +410,22 @@ namespace VivoosVR
                         {
                             if (assetlist[i].Id == sessionlist[0].AssetId)
                             {
-                                GlobalVariables.Session_Data_name = assetlist[i].Name;
+                                if (Convert.ToString(GlobalVariables.uiLanguage) == "en-US")
+                                {
+                                    GlobalVariables.Session_Data_name = assetlist[i].EnName;
+                                }
+                                else if (Convert.ToString(GlobalVariables.uiLanguage) == "tr-TR")
+                                {
+                                    GlobalVariables.Session_Data_name = assetlist[i].Name;
+                                }
+                                else if (Convert.ToString(GlobalVariables.uiLanguage) == "ar-SA")
+                                {
+                                    GlobalVariables.Session_Data_name = assetlist[i].ArabicName;
+                                }
+                                else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                                {
+                                    GlobalVariables.Session_Data_name = assetlist[i].FrName;
+                                }
                                 break;
                             }
                         }

@@ -1,0 +1,8 @@
+Ad,Yükseklik Fobisi - Teras,Fear of heights,رهاب إرتفاع الشرفة 
+Açıklama,Teras ortamında yüksekliğe maruz bırakma senaryosu,Exposure to height in a rooftop environment,في هذا السيناريو يترك المريض في الشرفة المرتفعة ويتم تقريبه وإبعاده عن حافة الشرفة من قبل الإخصائي 
+Senaryo Dizini,C:\Scenarios\FearOfHeight_Balcony\FearOfHeight_Balcony.exe
+Senaryo Exe,FearOfHeight_Balcony
+Aktif,True
+Komutlar0,Bir aşama ilerle,Follow marker,يتم تأمين متابعة المريض للإشارات المتواجدة على الأرض ,nextposition,1
+Komutlar1,Bir aşama geri git,Return to previous location,يتم الرجوع للموقع السابق ,previousposition,2
+Komutlar2,Korkuluk kaldır / indir,Raise / lower hand rails,يتم رفع المقعد  \ إرجاعه للخلف  ,safetyrail,3

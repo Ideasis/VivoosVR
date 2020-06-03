@@ -1,10 +1,10 @@
-﻿# VivoosVR
+# VivoosVR
 
 ## License
 
 [**BSD 3-Clause**](https://opensource.org/licenses/BSD-3-Clause)
 
-See [LICENSE](https://github.com/Ideasis/VivoosVR/blob/master/LICENSE)
+See [LICENSE](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/LICENSE)
 
 ## About
 
@@ -39,12 +39,10 @@ VivoosVR is being developed in cooperation with a team of psychology / psychiatr
 1. Download and install [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
 
 2. Run GitHub Desktop Application and click on File -> Clone Repository:
-    ![Screenshot of Clone Repository](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS1_CloneRepository.png)
+    ![Screenshot of Clone Repository](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS1_CloneRepository.png)
 
 3. Click on "URL" tab and copy the following link of the VivoosVR Repo and paste it on the URL part:
-    ![Screenshot of PasteRepoLink](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS2_PasteRepoLink.png)
-    
-    https://github.com/Ideasis/VivoosVR.git
+    ![Screenshot of PasteRepoLink](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/GitHubDesktop%20_Installation_SS/SS2_PasteRepoLink.png)
 
 4. Set local path of the repo
 
@@ -58,15 +56,15 @@ VivoosVR is being developed in cooperation with a team of psychology / psychiatr
 
 2. Open the SQL Server Management Studio and login. In the Object Explorer tab, right click on "Databases" and select "Restore Database".
 
-    ![2](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/2.jpg)
+    ![2](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/2.JPG)
     
 3. Select Device part, click add and find "Vivoos.bak" file
     
-    ![3](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/3.JPG)
+    ![3](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/3.JPG)
     
-    ![4](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/4.JPG)
+    ![4](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/4.JPG)
 
-    ![5](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/5.JPG)
+    ![5](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/5.JPG)
 
 4. 	Close the SQL Server Management Studio Application.
 
@@ -102,31 +100,31 @@ WebVR related links can be found below:
     Default admin: Username: admin Password:123
     You can add new users in admin page.
     
-![6](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/6.JPG)
+![6](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/6.JPG)
 
 2.	For using the scenarios, you can download them in the github. Default path is C:/Scenarios. You can create a folder named Scenarios and copy the scenarios in this folder. If you want to copy another path, please login with the admin password and change the scenarios path. (Login -> Find the scenario and click edit -> Change the path)  
 
-![7](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/7.JPG)
+![7](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/7.JPG)
 
-![8](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/8.JPG)
+![8](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/8.JPG)
 
 3.	If you login with the default user password, the first screen you will see is the patient page. You can see a list of your patients in this page. You can also add new patients or you can edit existing patient information. 
 
-![9](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/9.JPG)
+![9](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/9.JPG)
 
 4.	You can click the “Session List” of one of your patients. In this page, you can see the sessions of the selected patient. You can also download the data (GSR and Pulse data due to the time) of the session or delete the session. 
 
-![10](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/10.JPG)
+![10](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/10.JPG)
 
 5.	By clicking the “New Session” button in the “Sessions Page”, you can choose and begin any of the existing exposure scenarios. 
 
-![11](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/11.JPG)
+![11](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/11.JPG)
 
 6.	In the “New Session Controls” page, you can trigger and control scenario events. Moreover, you can track the anxiety level of the patient through GSR and pulse graphs. 
 
-![12](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/13.JPG)
+![13](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/13.JPG)
 
-![13](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Guideline_SS/12.JPG)
+![12](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Guideline_SS/12.JPG)
 
 ### Neulog
 
@@ -140,15 +138,15 @@ You need to perform following tasks to make Neulog modules and sensors work corr
 
 1.	Plug USB module, Heart Rate & Pulse Logger Sensor and GSR Logger Sensor to each other and plug them to your computer via USB Port (Order of the modules are not important!)
 
-![Neulog_PlugModules](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Neulog_SS/Neulog_PlugModules_SS.jpeg)
+![Neulog_PlugModules](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Neulog_SS/Neulog_PlugModules_SS.jpeg)
 
 2.	Attach handle of the heart rate and pulse sensor to little finger of your right hand in a way that glassy side of the handle touches the bottom side of your finger
 
-![Neulog_HeartRate](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Neulog_SS/Neulog_HeartRate_SS.jpg)
+![Neulog_HeartRate](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Neulog_SS/Neulog_HeartRate_SS.jpg)
 
 3.	Attach the handles of the gsr module to ring finger and index finger of your right hand in a way that metal part of the handles touches the bottom side of your finger
 
-![Neulog_GSR](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/Neulog_SS/Neulog_GSR_SS.jpg)
+![Neulog_GSR](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Neulog_SS/Neulog_GSR_SS.jpg)
 
 ## Testing
 
@@ -161,16 +159,12 @@ Assuming you have the stated Unreal Engine 4 version, you need to perform the fo
 1. Open any compatible Unreal Engine 4 project
 
 2. Open "Session Frontend" panel from Window > Developer Tools > Session Frontend
-![1](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_SessionFrontEndOpening.png)
+![1](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_SessionFrontEndOpening.png)
 
 3. Click on "Profiler" tab
-![2](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_ClickOnProfiler.png)
+![2](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_ClickOnProfiler.png)
 
 4. Click on "Load" button and locate the desired stat file
-![3](https://github.com/Ideasis/VivoosVR/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_ClickOnLoad.png)
+![3](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_ClickOnLoad.png)
 
 [Click here for the project stat files](https://www.dropbox.com/sh/dqk3hrw7geeqrhw/AADFIQme4_-vGRnH9F0rV_Lfa?dl=0)
-
-### Feature Tests
-
-You can download the document regarding feature tests of VivoosVR User Interface through this [link](https://github.com/Ideasis/VivoosVR/raw/master/VivoosVR%20Feature%20Tests.docx).

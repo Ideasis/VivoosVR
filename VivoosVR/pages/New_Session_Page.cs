@@ -18,7 +18,7 @@ namespace VivoosVR
     public partial class New_Session_Page : MasterForm
     {
         public New_Session_Page()
-        {
+        {   
             string key = null;
             InitializeComponent();
             fill_datagrid(key);
@@ -57,15 +57,16 @@ namespace VivoosVR
 
                 newsession_datagrid.BorderStyle = BorderStyle.None;
                 newsession_datagrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-                newsession_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                newsession_datagrid.CellBorderStyle = DataGridViewCellBorderStyle.Single;
                 newsession_datagrid.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
                 newsession_datagrid.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
                 newsession_datagrid.BackgroundColor = Color.White;
 
                 newsession_datagrid.EnableHeadersVisualStyles = false;
-                newsession_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+                newsession_datagrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
                 newsession_datagrid.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
                 newsession_datagrid.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                newsession_datagrid.ColumnHeadersDefaultCellStyle.Font = new Font(newsession_datagrid.ColumnHeadersDefaultCellStyle.Font.FontFamily, 10f, FontStyle.Bold);
 
                 add_button();
                 newsession_datagrid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -115,6 +116,11 @@ namespace VivoosVR
                         newsession_datagrid.Rows[i].Cells[2].Value = keyList[i].ArabicName;
                         newsession_datagrid.Rows[i].Cells[3].Value = keyList[i].ArabicDescription;
                     }
+                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                    {
+                        newsession_datagrid.Rows[i].Cells[2].Value = keyList[i].FrName;
+                        newsession_datagrid.Rows[i].Cells[3].Value = keyList[i].FrDescription;
+                    }
                 }
             }
         }
@@ -126,6 +132,12 @@ namespace VivoosVR
             btnStart.Text = resourceManager.GetString("btnStart", GlobalVariables.uiLanguage);
             btnStart.Name = "startBtn";
             btnStart.UseColumnTextForButtonValue = true;
+           
+            
+            
+            /*btnStart.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 167, 38);
+            btnStart.FlatStyle = FlatStyle.Flat;*/
+
         }
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
@@ -149,6 +161,11 @@ namespace VivoosVR
             {
                 procs.Kill();
             }
+        }
+
+        private void newsession_datagrid_SelectionChanged(Object sender, EventArgs e)
+        {
+            newsession_datagrid.ClearSelection();
         }
 
         private void newsession_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -176,7 +193,24 @@ namespace VivoosVR
                                 }
                                 try
                                 {
+                                    if (Convert.ToString(GlobalVariables.uiLanguage) == "en-US")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].EnName;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "tr-TR")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].Name;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "ar-SA")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].ArabicName;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].FrName;
+                                    }
                                     GlobalVariables.sessionProcess = System.Diagnostics.Process.Start(@assets[i].Url);
+                                    GlobalVariables.processURL = @assets[i].Url;
                                     New_Session_Controls_Page new_session_controls = new New_Session_Controls_Page();
                                     new_session_controls.Show();
                                     this.Hide();

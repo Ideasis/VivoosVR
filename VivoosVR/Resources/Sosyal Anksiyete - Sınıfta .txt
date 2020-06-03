@@ -1,0 +1,13 @@
+Ad,Sosyal Anksiyete - Sınıfta ,Social anxiety (Classroom),صف للقلق الإجتماعي
+Açıklama,Sınıf ortamında sosyal anksiyete senaryosu,Presentation scenario in a classroom environment,تنظيم تقديم لصف المرضى الشباب الذين يعانون من القلق الإجتماعي 
+Senaryo Dizini,C:\Scenarios\Class_Ideasis\Class_Ideasis.exe
+Senaryo Exe,Class_Ideasis.exe
+Aktif,True
+Komutlar0,Zil çalar,Break time over,Break time over,bellring,2
+Komutlar1,Hasta ilerler,Advisee is moved,Advisee is moved,teleportplayer,3
+Komutlar2,Öğretmen konuşur,Teacher talks,Teacher talks,teachertalk,4
+Komutlar3,Rastgele esneme,Random yawn,يبدأ أي طالب بالتثاؤب ,randomyawn,5
+Komutlar4,2 öğrenci konuşur,Two students talk,Two students talk,singletalk,6
+Komutlar5,Sınıf konuşur,All class talks,All class talks,multipletalk,7
+Komutlar6,Parmakla gösterilir,Two student point,Two student point,singlepoint,8
+Komutlar7,Herkes alkışlar,Everyone claps,Everyone claps,allclap,9

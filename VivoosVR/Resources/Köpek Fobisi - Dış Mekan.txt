@@ -1,0 +1,18 @@
+Ad,Köpek Fobisi - Dış Mekan,Fear of dogs (Park),رهاب الكلاب 
+Açıklama,Park ortamında köpeğe maruz bırakma senaryosu,Exposure to dogs in a park environment,في هذا السيناريو يُترك المريض مع  كلب في الحديقة . يتم تقريب وإبعاد الكلب من المريض بإشراف من المختص ويُترك الكلب للنباح وحفر الأرض وما شابه ذلك
+Senaryo Dizini,C:\Scenarios\FearOfDog_Park\FearOfDog_Park.exe
+Senaryo Exe,FearOfDog_Park.exe
+Aktif,True
+Komutlar0,Havlama sesi,Barking sound,صوت نباح ,dog_single_barking,2
+Komutlar1,Uzak konumda dolaşır,Walk around - Far,يبتعد الكلب وينتظر قليلاً ومن ثم يتجول بشكل عشوائي ,dog_go_far,3
+Komutlar2,Yaklaşır - Uzak mesafe,Far position,يتم تقريب الكلب من المريض ,dog_dig,4
+Komutlar3,Yaklaşır - Orta mesafe,Mid position,يتم تقريب الكلب وجعله يأكل الطعام ,dog_eat_on_h,5
+Komutlar4,Yakın konumda dolaşır,Walk around - Near ,يتجول الكلب بشكل عشوائي بالقرب من المريض ,dog_go_mid,6
+Komutlar5,Yaklaşır - Yakın mesafe,Near position,يتم تقريب الكلب أكثر من المريض ,dog_go_near,7
+Komutlar6,Danışana bakar,Look at the advisee,ينظر الكلب إلى المريض ,dog_look_at_camera,8
+Komutlar7,Yaptığı işi bırakır,Stop current action,يتم جعل الكلب يترك ما يقوم به ,dog_stop,9
+Komutlar8,Oturur,Sit at current location,يجلس الكلب في موضعه ,dog_sit,9
+Komutlar9,Havlamaya başlar,Start barking,يقترب الكلب من المريض وينبح ,dog_continuous_barking,10
+Komutlar10,Saldırganlaşır ve hırlar,Agressive and growl,يقفز الكلب على المريض ويصدر أصواتاً ,dog_snarl,11
+Komutlar11,Durur,Idle,يتم تثبيت الكلب في موقعه ,dog_stop,12
+Komutlar12,İnsanlar Görünür/Görünmez,People Visible/NotVisible,الناس مرئيون / غير مرئيين,peoplevisibility,13
