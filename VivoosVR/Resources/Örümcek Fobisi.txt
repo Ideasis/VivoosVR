@@ -1,0 +1,10 @@
+Ad,Örümcek Fobisi,Fear of Spiders,رهاب العنكبوت في الصالة 
+Açıklama,Dış ortamda örümceklere maruz bırakma senaryosu,Exposure therapy scenario for fear of spiders in an indoor environment,في هذا السيناريو يتم تعريض المريض للعناكب في الصالة وعلى طاولة الطعام 
+Senaryo Dizini,C:\Scenarios\FearOfSpiders_Salon\FearOfSpiders_Salon.exe
+Senaryo Exe,FearOfSpiders_Salon.exe
+Aktif,True
+Komutlar0,Örümcek uzakta görünür,Spider appears - Far,يظهر العنكبوت عن بعد ,spidergofar,1
+Komutlar1,Örümcek bir aşama yaklaşır ve durur,Spider approaches and stops - Mid,يقترب العنكبوت ومن ثم يتوقف ,spidergomid,2
+Komutlar2,Önüne yaklaşır ve durur,Spider approaches and stops - Near,يتوجه العنكبوت نحو المريض ويقف أمامه ,spidergonear,3
+Komutlar3,Örümcek sayısı arttırılır,Increase number of spiders,يتم زيادة أعداد العناكب ,spiderclone,4
+Komutlar4,Örümcek rastgele dolaşır,Spider starts moving,يتجول العنكبوت بشكل عشوائي ,spiderwalkaround,5

@@ -94,6 +94,7 @@ namespace VivoosVR
             lnkNotes.LinkColor = Color.Blue;
             lnkNotes.TrackVisitedState = true;
             lnkNotes.VisitedLinkColor = Color.YellowGreen;
+            lnkNotes.Width = 150;
 
             DataGridViewButtonColumn btnSessions = new DataGridViewButtonColumn();
             patients_datagrid.Columns.Add(btnSessions);
@@ -101,6 +102,7 @@ namespace VivoosVR
             btnSessions.Text = resourceManager.GetString("headerSession", GlobalVariables.uiLanguage);
             btnSessions.Name = "sessionBtn";
             btnSessions.UseColumnTextForButtonValue = true;
+            btnSessions.Width = 150;
 
             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
             patients_datagrid.Columns.Add(btnEdit);
@@ -108,6 +110,7 @@ namespace VivoosVR
             btnEdit.Text = resourceManager.GetString("headerEdit", GlobalVariables.uiLanguage);
             btnEdit.Name = "gridBtn";
             btnEdit.UseColumnTextForButtonValue = true;
+            btnEdit.Width = 150;
 
             DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
             patients_datagrid.Columns.Add(btnDelete);
@@ -115,6 +118,7 @@ namespace VivoosVR
             btnDelete.Text = resourceManager.GetString("headerDelete", GlobalVariables.uiLanguage);
             btnDelete.Name = "deleteBtn";
             btnDelete.UseColumnTextForButtonValue = true;
+            btnDelete.Width = 150;
         }
        
         public void find_notes (Guid id)
@@ -240,7 +244,7 @@ namespace VivoosVR
                             string key = null;
                             fill_datagrid(key);
                             DialogResult information = new DialogResult();
-                            information = MessageBox.Show(resourceManager.GetString("msgPatientDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("mesajBilgilendirme", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            information = MessageBox.Show(resourceManager.GetString("msgPatientDeleted", GlobalVariables.uiLanguage), resourceManager.GetString("msgInformation", GlobalVariables.uiLanguage), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -264,6 +268,12 @@ namespace VivoosVR
                 this.Hide();
                 login_page.Show();
             }
+        }
+
+        private void patients_datagrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            /*DataGridViewRow row = patients_datagrid.Rows[e.RowIndex];
+            row.DefaultCellStyle.BackColor = Color.Green;*/
         }
     }
 }

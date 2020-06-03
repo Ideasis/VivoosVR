@@ -37,6 +37,8 @@ namespace VivoosVR
         public string EnDescription { get; set; }
         public string ArabicName { get; set; }
         public string ArabicDescription { get; set; }
+        public string FrName { get; set; }
+        public string FrDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AssetCommand> AssetCommands { get; set; }
