@@ -38,12 +38,6 @@ namespace VivoosVR
                 login_page.Show();
             }
         }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            GlobalVariables.NewSessions_Search_Flag = 1;
-            fill_datagrid(txtSearch.Text.ToString());
-        }
         public void fill_datagrid(string key)
         {
             using (VivosEntities db = new VivosEntities())
@@ -120,6 +114,11 @@ namespace VivoosVR
                         scenarios_datagrid.Rows[i].Cells[2].Value = keyList[i].ArabicName;
                         scenarios_datagrid.Rows[i].Cells[3].Value = keyList[i].ArabicDescription;
                     }
+                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                    {
+                        scenarios_datagrid.Rows[i].Cells[2].Value = keyList[i].FrName;
+                        scenarios_datagrid.Rows[i].Cells[3].Value = keyList[i].FrDescription;
+                    }
                 }
             }
         }
@@ -163,8 +162,34 @@ namespace VivoosVR
             btnNewScenario.Text = resourceManager.GetString("btnNewScenario", GlobalVariables.uiLanguage);
             this.Text = resourceManager.GetString("formAdmin", GlobalVariables.uiLanguage);
         }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Settings_Page settings = new Settings_Page();
+            this.Hide();
+            settings.Show();
+        }
 
-        private void scenarios_datagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnNewUser_Click(object sender, EventArgs e)
+        {
+            New_User_Page new_user = new New_User_Page();
+            this.Hide();
+            new_user.Show();
+        }
+
+        private void btnNewScenario_Click(object sender, EventArgs e)
+        {
+            GlobalVariables.Is_Edit = false;
+            New_Scenario_Page new_scenario = new New_Scenario_Page();
+            this.Hide();
+            new_scenario.Show();
+        }
+        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            GlobalVariables.NewSessions_Search_Flag = 1;
+            fill_datagrid(txtSearch.Text.ToString());
+        }
+
+        private void scenarios_datagrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4)
             {
@@ -182,15 +207,15 @@ namespace VivoosVR
                         file1.FileName = exported_asset.Name;
                         if (file1.ShowDialog() == DialogResult.OK)
                         {
-                            data = data + resourceManager.GetString("lblName", GlobalVariables.uiLanguage) + "," + exported_asset.Name + "," + exported_asset.EnName + "," + exported_asset.ArabicName + Environment.NewLine;
-                            data = data + resourceManager.GetString("lblDescription", GlobalVariables.uiLanguage) + "," + exported_asset.Description + "," + exported_asset.EnDescription + "," + exported_asset.ArabicDescription + Environment.NewLine;
+                            data = data + resourceManager.GetString("lblName", GlobalVariables.uiLanguage) + "," + exported_asset.Name + "," + exported_asset.EnName + "," + exported_asset.ArabicName +"," + exported_asset.FrName + Environment.NewLine;
+                            data = data + resourceManager.GetString("lblDescription", GlobalVariables.uiLanguage) + "," + exported_asset.Description + "," + exported_asset.EnDescription + "," + exported_asset.ArabicDescription + "," + exported_asset.FrDescription + Environment.NewLine;
                             data = data + resourceManager.GetString("lblScenarioPath", GlobalVariables.uiLanguage) + "," + exported_asset.Url + Environment.NewLine;
                             data = data + resourceManager.GetString("lblScenarioExe", GlobalVariables.uiLanguage) + "," + exported_asset.Exe + Environment.NewLine;
                             data = data + resourceManager.GetString("lblAvailable", GlobalVariables.uiLanguage) + "," + exported_asset.Available + Environment.NewLine;
 
                             for (int i = 0; i < exported_asset_commands.Count; i++)
                             {
-                                data = data + resourceManager.GetString("lblCommands", GlobalVariables.uiLanguage) + i + "," + exported_asset_commands[i].Description + "," + exported_asset_commands[i].EnDescription + "," + exported_asset_commands[i].ArabicDescription + "," + exported_asset_commands[i].CommandText + "," + exported_asset_commands[i].Step + Environment.NewLine;
+                                data = data + resourceManager.GetString("lblCommands", GlobalVariables.uiLanguage) + i + "," + exported_asset_commands[i].Description + "," + exported_asset_commands[i].EnDescription + "," + exported_asset_commands[i].ArabicDescription + ","  + exported_asset_commands[i].FrDescription + "," + exported_asset_commands[i].CommandText + "," + exported_asset_commands[i].Step + Environment.NewLine;
                             }
                             /*byte[] thumbnail= exported_asset_thumbnail.Thumbnail;
                             data = data + resourceManager.GetString("headerThumbnail", GlobalVariables.uiLanguage) + ",";
@@ -215,9 +240,9 @@ namespace VivoosVR
                 catch (Exception)
                 {
 
-                   
+
                 }
-                
+
             }
             else if (e.ColumnIndex == 5)
             {
@@ -238,7 +263,7 @@ namespace VivoosVR
                                 asset_command[i] = AssetCommandList[i];
                                 db.AssetCommands.Remove(asset_command[i]);
                             }
-                            
+
                             Asset asset = db.Assets.First(x => x.Id == GlobalVariables.Asset_Start_ID);
                             try
                             {
@@ -248,7 +273,7 @@ namespace VivoosVR
                             catch (Exception)
                             {
 
-                                
+
                             }
                             db.Assets.Remove(asset);
                             db.SaveChanges();
@@ -263,7 +288,7 @@ namespace VivoosVR
                 catch (Exception)
                 {
 
-                   
+
                 }
             }
             else if (e.ColumnIndex == 6)
@@ -279,31 +304,9 @@ namespace VivoosVR
                 catch (Exception)
                 {
 
-                    
+
                 }
             }
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            Settings_Page settings = new Settings_Page();
-            this.Hide();
-            settings.Show();
-        }
-
-        private void btnNewUser_Click(object sender, EventArgs e)
-        {
-            New_User_Page new_user = new New_User_Page();
-            this.Hide();
-            new_user.Show();
-        }
-
-        private void btnNewScenario_Click(object sender, EventArgs e)
-        {
-            GlobalVariables.Is_Edit = false;
-            New_Scenario_Page new_scenario = new New_Scenario_Page();
-            this.Hide();
-            new_scenario.Show();
         }
     }
 }

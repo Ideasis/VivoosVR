@@ -18,7 +18,7 @@ namespace VivoosVR
     public partial class New_Session_Page : MasterForm
     {
         public New_Session_Page()
-        {
+        {   
             string key = null;
             InitializeComponent();
             fill_datagrid(key);
@@ -115,6 +115,11 @@ namespace VivoosVR
                         newsession_datagrid.Rows[i].Cells[2].Value = keyList[i].ArabicName;
                         newsession_datagrid.Rows[i].Cells[3].Value = keyList[i].ArabicDescription;
                     }
+                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                    {
+                        newsession_datagrid.Rows[i].Cells[2].Value = keyList[i].FrName;
+                        newsession_datagrid.Rows[i].Cells[3].Value = keyList[i].FrDescription;
+                    }
                 }
             }
         }
@@ -126,6 +131,12 @@ namespace VivoosVR
             btnStart.Text = resourceManager.GetString("btnStart", GlobalVariables.uiLanguage);
             btnStart.Name = "startBtn";
             btnStart.UseColumnTextForButtonValue = true;
+           
+            
+            
+            /*btnStart.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 167, 38);
+            btnStart.FlatStyle = FlatStyle.Flat;*/
+
         }
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
@@ -176,7 +187,24 @@ namespace VivoosVR
                                 }
                                 try
                                 {
+                                    if (Convert.ToString(GlobalVariables.uiLanguage) == "en-US")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].EnName;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "tr-TR")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].Name;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "ar-SA")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].ArabicName;
+                                    }
+                                    else if (Convert.ToString(GlobalVariables.uiLanguage) == "fr-FR")
+                                    {
+                                        GlobalVariables.Asset_Start_name = assets[i].FrName;
+                                    }
                                     GlobalVariables.sessionProcess = System.Diagnostics.Process.Start(@assets[i].Url);
+                                    GlobalVariables.processURL = @assets[i].Url;
                                     New_Session_Controls_Page new_session_controls = new New_Session_Controls_Page();
                                     new_session_controls.Show();
                                     this.Hide();

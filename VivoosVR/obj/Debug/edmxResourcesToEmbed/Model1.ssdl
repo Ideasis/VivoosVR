@@ -100,6 +100,7 @@
     <Property Name="Step" Type="tinyint" Nullable="false" />
     <Property Name="EnDescription" Type="varchar" MaxLength="500" />
     <Property Name="ArabicDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="FrDescription" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="AssetDefaults">
     <Key>
@@ -141,6 +142,8 @@
     <Property Name="EnDescription" Type="varchar" MaxLength="500" />
     <Property Name="ArabicName" Type="nvarchar" MaxLength="100" />
     <Property Name="ArabicDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="FrName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FrDescription" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="AssetThumbnails">
     <Key>

@@ -105,6 +105,7 @@
           <Property Name="Step" Type="tinyint" Nullable="false" />
           <Property Name="EnDescription" Type="varchar" MaxLength="500" />
           <Property Name="ArabicDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="FrDescription" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="AssetDefaults">
           <Key>
@@ -146,6 +147,8 @@
           <Property Name="EnDescription" Type="varchar" MaxLength="500" />
           <Property Name="ArabicName" Type="nvarchar" MaxLength="100" />
           <Property Name="ArabicDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="FrName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FrDescription" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="AssetThumbnails">
           <Key>
@@ -695,6 +698,7 @@
           <Property Name="Step" Type="Byte" Nullable="false" />
           <Property Name="EnDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="ArabicDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FrDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Asset" Relationship="Self.FK_AssetCommands_Assets" FromRole="AssetCommands" ToRole="Assets" />
         </EntityType>
         <EntityType Name="AssetDefault">
@@ -738,6 +742,8 @@
           <Property Name="EnDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="ArabicName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ArabicDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FrName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FrDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AssetCommands" Relationship="Self.FK_AssetCommands_Assets" FromRole="Assets" ToRole="AssetCommands" />
           <NavigationProperty Name="AssetDefaults" Relationship="Self.FK_AssetDefaults_Assets" FromRole="Assets" ToRole="AssetDefaults" />
           <NavigationProperty Name="AssetThumbnail" Relationship="Self.FK_AssetThumbnails_Assets" FromRole="Assets" ToRole="AssetThumbnails" />
@@ -1285,6 +1291,7 @@
                 <ScalarProperty Name="Step" ColumnName="Step" />
                 <ScalarProperty Name="EnDescription" ColumnName="EnDescription" />
                 <ScalarProperty Name="ArabicDescription" ColumnName="ArabicDescription" />
+                <ScalarProperty Name="FrDescription" ColumnName="FrDescription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1329,6 +1336,8 @@
                 <ScalarProperty Name="EnDescription" ColumnName="EnDescription" />
                 <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
                 <ScalarProperty Name="ArabicDescription" ColumnName="ArabicDescription" />
+                <ScalarProperty Name="FrName" ColumnName="FrName" />
+                <ScalarProperty Name="FrDescription" ColumnName="FrDescription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

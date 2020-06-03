@@ -21,6 +21,7 @@ namespace VivoosVR
         public byte Step { get; set; }
         public string EnDescription { get; set; }
         public string ArabicDescription { get; set; }
+        public string FrDescription { get; set; }
     
         public virtual Asset Asset { get; set; }
     }
