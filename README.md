@@ -78,12 +78,12 @@ If you wish to use the scenarios below in VivoosVR, you need to execute followin
 
 Links to the latest version of the scenarios can be found below:
 
-1. [Fear of Dogs - Park Scenario - version 0.9.2](https://www.dropbox.com/sh/it30lye2e79l9qg/AACcIpCw0AaHZSBn_ESCSKrba?dl=0) 
-2. [Fear of Height - Balcony Scenario - version 0.9.6](https://www.dropbox.com/sh/ahwumxzlpyncv2m/AABXWAHCyCWYKH5lOI8HhYAga?dl=0)
-3. [Fear of Spiders - Living Room Scenario - version 0.7.1](https://www.dropbox.com/sh/vgy91s4kx15g0xc/AAAEaEp6MuMg_eBYXzafwghUa?dl=0)
-4. [Fear of Dark - Childs Room Scenario - version 0.9.2](https://www.dropbox.com/sh/calap5uvcd1z4l3/AAAhWt5SSCt4mcN-nVcvmOyxa?dl=0)
-5. [Social Anxiety - Classroom - version 0.9.6](https://www.dropbox.com/sh/rsmu6jaa30qjiqm/AAAd4YyPPkPOPpAJ6RVTFxj2a?dl=0)
-6. [Fear of Height - Elevator Scenario - version 0.7.5](https://www.dropbox.com/sh/vv9ui87iqyh2dee/AAAZNtMJeHXpVsgBa-Kx4aYna?dl=0)
+1. [Fear of Dogs - Park Scenario - version 0.9.2](https://drive.google.com/file/d/1J1Sgg--ZxAMpWcy37DtC71WpEhGOZjjD/view?usp=sharing) 
+2. [Fear of Height - Balcony Scenario - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
+3. [Fear of Flight - Plane Scenario - version 0.7.1](https://drive.google.com/file/d/1Dm_ebqxB4qzLzNcvMDs-AXPujnVPB9_W/view?usp=sharing)
+4. [Social Anxiety - Park - version 0.9.2](https://drive.google.com/file/d/1V7cn0Yqg-iO-hcnI4zKHoBOsODo2LEOb/view?usp=sharing)
+5. [Social Anxiety - Presantation - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
+6. [Fear of Height - Elevator Scenario - version 0.7.5](https://drive.google.com/file/d/1T8H698A9rehD2Q-Gf3ADAauJcqYZgCnX/view?usp=sharing)
 
 WebVR related links can be found below:
 
@@ -148,23 +148,3 @@ You need to perform following tasks to make Neulog modules and sensors work corr
 
 ![Neulog_GSR](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/Neulog_SS/Neulog_GSR_SS.jpg)
 
-## Testing
-
-### How To Examine UE4 Project Stats
-
-You need Unreal Engine 4 in order to examine the given stat files in the folder (Recommended version: 4.18 or above).
-
-Assuming you have the stated Unreal Engine 4 version, you need to perform the following steps:
-
-1. Open any compatible Unreal Engine 4 project
-
-2. Open "Session Frontend" panel from Window > Developer Tools > Session Frontend
-![1](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_SessionFrontEndOpening.png)
-
-3. Click on "Profiler" tab
-![2](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_ClickOnProfiler.png)
-
-4. Click on "Load" button and locate the desired stat file
-![3](https://github.com/Oguzhankoksal/VivoosVR_Private/blob/master/Readme%20Images/UE4ProjectStats_SS/SS_ClickOnLoad.png)
-
-[Click here for the project stat files](https://www.dropbox.com/sh/dqk3hrw7geeqrhw/AADFIQme4_-vGRnH9F0rV_Lfa?dl=0)
