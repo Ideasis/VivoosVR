@@ -12,7 +12,7 @@ VivoosVR is a virtual treatment tool to assist in exposure therapy where partici
 
 Physiological values of the participants are constantly monitored via GSR and pulse sensors. The system is designed to be used by qualified therapists and our target participants are young people suffering from phobias and social anxiety. 
 
-Simulation worlds have been created using Unreal 4 game engine and we support popular VR HMDs such as Oculus Rift and HTC Vive. 
+Simulation worlds have been created using Unity game engine and we support popular VR HMDs such as Oculus Rift and HTC Vive. 
 We also have plans to optimize the system for mobile VR solutions in the near future. 
 
 VivoosVR is being developed in cooperation with a team of psychology / psychiatry experts.  
@@ -81,9 +81,8 @@ Links to the latest version of the scenarios can be found below:
 1. [Fear of Dogs - Park Scenario - version 0.9.2](https://drive.google.com/file/d/1J1Sgg--ZxAMpWcy37DtC71WpEhGOZjjD/view?usp=sharing) 
 2. [Fear of Height - Balcony Scenario - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
 3. [Fear of Flight - Plane Scenario - version 0.7.1](https://drive.google.com/file/d/1Dm_ebqxB4qzLzNcvMDs-AXPujnVPB9_W/view?usp=sharing)
-4. [Social Anxiety - Park - version 0.9.2](https://drive.google.com/file/d/1V7cn0Yqg-iO-hcnI4zKHoBOsODo2LEOb/view?usp=sharing)
-5. [Social Anxiety - Presantation - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
-6. [Fear of Height - Elevator Scenario - version 0.7.5](https://drive.google.com/file/d/1T8H698A9rehD2Q-Gf3ADAauJcqYZgCnX/view?usp=sharing)
+4. [Social Anxiety - Presantation - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
+5. [Fear of Height - Elevator Scenario - version 0.7.5](https://drive.google.com/file/d/1T8H698A9rehD2Q-Gf3ADAauJcqYZgCnX/view?usp=sharing)
 
 WebVR related links can be found below:
 
