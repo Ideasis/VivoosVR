@@ -81,8 +81,9 @@ Links to the latest version of the scenarios can be found below:
 1. [Fear of Dogs - Park Scenario - version 0.9.2](https://drive.google.com/file/d/1J1Sgg--ZxAMpWcy37DtC71WpEhGOZjjD/view?usp=sharing) 
 2. [Fear of Height - Balcony Scenario - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
 3. [Fear of Flight - Plane Scenario - version 0.7.1](https://drive.google.com/file/d/1Dm_ebqxB4qzLzNcvMDs-AXPujnVPB9_W/view?usp=sharing)
-4. [Social Anxiety - Presantation - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
+4. [Social Anxiety - Presantation - version 0.9.6](https://drive.google.com/file/d/13W7iOjsk4p02b_BuoIIaXhvofY9f-ybv/view?usp=sharing)
 5. [Fear of Height - Elevator Scenario - version 0.7.5](https://drive.google.com/file/d/1T8H698A9rehD2Q-Gf3ADAauJcqYZgCnX/view?usp=sharing)
+6. [Fear of Height - Elevator Scenario Transparent - version 0.7.5](https://drive.google.com/file/d/1YYNwGk1qee9Y_pMSLbGmU2Ljo5ua6Wwh/view?usp=sharing)
 
 WebVR related links can be found below:
 
