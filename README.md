@@ -1,4 +1,4 @@
-# VivoosVR
+# VivoosVR Experimental WebXR
 Virtual treatment tool to assist in exposure therapy.
 This is VivoosVr's WebXR branch.
 This branch contains Experimental WebXR versions of some of the VivoosVR.
