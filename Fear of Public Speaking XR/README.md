@@ -2,8 +2,8 @@
 
 Please run the contents of this file with Mozilla Firefox.<br> 
 Mozilla can block the files to load promting that "your browser does not support WebGL" even if it does.<br>
-If this happens, type "about:config" to Firefox's address bar.<br>
-Then type privacy.file_unique_origin to search bar and select false.
+If this happens, type "<b>about:config</b>" to Firefox's address bar.<br>
+Then type <b>privacy.file_unique_origin</b> to search bar and select <b>false</b>.
 
 Keyboard Inputs<br>
 Press 1 to initiate NPCs (Non-playable Characters) to randomly leave room.<br>
