@@ -1,6 +1,6 @@
 Experimental Fear of Public Speaking XR
 
-Please run the contents of this file with Mozilla Firefox. 
+Please run the contents of this file with Mozilla Firefox.'\n' 
 Mozilla can block the files to load promting that "your browser does not support WebGL" even if it does. If this happens, type about:config to Firefox's address bar.
 Then type privacy.file_unique_origin to search bar and select false.
 
