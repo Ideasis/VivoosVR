@@ -31,7 +31,7 @@ namespace VivoosVR
         public static int NewSessions_Search_Flag;
         public static System.Diagnostics.Process neulogProcess;
         public static System.Diagnostics.Process sessionProcess;
-        public static CultureInfo uiLanguage = new CultureInfo("fr-FR");
+        public static CultureInfo uiLanguage = new CultureInfo("tr-TR");
 
         public static Screen secondaryScreen;
 
