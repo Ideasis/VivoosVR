@@ -78,12 +78,14 @@ If you wish to use the scenarios below in VivoosVR, you need to execute followin
 
 Links to the latest version of the scenarios can be found below:
 
-1. [Fear of Dogs - Park Scenario - version 0.9.2](https://drive.google.com/file/d/1J1Sgg--ZxAMpWcy37DtC71WpEhGOZjjD/view?usp=sharing) 
-2. [Fear of Height - Balcony Scenario - version 0.9.6](https://drive.google.com/file/d/13Ity-7TLzEoznSsld39jukVT3GvLGzcu/view?usp=sharing)
+1. [Fear of Dogs - Park Scenario - version 0.9.2](https://drive.google.com/file/d/1l6EVR3hdOhX_jTwCIMZ_PaZLa7a19EgP/view?usp=sharing) 
+2. [Fear of Height - Balcony Scenario - version 0.9.6](https://drive.google.com/file/d/16pH0Jrwi6cRGaQGeg-6p9VP1RW7mS4xL/view?usp=sharing)
 3. [Fear of Flight - Plane Scenario - version 0.7.1](https://drive.google.com/file/d/1Dm_ebqxB4qzLzNcvMDs-AXPujnVPB9_W/view?usp=sharing)
 4. [Social Anxiety - Presantation - version 0.9.6](https://drive.google.com/file/d/13W7iOjsk4p02b_BuoIIaXhvofY9f-ybv/view?usp=sharing)
-5. [Fear of Height - Elevator Scenario - version 0.7.5](https://drive.google.com/file/d/1T8H698A9rehD2Q-Gf3ADAauJcqYZgCnX/view?usp=sharing)
-6. [Fear of Height - Elevator Scenario Transparent - version 0.7.5](https://drive.google.com/file/d/1YYNwGk1qee9Y_pMSLbGmU2Ljo5ua6Wwh/view?usp=sharing)
+5. [Fear of Height - Elevator Scenario - version 0.7.5](https://drive.google.com/file/d/1yOCcqogmIBrqa-3yo7Mx9CQNuB7BKmbt/view?usp=sharing)
+6. [Fear of Height - Elevator Scenario Transparent - version 0.7.5](https://drive.google.com/file/d/1koNHEGikhHk1Jctas8fRnx2f8ON21-Tz/view?usp=sharing)
+7. [Fear of Public Speaking - version 0.1.0](https://drive.google.com/file/d/1B5t33d_pU4rXb2KUe-73DqMDUXLTsVU7/view?usp=sharing)
+8. [Fear of Spiders - version 0.9.2](https://drive.google.com/file/d/1jgT7JQxAb4og9eqbO10R5AaC2Pl0NW3Q/view?usp=sharing)
 
 WebVR related links can be found below:
 
