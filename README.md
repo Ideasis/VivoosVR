@@ -90,6 +90,7 @@ Links to the latest version of the scenarios can be found below:
 10. [Fear of Cats - version 0.2.2](https://drive.google.com/file/d/1ELPEW2Fa_uegQUR_CPTUuPEzrPLCBpPl/view?usp=sharing)
 11. [Metro Scene - Standing setup - version 0.2.1](https://drive.google.com/file/d/10KNko3fTzOBjhFcLCCLpmQyghDyXPouH/view?usp=sharing)
 12. [Metro Scene - Sitting setup - version 0.2.1](https://drive.google.com/file/d/11Mv7LLoPwJSNzauzJ214CZ_mwdANAfi0/view?usp=sharing)
+13. [Attention Deficit Hyperactivity Disorder (ADHD) - Classrom - version 0.1.9](https://drive.google.com/file/d/19fIkHjaAKDH8aqTNJpuCYjsIxNRuYH1M/view?usp=sharing)
 
 WebVR related links can be found below:
 
