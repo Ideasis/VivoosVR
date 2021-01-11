@@ -87,9 +87,9 @@ Links to the latest version of the scenarios can be found below:
 7. [Fear of Public Speaking - version 0.1.0](https://drive.google.com/file/d/1B5t33d_pU4rXb2KUe-73DqMDUXLTsVU7/view?usp=sharing)
 8. [Fear of Spiders - version 0.9.2](https://drive.google.com/file/d/1jgT7JQxAb4og9eqbO10R5AaC2Pl0NW3Q/view?usp=sharing)
 9. [Fear of Neeedle - version 0.2.0](https://drive.google.com/file/d/1eWLBHOQWErkD80sMayAf9kyPMT14Zkm7/view?usp=sharing)
-10.[Fear of Cats - version 0.2.2](https://drive.google.com/file/d/1ELPEW2Fa_uegQUR_CPTUuPEzrPLCBpPl/view?usp=sharing)
-11.[Metro Scene - Standing setup - version 0.2.1](https://drive.google.com/file/d/10KNko3fTzOBjhFcLCCLpmQyghDyXPouH/view?usp=sharing)
-12.[Metro Scene - Sitting setup - version 0.2.1](https://drive.google.com/file/d/11Mv7LLoPwJSNzauzJ214CZ_mwdANAfi0/view?usp=sharing)
+10. [Fear of Cats - version 0.2.2](https://drive.google.com/file/d/1ELPEW2Fa_uegQUR_CPTUuPEzrPLCBpPl/view?usp=sharing)
+11. [Metro Scene - Standing setup - version 0.2.1](https://drive.google.com/file/d/10KNko3fTzOBjhFcLCCLpmQyghDyXPouH/view?usp=sharing)
+12. [Metro Scene - Sitting setup - version 0.2.1](https://drive.google.com/file/d/11Mv7LLoPwJSNzauzJ214CZ_mwdANAfi0/view?usp=sharing)
 
 WebVR related links can be found below:
 
