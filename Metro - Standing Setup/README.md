@@ -4,5 +4,5 @@ Link to the server build (.exe) [Metro Standing Server - version 0.2.0](https://
 Link to the client build (.apk) [Metro Standing Client - version 0.2.0](https://drive.google.com/file/d/1DpZZUJW0hR4nzddOYH5rvHLfnBAQ8Xah/view?usp=sharing) <br>
 
 <b>Work In Progress...</b> <br>
-Server side camera need more work.
+Server side camera need more work.<br>
 Client side characters does not work as they supposed to be.
