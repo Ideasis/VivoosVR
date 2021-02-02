@@ -8,3 +8,6 @@ Once every step is done click "Instal APK file from folder on computer" button o
 
 If you do not want use SideQuest software there are also some other alternatives that you can use to install an .apk form PC. <br>
 Check this website [https://headjack.io/knowledge-base/how-to-easily-sideload-a-vr-app-to-oculus-quest-2/] for instance.
+
+<b>The server files (.rar)(.exe) requires Windows PCs and they are for use by "*clinicians*". <br>
+The client files (.apk) requires Oculus Quest 2 device and they are for use by "*patients*" of the clinicians.</b>
