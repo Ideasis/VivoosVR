@@ -97,6 +97,11 @@ WebVR related links can be found below:
 1. Fear of Height - Balcony Scenario - WebVR:
 	1. Build: [Fear of Height - Balcony Scenario - WebVR version 0.8.0](https://www.dropbox.com/sh/lkpk96ujhm44h6e/AABFP2dSAdalOsYrVswlkaTfa?dl=0) 
 	1. Try: [Fear of Height - Balcony Scenario](http://www.ideasis.com.tr/Content/Balkon/index.html)
+	
+Link to the 360VR videos of some scenarios can be found below:
+1. [Fear of Height - Elevator Scenario - 360 video](https://drive.google.com/file/d/1tAup-756FMQzsCHRPr5PvEo81OJgsqKO/view?usp=sharing)
+2. [Fear of Height - Balcony Scenario - 360 video](https://drive.google.com/file/d/1fIuxQpQ6ZYPeaNgpX41Y7VNq-Z7V6zdx/view?usp=sharing)
+3. [Germofobia - Toilet Scenario - 360 video](https://drive.google.com/file/d/1Ps3aoVkz8hdqy_ryp2TC9WOboUczJRFg/view?usp=sharing)
 
 ## How to Use 
 
