@@ -1,1 +1,0 @@
-# Vivoos WebVR projects
