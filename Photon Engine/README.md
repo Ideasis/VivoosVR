@@ -3,7 +3,7 @@ VivooVR Photon/Oculus Integration
 Make a copy of the project which is going to be modified.
 Step 1: Delete all unnecessary Unity packages from Unity package manager. Especially Multiplayer HLAPI <br>
 Step 2: Download Photon PUN 2 Free version if it does not exist in the project.<br>
-Step 3: Setup Photon ID (App ID) inside Unity. Photon setup setting can be found on Window -> Photon Unity Networking -> PUN Wizard. Important Photon user account mail: vivoosvr@ideasis.com.tr and password: Vivoos2020<br>
+Step 3: Setup Photon ID (App ID) inside Unity. Photon setup setting can be found on Window -> Photon Unity Networking -> PUN Wizard.<br>
 Step 4: Download Photon Voice 2 and setup voice ID. Voice ID is different from PUN2 ID.<br>
 Step 5: Add Photon View/Animator View/Transform View to the non-static, animated objects that needs to be synched. Examples Spider/Dog/Cat/NPCs. Photon View IDs must be equal for both server and client side if it is set by developer.<br>
 Step 6: Put the prefabs that will be spawned after the scene starts to the Resources folder and photon spawn function not Unity’s.<br>
