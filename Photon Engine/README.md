@@ -31,7 +31,7 @@ Client-Side Preparations <br>
 <b>Step 19:</b> Change Build Setting to Android. After that change Color Space to Gama from Linear if Unity asks.<br>
 <b>Step 20:</b> Change Android API Level to Minimum 23<br>
 <br>
-<b>Important Photon Things</b><br>
+<b>Important Photon Concepts</b><br>
 <br>
 <b>IPunObservable:</b> An interface class that helps synch classes on network<br>
 Photoview ownership can be changed. EXP: Server can “Take Over” PlayerGO to initiate Reset Camera function or change players’ position. Look at Germofobia for more examples.<br>
