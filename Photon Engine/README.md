@@ -1,6 +1,6 @@
-VivooVR Photon/Oculus Integration
+# VivooVR Photon/Oculus Integration
 
-Make a copy of the project which is going to be modified.
+Make a copy of the project which is going to be modified.<br>
 Step 1: Delete all unnecessary Unity packages from Unity package manager. Especially Multiplayer HLAPI <br>
 Step 2: Download Photon PUN 2 Free version if it does not exist in the project.<br>
 Step 3: Setup Photon ID (App ID) inside Unity. Photon setup setting can be found on Window -> Photon Unity Networking -> PUN Wizard.<br>
